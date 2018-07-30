@@ -1,0 +1,17 @@
+<!-- Add jQuery and other scripts -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<script src="{{ '/assets/js/jquery-1.11.2.min.js' | prepend: site.baseurl }}"></script>
+<script>window.jQuery || document.write('<script src="{{ \'/assets/js/jquery-1.11.2.min.js\' | prepend: site.baseurl }}"><\/script>')</script>
+<script src="{{ '/assets/js/dropcap.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/assets/js/responsive-nav.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/assets/js/scripts.js' | prepend: site.baseurl }}"></script>
+<script src="https://cdn.logrocket.com/LogRocket.min.js"></script>
+<script>
+  window.LogRocket && window.LogRocket.init('xnor6s/my-blog');
+  LogRocket.identify('THE_USER_ID_IN_YOUR_APP', {
+    name: 'zhictory',
+    email: 'zhictory@163.com',
+    // Add your own custom user variables here, ie:
+    subscriptionType: 'pro'
+  });
+</script

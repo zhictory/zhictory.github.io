@@ -1,0 +1,26 @@
+title: zhictory
+description: zhictory's blog with long haul
+
+url: http://zhictory.github.com/blog
+baseurl: "/blog"
+paginate_path: "blog/page:num/"
+permalink: date
+
+markdown: kramdown
+highlighter: rouge
+plugins: [jekyll-paginate]
+paginate: 10
+
+navigation:
+ - title: Blog
+   url: /index.html
+ - title: About
+   url: /about
+
+social:
+   github: zhictory
+   # twitter: brianmaierjr
+   # facebook: brianmaierjr
+   email: zhcitory@qq.com
+
+# google_analytics: "UA-58263416-1"
