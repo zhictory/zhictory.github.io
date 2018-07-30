@@ -20,7 +20,7 @@ title: CSS 属性赋值
 
 我按自己的理解做了个实验来查看这四个值，其中为了证明 computed value 是用于继承的，将字体设为奇怪的 16.00005px。
 
-```HTML
+```html
 <style>
 body {
   font-size: 16.00005px;

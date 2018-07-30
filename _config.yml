@@ -1,9 +1,9 @@
 title: zhictory
 description: zhictory's blog with long haul
 
-url: http://zhictory.github.com/blog
-baseurl: "/blog"
-paginate_path: "blog/page:num/"
+url: http://zhictory.github.io
+baseurl: ""
+paginate_path: "/page:num/"
 permalink: date
 
 markdown: kramdown
@@ -19,8 +19,8 @@ navigation:
 
 social:
    github: zhictory
-   # twitter: brianmaierjr
-   # facebook: brianmaierjr
+   twitter: https://twitter.com/zhictory
+   facebook: https://www.facebook.com/victor.zhang.7165
    email: zhcitory@qq.com
 
 # google_analytics: "UA-58263416-1"
