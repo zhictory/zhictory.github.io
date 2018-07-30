@@ -1,5 +1,6 @@
-title: zhictory
-description: zhictory's blog with long haul
+title: zhictory 的博客
+keywords: zhictory,javascript,css,html,node,blog,long haul,jekyll
+description: zhictory's blog that used to share frontend knowledge.
 
 url: http://zhictory.github.io
 baseurl: ""
