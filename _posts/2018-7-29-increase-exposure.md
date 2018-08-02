@@ -24,8 +24,7 @@ title: 提高网站曝光度
 4. 其它问题可以在 [Search Console 帮助][3]里查询。
 5. Google 收录后几天后会有数据报告出来，也是在 Search Console 里查看。
   ![数据报告]({{ site.baseurl }}/img/increase-exposure/3.png)
-
-之后博客会有怎样的访问量，过几天再来补充笔记。
+  ![数据报告]({{ site.baseurl }}/img/increase-exposure/4.png)
 
   [1]: https://www.google.com/webmasters/tools/home?hl=zh
   [2]: https://www.xml-sitemaps.com/
