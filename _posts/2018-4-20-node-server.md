@@ -214,7 +214,5 @@ title: 用 Node.js 搭建本地服务器
     该网友中还提到另一个开源热部署工具 hotcode，但经测试 hotcode 若使用 express 4.x 则会报错，因为 hotcode 使用的 express.createServer() 已经被废弃。
 
 参考：
-
 > [学习笔记：用Nodejs搭建一个简单的本地服务器](https://segmentfault.com/a/1190000007617042)  
->  
 > [NodeJS”热部署“代码，实现动态调试(hotnode，可以实现热更新)](https://www.cnblogs.com/benpaodexiaopangzi/p/5856642.html)

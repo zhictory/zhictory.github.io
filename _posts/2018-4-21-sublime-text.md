@@ -37,7 +37,8 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
     1. MarkDown Editing 语法高亮
     2. OmniMarkupPreviwer 实时预览
 
-    参考：[Sublime插件：Markdown篇](http://www.jianshu.com/p/aa30cc25c91b)
+    参考：
+    > [Sublime插件：Markdown篇](http://www.jianshu.com/p/aa30cc25c91b)
 
 - Windows 右键菜单添加 ST3
 
@@ -68,7 +69,8 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
     [-HKEY_CLASSES_ROOT\Directory\shell\SublimeText3]
     ```
 
-    参考：[将Sublime Text3添加到右键菜单中](http://my.oschina.net/adairs/blog/466777)
+    参考：
+    > [将Sublime Text3添加到右键菜单中](http://my.oschina.net/adairs/blog/466777)
 
 - 插件操作
 
@@ -83,7 +85,8 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 - 代码片段
 
-    参考：[手把手教你写Sublime中的Snippet](http://www.jianshu.com/p/356bd7b2ea8e)
+    参考：
+    > [手把手教你写Sublime中的Snippet](http://www.jianshu.com/p/356bd7b2ea8e)
 
 - Emmet
 

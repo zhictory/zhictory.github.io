@@ -50,6 +50,7 @@ h1 {
 - 一般情况下，分不清是用 computed value 还是用 actual value 来继承，但这个例子中从 em 的 font-size 的 computed value 是 80.0002 可得出是用 h1 的 computed value 来继承的。
 - 一般情况下，分不清最终值是 used value 还是 actual value，但这个例子中从 h1 的 font-size 就看到这两个值的不同了。
 
-参考：[属性赋值的文档][1]
+参考：
+> [属性赋值的文档][1]
 
   [1]: http://www.ayqy.net/doc/css2-1/cascade.html#value-stages
