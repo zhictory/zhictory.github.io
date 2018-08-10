@@ -58,7 +58,8 @@ setTimeout(function () {
 
 在一定时间后如果没有调起 App，页面就会跳转至下载页面。但是这样会导致就算调起 App 也会去下载，好在调起后用户并不用去理会下载页面。
 
-后续整理好代码再附上 Github 地址。
+[Github][3]
 
   [1]: https://mubu.com/doc/QzUIdhlXU
   [2]: https://www.processon.com/view/link/58a552a8e4b0ba81d212ab41
+  [3]: https://github.com/zhictory/appDownload
