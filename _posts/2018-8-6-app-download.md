@@ -5,6 +5,8 @@ title: App 下载提示
 
 # App 下载提示
 
+[Github][3]
+
 笔者之前接到一个需求，这个需求要求能在手机浏览器页面调起 App，调不起的要去下载，如下图：
 
 ![页面调起 App]({{ site.baseurl }}/img/app-download/3.png)
@@ -57,8 +59,6 @@ setTimeout(function () {
 ```
 
 在一定时间后如果没有调起 App，页面就会跳转至下载页面。但是这样会导致就算调起 App 也会去下载，好在调起后用户并不用去理会下载页面。
-
-[Github][3]
 
   [1]: https://mubu.com/doc/QzUIdhlXU
   [2]: https://www.processon.com/view/link/58a552a8e4b0ba81d212ab41
