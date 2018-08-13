@@ -38,8 +38,6 @@ canvas,
 progress,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
   vertical-align: baseline
 }
 
@@ -224,8 +222,6 @@ textarea {
   color: inherit;
   font: inherit;
   margin: 0;
-  *font-family: sans-serif;
-  *vertical-align: middle
 }
 
 button {
@@ -243,7 +239,6 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
-  *overflow: visible
 }
 
 button[disabled],
@@ -267,8 +262,6 @@ input[type="radio"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
-  *height: 13px;
-  *width: 13px
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -308,7 +301,6 @@ fieldset {
 legend {
   border: 0;
   padding: 0;
-  *margin-left: -7px
 }
 
 textarea {
@@ -522,8 +514,6 @@ th:last-child {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   padding: 10px;
   background: #343642;
@@ -790,9 +780,9 @@ html {
   box-sizing: border-box
 }
 
-*,
-*:before,
-*:after {
+body,
+body:before,
+body:after {
   box-sizing: inherit
 }
 
@@ -890,7 +880,6 @@ a:hover {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -o-user-select: none;
   user-select: none;
   float: right;
   line-height: 2em;
@@ -1100,7 +1089,6 @@ h1 {
 .postNav .prev span,
 .postNav .next span {
   z-index: 10;
-  position: relative;
   padding: .5rem;
   position: absolute;
   top: 50%;
@@ -1274,16 +1262,15 @@ h1 {
     display: block;
     clear: both
   }
-  #home .posts,
-  #home .pageTitle,
-  #home .pagination {
+  .home .posts,
+  .home .pageTitle,
+  .home .pagination {
     width: 74.46809%;
-    float: left;
     margin-right: 2.12766%;
     float: none;
     margin: 0 auto 1.5em
   }
-  #home .pageTitle {
+  .home .pageTitle {
     margin: 2rem auto 1em
   }
   .header {
@@ -1364,7 +1351,6 @@ h1 {
   .post dl,
   .post .pageTitle {
     width: 74.46809%;
-    float: left;
     margin-right: 2.12766%;
     float: none;
     margin: 0 auto 2rem
@@ -1440,7 +1426,7 @@ h1 {
     float: left;
     margin-right: 2.12766%
   }
-  #contact form {
+  .contact form {
     width: 48.93617%;
     float: right;
     margin-right: 0
@@ -1461,6 +1447,7 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 95%;
   opacity: 0;
   transform: translate(-50%, -50%);
   transition: opacity .2s linear;
@@ -1470,4 +1457,15 @@ h1 {
 }
 .content img {
   cursor: pointer;
+}
+
+p {
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 750px) {
+  .zoom img {
+    width: 90%;
+    height: auto;
+  }
 }
