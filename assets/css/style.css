@@ -1442,14 +1442,14 @@ h1 {
   height: 100%;
   z-index: 1000;
   background: rgba(0,0,0,.5);
+  overflow: scroll; /* 防止图片过大，使用 scroll */
 }
 .zoom img {
   position: absolute;
-  top: 50%;
   left: 50%;
-  height: 95%;
+  margin: 5% 0; /* 上下留空隙美观 */
   opacity: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   transition: opacity .2s linear;
 }
 .zoom .img__animation {
@@ -1463,9 +1463,10 @@ p {
   word-wrap: break-word;
 }
 
-@media screen and (max-width: 750px) {
+/* 11/16 是根据 iPhone 7 设定的 */
+@media screen and (max-aspect-ratio: 11/16) {
   .zoom img {
-    width: 90%;
+    width: 95%;
     height: auto;
   }
 }

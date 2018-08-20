@@ -19,6 +19,7 @@ jekyll serve
     ```shell
     browser-sync start --proxy '127.0.0.1:4000'
     ```
+- 此时会得到一个 External URL 如：`192.168.1.112:3000`，但可能移动端访问不了，因为这个是 WLAN 的 IP，需要修改为本地连接 IP（可用 `ipconfig` 查找），如：`192.168.137.1:3000`。
 
 模板：
 
