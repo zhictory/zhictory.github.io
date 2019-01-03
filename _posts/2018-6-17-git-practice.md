@@ -284,3 +284,10 @@ Git 是分布式版本控制系统（Distributed Version Control System，简称
     答：使用 `git stash` 储藏与清理。
 
     > 有时，当你在项目的一部分上已经工作一段时间后，所有东西都进入了混乱的状态，而这时你想要切换到另一个分支做一点别的事情。 问题是，你不想仅仅因为过会儿回到这一点而为做了一半的工作创建一次提交。 针对这个问题的答案是 `git stash` 命令。
+    
+24. git stash 只想暂存部分文件怎么办？
+
+    答：
+    1. add 那些你不想备份的文件（例如： git add file1.js, file2.js）
+    1. 调用 git stash –keep-index。只会备份那些没有被add的文件
+    1. 调用 git reset 取消已经add的文件的备份，继续自己的工作
