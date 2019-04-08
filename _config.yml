@@ -79,8 +79,8 @@ theme: suka
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/zhictory/wakeup.git
-  branch: published
+  repo: https://github.com/zhictory/zhictory.github.io.git
+  branch: hexo
   message:
 
 suka_theme:
