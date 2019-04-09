@@ -1,17 +1,28 @@
-<!-- Add jQuery and other scripts -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-<script src="{{ '/assets/js/jquery-1.11.2.min.js' | prepend: site.baseurl }}"></script>
-<script>window.jQuery || document.write('<script src="{{ \'/assets/js/jquery-1.11.2.min.js\' | prepend: site.baseurl }}"><\/script>')</script>
-<script src="{{ '/assets/js/dropcap.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/assets/js/responsive-nav.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/assets/js/scripts.js' | prepend: site.baseurl }}"></script>
-<script src="https://cdn.logrocket.com/LogRocket.min.js"></script>
-<script>
-  window.LogRocket && window.LogRocket.init('xnor6s/my-blog');
-  LogRocket.identify('THE_USER_ID_IN_YOUR_APP', {
-    name: 'zhictory',
-    email: 'zhictory@163.com',
-    // Add your own custom user variables here, ie:
-    subscriptionType: 'pro'
-  });
-</script
+{% if site.footer_scripts %}
+  {% for script in site.footer_scripts %}
+    {% if script contains "://" %}
+      {% capture script_path %}{{ script }}{% endcapture %}
+    {% else %}
+      {% capture script_path %}{{ script | relative_url }}{% endcapture %}
+    {% endif %}
+    <script src="{{ script_path }}"></script>
+  {% endfor %}
+{% else %}
+  <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+{% endif %}
+
+{% if site.search == true or page.layout == "search" %}
+  {%- assign search_provider = site.search_provider | default: "lunr" -%}
+  {%- case search_provider -%}
+    {%- when "lunr" -%}
+      {% include_cached search/lunr-search-scripts.html %}
+    {%- when "google" -%}
+      {% include_cached search/google-search-scripts.html %}
+    {%- when "algolia" -%}
+      {% include_cached search/algolia-search-scripts.html %}
+  {%- endcase -%}
+{% endif %}
+
+{% include analytics.html %}
+{% include /comments-providers/scripts.html %}

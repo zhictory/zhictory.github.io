@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: CSS 属性赋值
 ---
 

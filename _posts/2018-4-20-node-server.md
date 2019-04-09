@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: 用 Node.js 搭建本地服务器
 ---
 

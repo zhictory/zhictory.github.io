@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: 中文颜色选择
 ---
 

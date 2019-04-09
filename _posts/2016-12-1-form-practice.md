@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: 关于表单的实践
 ---
 

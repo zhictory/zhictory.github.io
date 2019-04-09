@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: App 下载提示
 ---
 

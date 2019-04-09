@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: Git 实践问答
 ---
 

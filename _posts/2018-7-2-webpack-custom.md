@@ -1,5 +1,5 @@
 ---
-layout: default
+
 title: 《使用 webpack 定制前端开发环境》笔记
 ---
 
