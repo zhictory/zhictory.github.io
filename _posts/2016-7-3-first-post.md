@@ -1,7 +1,5 @@
 ---
-layout: single
 title: 教你如何使用 Jekyll
-comments: true
 ---
 
 ## 1. 引言

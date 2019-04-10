@@ -1,7 +1,5 @@
 ---
-layout: single
 title: 《使用 webpack 定制前端开发环境》笔记
-comments: true
 ---
 
 > 在线阅读：[使用 webpack 定制前端开发环境][11]

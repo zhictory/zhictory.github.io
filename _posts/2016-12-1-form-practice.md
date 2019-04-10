@@ -1,7 +1,5 @@
 ---
-layout: single
 title: 关于表单的实践
-comments: true
 ---
 
 * **表单检测：**  

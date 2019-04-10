@@ -1,7 +1,5 @@
 ---
-layout: single
 title: 中文颜色选择
-comments: true
 ---
 
 这个插件的功能是，列出用中文描述的颜色，点击复制对应的 HEX 值。
