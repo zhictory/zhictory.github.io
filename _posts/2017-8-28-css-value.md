@@ -1,6 +1,7 @@
 ---
 layout: single
 title: CSS 属性赋值
+comments: true
 ---
 
 文档树上的每个元素的 CSS 属性值会涉及到以下四种值：

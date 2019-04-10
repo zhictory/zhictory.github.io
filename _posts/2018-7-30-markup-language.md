@@ -1,6 +1,7 @@
 ---
 layout: single
 title: 标记语言及语义化
+comments: true
 ---
 
 本篇文章对标记语言和语义化作一下简单整理。

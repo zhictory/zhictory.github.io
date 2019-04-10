@@ -1,6 +1,7 @@
 ---
 layout: single
 title: 用 Node.js 搭建本地服务器
+comments: true
 ---
 
 [Github](https://github.com/zhictory/node-server)

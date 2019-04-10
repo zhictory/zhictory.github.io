@@ -1,6 +1,7 @@
 ---
 layout: single
 title: 关于ESLint的实践
+comments: true
 ---
 
 ## 1 [ESLint的文档](http://eslint.org/)

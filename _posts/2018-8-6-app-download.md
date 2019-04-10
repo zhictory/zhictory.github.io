@@ -1,6 +1,7 @@
 ---
 layout: single
 title: App 下载提示
+comments: true
 ---
 
 [Github][3]
