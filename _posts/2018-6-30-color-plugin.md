@@ -1,4 +1,5 @@
 ---
+layout: single
 title: 中文颜色选择
 ---
 

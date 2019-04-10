@@ -1,5 +1,7 @@
 ---
+layout: single
 title: ConEmu使用场景
+comments: true
 ---
 
 ## 1. 认识ConEmu

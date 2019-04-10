@@ -1,4 +1,5 @@
 ---
+layout: single
 title: 标记语言及语义化
 ---
 

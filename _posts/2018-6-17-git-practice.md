@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Git 实践问答
 ---
 

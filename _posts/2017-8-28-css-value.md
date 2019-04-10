@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CSS 属性赋值
 ---
 

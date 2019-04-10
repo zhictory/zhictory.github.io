@@ -1,4 +1,5 @@
 ---
+layout: single
 title: 关于ESLint的实践
 ---
 

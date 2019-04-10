@@ -1,4 +1,5 @@
 ---
+layout: single
 title: MySQL Community Server 8.0.11 安装教程
 ---
 

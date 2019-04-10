@@ -1,4 +1,5 @@
 ---
+layout: single
 title: 提高网站曝光度
 ---
 

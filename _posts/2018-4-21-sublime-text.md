@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Sublime Text 3 使用技巧
 ---
 
