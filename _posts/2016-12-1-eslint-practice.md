@@ -2,8 +2,6 @@
 title: 关于ESLint的实践
 ---
 
-# 关于ESLint的实践
-
 ## 1 [ESLint的文档](http://eslint.org/)
 
 ## 2 为什么要用ESLint

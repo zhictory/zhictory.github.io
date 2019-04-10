@@ -1,9 +1,6 @@
 ---
-
 title: App 下载提示
 ---
-
-# App 下载提示
 
 [Github][3]
 

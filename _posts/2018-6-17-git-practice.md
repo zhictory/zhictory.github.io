@@ -1,9 +1,6 @@
 ---
-
 title: Git 实践问答
 ---
-
-# Git 实践问答
 
 Git 是分布式版本控制系统（Distributed Version Control System，简称 DVCS），DVCS 的特点是：
 

@@ -1,9 +1,6 @@
 ---
-
 title: 用 Node.js 搭建本地服务器
 ---
-
-# 用 Node.js 搭建本地服务器
 
 [Github](https://github.com/zhictory/node-server)
 

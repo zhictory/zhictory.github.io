@@ -1,9 +1,6 @@
 ---
-
 title: Sublime Text 3 使用技巧
 ---
-
-# Sublime Text 3 使用技巧
 
 - 安装 Package Control 的代码：
 
