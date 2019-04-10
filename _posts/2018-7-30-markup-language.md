@@ -11,7 +11,7 @@ title: 标记语言及语义化
 
 [标记语言的思维导图][4]
 
-![标记语言的思维导图]({{ site.baseurl }}/img/markup-language/1.png)
+![标记语言的思维导图]({{ site.baseurl }}/assets/img/markup-language/1.png)
 
 首先解释一下这张图。
 

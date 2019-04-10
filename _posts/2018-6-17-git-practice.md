@@ -169,7 +169,7 @@ Git 是分布式版本控制系统（Distributed Version Control System，简称
 
     > Create a merge commit even when the merge resolves as a fast-forward. This is the default behaviour when merging an annotated (and possibly signed) tag.
 
-    ![]({{ site.baseurl }}/img/git-practice/14.png)
+    ![]({{ site.baseurl }}/assets/img/git-practice/14.png)
 
 15. `git push -u origin master` 中的 `-u` 有什么作用？
 
@@ -193,7 +193,7 @@ Git 是分布式版本控制系统（Distributed Version Control System，简称
 
     答：[http://www.jianshu.com/p/104fa8b15d1e](http://www.jianshu.com/p/104fa8b15d1e)
 
-    ![]({{ site.baseurl }}/img/git-practice/17.png)
+    ![]({{ site.baseurl }}/assets/img/git-practice/17.png)
 
 18. `git rm` 和 `rm` 的区别
 

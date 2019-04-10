@@ -9,13 +9,13 @@ title: App 下载提示
 
 笔者之前接到一个需求，这个需求要求能在手机浏览器页面调起 App，调不起的要去下载，如下图：
 
-![页面调起 App]({{ site.baseurl }}/img/app-download/3.png)
+![页面调起 App]({{ site.baseurl }}/assets/img/app-download/3.png)
 
 笔者心想这个不是什么新鲜需求，很多网站有这种交互，于是做了一番调查，确定了要测试的浏览器和要参考的网站，总结出了下面一份思维导图：
 
 [App 下载提示的思维导图][1]
 
-![App 下载提示的思维导图]({{ site.baseurl }}/img/app-download/1.png)
+![App 下载提示的思维导图]({{ site.baseurl }}/assets/img/app-download/1.png)
 
 解释一下这张图：
 
@@ -38,7 +38,7 @@ title: App 下载提示
 
 [App 下载提示的流程图][2]
 
-![App 下载提示的流程图]({{ site.baseurl }}/img/app-download/2.jpg)
+![App 下载提示的流程图]({{ site.baseurl }}/assets/img/app-download/2.jpg)
 
 注意这个流程图中的红色字，分别有带参数和不带参数的情况，这个参数是用于调起 App 后做额外功能，如打开详情页，不过这个参数只对自定义协议方法起作用，而且需要后端配合。
 
