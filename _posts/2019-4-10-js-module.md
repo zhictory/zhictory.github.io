@@ -148,6 +148,8 @@ import "doStuff";
 1. 发送请求默认不包括证书
 1. Modules 需要设置可用的 MIME 类型，否则不会执行
 
+最后再贴上一个优秀的 slides，方便读者理解模块化的来龙去脉：[JavaScript 模块化七日谈][2]
+
 参考：
 > [Javascript模块化编程（一）：模块的写法](http://www.ruanyifeng.com/blog/2012/10/javascript_module.html)  
 > [Javascript模块化编程（二）：AMD规范](http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html)  
@@ -159,3 +161,4 @@ import "doStuff";
 > [ECMAScript modules in browsers](https://jakearchibald.com/2017/es-modules-in-browsers/)  
 
   [1]: https://seajs.github.io/seajs/docs/
+  [2]: http://huangxuan.me/js-module-7day/
