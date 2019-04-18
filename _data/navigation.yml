@@ -1,10 +1,10 @@
 # main links
 main:
   - title: "Demo List"
-    url: /demo/
+    url: /demo/index.html
   - title: "Snippets"
     url: https://github.com/zhictory/frontend/blob/master/src/index.js
   - title: "About"
-    url: /about/
+    url: /about
   # - title: "Sitemap"
   #   url: /sitemap/
