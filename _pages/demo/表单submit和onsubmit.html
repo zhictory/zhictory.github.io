@@ -3,6 +3,8 @@ permalink: /demo/表单submit和onsubmit.html
 title: "表单submit和onsubmit"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -10,16 +12,21 @@ title: "表单submit和onsubmit"
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>表单submit和onsubmit</title>
+  <style>
+    form {
+      border: 1px solid;
+      padding: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  <form onsubmit="fun()">
-    <p>onsubmit 比 submit 先执行：</p>
-    <input type="submit" value="先执行 onsubmit 再执行 submit">
-    <p>document.forms[0].submit() 后，表单的 onsubmit 事件不会执行：</p>
-    <input type="button" value="只执行 submit" onclick="document.forms[0].submit()">
-    <p>document.forms[0].onsubmit() 后，表单的 submit 事件不会执行：</p>
-    <input type="button" value="只执行 onsubmit" onclick="document.forms[0].onsubmit()">
+  <form action="" onsubmit="fun()">
+    <p>这是一个表单，包含了 submit 按钮和 onsubmit 属性，onsubmit 会触发 alert。</p>
+    <p><label>username: </label><input name="username" type="text"></p>
+    <p><label>点击 submit 按钮，先执行 onsubmit 再执行 submit：</label><input type="submit" value="submit"></p>
+    <p><label>点击 button 按钮，触发 document.forms[0].submit()，只执行 submit：</label><input type="button" value="button" onclick="document.forms[0].submit()"></p>
+    <p><label>点击 button 按钮，触发 document.forms[0].onsubmit()，只执行 onsubmit：</label><input type="button" value="button" onclick="document.forms[0].onsubmit()"></p>
   </form>
   <p>也就是说 submit 按钮事件同时触发了 submit() 和 onsubmit()。</p>
   <script>

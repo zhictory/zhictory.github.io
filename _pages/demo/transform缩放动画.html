@@ -4,6 +4,8 @@ title: "transform缩放动画"
 toc: true
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +13,8 @@ toc: true
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>transform缩放动画</title>
     <style>
-      div {
+      div,
+      div::after {
         width: 350px;
         height: 350px;
         background-size: 100%;
@@ -28,16 +31,26 @@ toc: true
       }
 
       .div-2 {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .div-2::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         background-image: url(/assets/img/demo.jpeg);
       }
 
-      .div-2:hover {
+      .div-2:hover::after {
         transform: scale(1.2);
       }
     </style>
   </head>
 
   <body>
+    <p>transform 比 background-size 更平滑</p>
     <p>background-size</p>
     <div class="div-1"></div>
     <p>transform: scale</p>

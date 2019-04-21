@@ -3,6 +3,8 @@ permalink: /demo/多图4布局.html
 title: "多图4布局"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -13,34 +15,35 @@ title: "多图4布局"
   <style>
     * {
       box-sizing: border-box;
+      transition: all 1s ease;
     }
     img {
       vertical-align: middle;
     }
-    .four-images {
+    .ani .four-images {
       max-width: 1080px;
       width: 100%;
-      margin: 0 auto
+      margin: 0 auto;
     }
 
-    .four-images__top {
+    .ani .four-images__top {
       overflow: hidden
     }
 
-    .four-images__top-left {
+    .ani .four-images__top-left {
       float: left;
       width: 68.15%;
       max-width: 736px
     }
 
-    .four-images__bottom {
+    .ani .four-images__bottom {
       overflow: hidden;
       margin-top: -31.8%;
       width: 68.15%;
       max-width: 736px
     }
 
-    .four-images__image-1 {
+    .ani .four-images__image-1 {
       padding: 0 24px 24px 0;
       float: left;
       width: 50%;
@@ -48,54 +51,54 @@ title: "多图4布局"
       background: 0 0
     }
 
-    .four-images__image-2 {
+    .ani .four-images__image-2 {
       float: left;
       width: 31.85%;
       max-width: 344px;
       background: 0 0
     }
 
-    .four-images__image-3 {
+    .ani .four-images__image-3 {
       padding: 0 24px 0 0;
       float: left;
       background: 0 0
     }
 
-    .four-images__img {
+    .ani .four-images__img {
       width: 100%
     }
 
     @media screen and (max-width:767.98px) {
-      .four-images {
+      .ani .four-images {
         max-width: 690px
       }
-      .four-images__top {
+      .ani .four-images__top {
         overflow: hidden
       }
-      .four-images__top-left {
+      .ani .four-images__top-left {
         width: 50%;
         max-width: 360px;
         margin-bottom: 30px
       }
-      .four-images__bottom {
+      .ani .four-images__bottom {
         margin-top: 0;
         width: 100%;
         max-width: 690px
       }
-      .four-images__image-1 {
+      .ani .four-images__image-1 {
         padding: 0 15px 23px 0;
         width: 100%;
         max-width: 345px
       }
-      .four-images__image-1:last-child {
+      .ani .four-images__image-1:last-child {
         padding-bottom: 0
       }
-      .four-images__image-2 {
+      .ani .four-images__image-2 {
         padding-left: 15px;
         width: 50%;
         max-width: 345px
       }
-      .four-images__image-3 {
+      .ani .four-images__image-3 {
         padding: 0
       }
     }
@@ -103,6 +106,7 @@ title: "多图4布局"
 </head>
 
 <body>
+  <p><input type="button" value="点击查看多图4布局"></p>
   <div class="four-images">
     <div class="four-images__top">
       <div class="four-images__top-left">
@@ -116,5 +120,9 @@ title: "多图4布局"
     </div>
   </div>
 </body>
-
+<script>
+  document.querySelector('[type=button]').addEventListener('click', () => {
+    document.body.classList.toggle('ani');
+  })
+</script>
 </html>

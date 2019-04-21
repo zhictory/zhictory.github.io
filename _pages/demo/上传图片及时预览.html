@@ -3,6 +3,8 @@ permalink: /demo/上传图片及时预览.html
 title: "上传图片及时预览"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -12,6 +14,7 @@ title: "上传图片及时预览"
   <title>上传图片及时预览</title>
   <style type="text/css">
     .preview {
+      position: relative;
       width: 260px;
       height: 190px;
       border: 1px solid #000;
@@ -19,8 +22,13 @@ title: "上传图片及时预览"
     }
 
     .imghead {
-      width: 100px;
-      height: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
       border: none;
       outline: none;
       filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
@@ -50,7 +58,9 @@ title: "上传图片及时预览"
         var rect = calcImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
         img.width = rect.width;
         img.height = rect.height;
-        img.style.marginTop = rect.top + 'px';
+        // 居中用 CSS 实现
+        // img.style.marginTop = rect.top + 'px';
+        // img.style.marginLeft = rect.left + 'px';
       }
       var reader = new FileReader();
       reader.onload = function (evt) { img.src = evt.target.result; }

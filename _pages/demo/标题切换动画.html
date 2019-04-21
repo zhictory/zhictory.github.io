@@ -3,6 +3,8 @@ permalink: /demo/标题切换动画.html
 title: "标题切换动画"
 ---
 
+<!DOCTYPE html>
+
 <!-- 效果：http://jsrun.net/rApKp/show -->
 <!-- 思路：https://segmentfault.com/q/1010000008613500 主要是用到 `transition` 属性 -->
 <!-- 注意：在移动端点击有 300ms 的延迟，用 `faskclick.js` 解决 -->
@@ -16,19 +18,17 @@ title: "标题切换动画"
   <title>标题切换动画</title>
   <style>
     .list {
-      margin: 0;
-      padding: 0;
       position: relative;
       display: flex;
-      width: 100%;
     }
 
     .item {
-      flex-grow: 1;
-      list-style: none;
+      flex: 1;
       background-color: #e5e5e5;
-      font-size: 3em;
+      font-size: 1.5em;
       text-align: center;
+      padding: 0.3em 0;
+      white-space: nowrap;
     }
 
     .bar {

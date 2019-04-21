@@ -3,6 +3,8 @@ permalink: /demo/数量选择器.html
 title: "数量选择器"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -26,7 +28,8 @@ title: "数量选择器"
       font-size: 18px;
       text-align: center;
       line-height: 16px;
-      cursor: default;
+      cursor: pointer;
+      user-select: none;
     }
 
     .amount-btn .disabled {
@@ -34,9 +37,10 @@ title: "数量选择器"
     }
 
     .amount-btn input {
+      outline: none;
       float: left;
       padding: 0;
-      width: 38px;
+      width: auto;
       height: 18px;
       border: 1px solid #ccc;
       color: #333;

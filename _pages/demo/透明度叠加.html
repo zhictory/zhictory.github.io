@@ -3,6 +3,8 @@ permalink: /demo/透明度叠加.html
 title: "透明度叠加"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -23,7 +25,8 @@ title: "透明度叠加"
       width: 500px;
       height: 500px;
       background-color: #ffb6c1;
-      opacity: .81;
+      opacity: 1;
+      animation: animation1 1s linear 0.5s forwards;
     }
 
     .outer-2 {
@@ -38,13 +41,32 @@ title: "透明度叠加"
       width: 500px;
       height: 500px;
       background-color: #ffb6c1;
-      opacity: .9;
+      opacity: 1;
+      animation: animation1 1s linear 0.5s forwards;
+    }
+
+    @keyframes animation1 {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.81;
+      }
+    }
+
+    @keyframes animation2 {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.9;
+      }
     }
   </style>
 </head>
 
 <body>
-  <p>如果两个盒子是父子关系且两个都有 opacity 值，则子盒的透明值父子 opacity 值相乘。</p>
+  <p>如果两个盒子是父子关系且两个都有 opacity 值，<span style="text-decoration: line-through;">则子盒的透明值父子 opacity 值相乘</span>则子盒的透明值不一定是父子 opacity 值相乘。</p>
   <div class="outer-1">
     <div class="inner-1">inner 的 opacity 是 .81，outer 的 opacity 是 1，相乘是 .81。背景颜色加透明后是 #ffc4cd。</div>
   </div>

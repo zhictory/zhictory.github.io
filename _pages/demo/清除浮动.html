@@ -3,6 +3,8 @@ permalink: /demo/清除浮动.html
 title: "清除浮动"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -32,59 +34,57 @@ title: "清除浮动"
     .div-1 {
       height: auto;
       width: auto;
-      background: #ffb6c1;
+      background: #dc143c;
     }
 
     .div-2 {
       float: right;
-      margin: 10px;
-      background: #000;
+      background: #4b0082;
     }
 
     .div-3 {
-      margin: 10px;
-      background: #fe0002;
+      background: rgb(0, 0, 139);
     }
 
     .div-4 {
-      margin: 10px;
-      background: #ffcb01;
+      background: rgb(0, 100, 0);
     }
   </style>
 </head>
 
 <body>
   <section>
-    <div class="div-1"> float left
-      <div class="div-2">div-2 float right</div>
-      <div class="div-3">div-3 float left</div>
+    <p>这个例子的 HTML 是这样的：(div-1 > (div-2 + div-3)) + div-4 </p>
+    <div class="div-1"> div-1
+      <div class="div-2">div-2</div>
+      <div class="div-3">div-3</div>
     </div>
-    <div class="div-4">div-4 float left</div>
+    <div class="div-4">div-4</div>
   </section>
   <hr />
   <ul>
     <li>
-      <p>div-1</p>
+      <p>div-1 float left</p>
       <p><input type="radio" name="div-1" value="4" data-cssval="hidden" />overflow: hidden</p>
       <p><input type="radio" name="div-1" value="5" data-cssval="none" />float: none</p>
       <p><input type="radio" name="div-1" value="6" data-cssval="left" />float: left</p>
     </li>
     <li>
-      <p>div-2</p>
+      <p>div-2 float right</p>
       <p><input type="radio" name="div-2" value="0" data-cssval="none" />clear: none</p>
       <p><input type="radio" name="div-2" value="1" data-cssval="left" />clear: left</p>
       <p><input type="radio" name="div-2" value="2" data-cssval="right" />clear: right</p>
       <p><input type="radio" name="div-2" value="3" data-cssval="both" />clear: both</p>
     </li>
     <li>
-      <p>div-3</p>
+      <p>div-3 float left</p>
       <p><input type="radio" name="div-3" value="0" data-cssval="none" />clear: none</p>
       <p><input type="radio" name="div-3" value="1" data-cssval="left" />clear: left</p>
       <p><input type="radio" name="div-3" value="2" data-cssval="right" />clear: right</p>
       <p><input type="radio" name="div-3" value="3" data-cssval="both" />clear: both</p>
     </li>
     <li>
-      <p>div-4</p>
+      <p>div-4 float left</p>
       <p><input type="radio" name="div-4" value="0" data-cssval="none" />clear: none</p>
       <p><input type="radio" name="div-4" value="1" data-cssval="left" />clear: left</p>
       <p><input type="radio" name="div-4" value="2" data-cssval="right" />clear: right</p>

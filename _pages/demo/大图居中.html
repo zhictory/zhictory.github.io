@@ -3,6 +3,8 @@ permalink: /demo/大图居中.html
 title: "大图居中"
 ---
 
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -16,7 +18,7 @@ title: "大图居中"
       margin-top: 10px;
       width: 500px;
       height: 100px;
-      background: yellowgreen;
+      background: #6a5acd;
       text-align: center;
       line-height: 100px;
       color: white;
@@ -35,17 +37,60 @@ title: "大图居中"
     }
 
     .two {
-      margin-left: 50%;
+      /* margin-left: 50%; */
+      animation: animation1 2s ease-out 0.5s forwards;
     }
 
     .three {
-      margin-left: 50%;
-      transform: translateX(-50%);
+      /* margin-left: 50%; */
+      /* transform: translateX(-50%); */
+      animation: animation2 2s ease-out 0.5s forwards;
     }
 
     .four {
-      margin-left: 50%;
-      left: -250px;
+      /* margin-left: 50%; */
+      /* left: -250px; */
+      animation: animation3 2s ease-out 0.5s forwards;
+    }
+
+    @keyframes animation1 {
+      0% {
+        margin-left: 0;
+      }
+      50% {
+        margin-left: 50%;
+      }
+      100% {
+        margin-left: 50%;
+      }
+    }
+
+    @keyframes animation2 {
+      0% {
+        margin-left: 0;
+      }
+      50% {
+        margin-left: 50%;
+        transform: translateX(0%);
+      }
+      100% {
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes animation3 {
+      0% {
+        margin-left: 0;
+      }
+      50% {
+        margin-left: 50%;
+        left: 0;
+      }
+      100% {
+        margin-left: 50%;
+        left: -250px;
+      }
     }
   </style>
 </head>
