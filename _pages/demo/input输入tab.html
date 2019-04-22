@@ -1,0 +1,73 @@
+---
+permalink: /demo/input输入tab.html
+title: "input输入tab"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>input输入tab</title>
+  </head>
+  <body>
+    <p>在浏览器输入框输入 Tab 时，默认输入框会失焦，通过阻止默认行为，用四个空格代替 Tab 来实现。</p>
+    <p>但是这种交互没什么意义，在 textarea 里可能用得上。</p>
+    <input type="text" id="input" />
+  </body>
+  <script>
+    /**
+     * Created by luojw on 2017-3-9.
+     */
+    var textbox = document.getElementById("input"),
+      inputData,
+      dataArr,
+      keyCode;
+
+    //事件对象
+    var EventUtil = {
+      //根据浏览器对象来使用不同的方法添加事件
+      addHandler: function(element, type, handler) {
+        if (element.addEventListener) {
+          element.addEventListener(type, handler, true); //dom2级事件处理,在冒泡阶段捕获
+        } else if (element.attachEvent) {
+          element.attachEvent("on" + type, handler); //ie事件处理
+        } else {
+          element["on" + type] = handler; //dom0级事件处理
+        }
+      },
+
+      //取消事件默认行为
+      preventDefault: function(event) {
+        if (event.preventDefault) {
+          event.preventDefault();
+        } else {
+          event.returnValue = false;
+        }
+      },
+
+      //取得event事件对象
+      getEvent: function(event) {
+        return event ? event : window.event;
+      },
+
+      //取得输入的字符编码
+      getCharCode: function(event) {
+        return event.keyCode;
+      },
+      //使tab键输出在textarea中
+      inputTab: function(event) {
+        keyCode = EventUtil.getCharCode(event);
+        // EventUtil.preventDefault(event);
+        if (keyCode == 9) {
+          EventUtil.preventDefault(event);
+          textbox.value = textbox.value + "    ";
+        }
+      }
+    };
+    EventUtil.addHandler(textbox, "keydown", function() {
+      EventUtil.inputTab(EventUtil.getEvent());
+    });
+  </script>
+</html>

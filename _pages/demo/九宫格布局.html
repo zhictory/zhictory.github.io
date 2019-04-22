@@ -1,0 +1,92 @@
+---
+permalink: /demo/九宫格布局.html
+title: "九宫格布局"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>九宫格布局</title>
+    <style>
+      ul {
+        margin: 0;
+        padding: 0;
+        max-width: 300px;
+        font-size: 0;
+        text-align: center;
+      }
+      li {
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        margin-left: -2px;
+        margin-top: -2px;
+        border: 2px solid #000;
+        width: 96px;
+        height: 96px;
+        font-size: 30px;
+        line-height: 96px;
+      }
+      li.on {
+        z-index: 20;
+        border-color: #f60;
+        color: #f60;
+        background-color: #000;
+      }
+      .r1 {
+        margin-left: 0;
+      }
+      .c1 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>主要是用 inline-block 元素排列，稍微调整一下样式，比如 width 和 margin 就能得到这样的九宫格。</p>
+    <ul id="night">
+      <li class="on r1 c1">1</li>
+      <li class="c1">2</li>
+      <li class="c1">3</li>
+      <li class="r1">4</li>
+      <li>5</li>
+      <li>6</li>
+      <li class="r1">7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </body>
+  <script>
+    function formatCommentTimestamp(timestamp) {
+      // setTimeout(formatCommentTimestamp, 1000*5, timestamp); // 第三个参数不兼容IE9及以下， 推荐使用bind：setTimeout(formatCommentTimestamp.bind(undefined, timestamp), 1000*5)
+      var now = Date.parse(new Date());
+      var delta = now - timestamp;
+      console.log(delta);
+    }
+
+    formatCommentTimestamp(1489735700);
+
+    let lis = document.getElementById("night").querySelectorAll("li");
+    let last = 0;
+    let count = 0;
+    let time = setInterval(function() {
+      if (count > 30) {
+        //clearInterval(time);
+      }
+      count++;
+
+      let index = Math.floor(Math.random() * 9);
+      while (last == index) {
+        index = Math.floor(Math.random() * 9);
+      }
+      last = index;
+
+      lis.forEach(function(item) {
+        item.classList.remove("on");
+      });
+      lis[index].classList.add("on");
+    }, 100);
+  </script>
+</html>

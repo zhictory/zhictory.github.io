@@ -1,0 +1,53 @@
+---
+permalink: /demo/codewar-3.html
+title: "codewar-3"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>codewar-3</title>
+    <style>
+      div {
+        width: 400px;
+        font-size: 30px;
+        letter-spacing: 2px;
+        white-space: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      灵感来源：<a
+        href="https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/solutions/javascript/all/clever"
+        target="_blank"
+        >https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/solutions/javascript/all/clever</a
+      >
+    </p>
+    <div id="div"></div>
+  </body>
+  <script>
+    let wave = w =>
+      [...w]
+        .map((a, i) => w.slice(0, i) + a.toUpperCase() + w.slice(i + 1))
+        .filter(a => a != w);
+    // 生成含100个字母的字符串
+    let input = "";
+    for (var i = 0; i < 100; i++) {
+      input += String.fromCharCode(97 + Math.ceil(Math.random() * 25));
+      i % 9 == 0 ? (input += " ") : (input += "");
+    }
+    let output = wave(input);
+    // Mexican Wave
+    for (let i = 0; i < output.length; i++) {
+      (function(i) {
+        setTimeout(function() {
+          document.getElementById("div").innerHTML = output[i];
+        }, 30 * i);
+      })(i);
+    }
+  </script>
+</html>

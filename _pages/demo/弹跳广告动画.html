@@ -1,0 +1,135 @@
+---
+permalink: /demo/弹跳广告动画.html
+title: "弹跳广告动画"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>弹跳广告动画</title>
+    <style>
+      .div {
+        position: relative;
+        width: 170px;
+        height: 70px;
+        overflow: hidden;
+        background: #f60;
+        color: #fff;
+        font-family: "黑体";
+      }
+
+      .item1 {
+        position: absolute;
+        top: 12px;
+        left: -170px;
+        width: 170px;
+        line-height: 20px;
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 4px;
+      }
+
+      .item2 {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 170px;
+        line-height: 16px;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      @keyframes div1 {
+        0% {
+          top: 12px;
+          left: -170px;
+        }
+        3% {
+          top: 12px;
+          left: -170px;
+        }
+        10% {
+          top: 12px;
+          left: 0;
+        }
+        20% {
+          top: 12px;
+          left: 0;
+        }
+        23% {
+          top: -70px;
+          left: 0;
+        }
+        26% {
+          top: 14px;
+          left: 0;
+        }
+        30% {
+          top: 17px;
+          left: 0;
+        }
+        35% {
+          top: 7px;
+          left: 0;
+        }
+        40% {
+          top: 12px;
+          left: 0;
+        }
+        100% {
+          top: 12px;
+          left: 0;
+        }
+      }
+      @keyframes div2 {
+        0% {
+          top: 70px;
+        }
+        19% {
+          top: 70px;
+        }
+        20% {
+          top: 30px;
+        }
+        23% {
+          top: 26px;
+        }
+        26% {
+          top: 39px;
+        }
+        30% {
+          top: 42px;
+        }
+        35% {
+          top: 32px;
+        }
+        40% {
+          top: 37px;
+        }
+        100% {
+          top: 37px;
+        }
+      }
+      .div1 {
+        animation: div1 5s linear infinite;
+      }
+      .div2 {
+        animation: div2 5s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <div class="div">
+      <div class="item1 div1">
+        广告标题
+      </div>
+      <div class="item2 div2">
+        马上预约有福利
+      </div>
+    </div>
+  </body>
+</html>

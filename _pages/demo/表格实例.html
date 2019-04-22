@@ -1,0 +1,436 @@
+---
+permalink: /demo/表格实例.html
+title: "表格实例"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>表格实例</title>
+  </head>
+  <body>
+    <!-- 1 -->
+    <h2>第 1 种实例</h2>
+    <style>
+      .table-1 {
+        padding: 10px;
+        width: 350px;
+        table-layout: fixed;
+        border-collapse: separate;
+        border-spacing: 5px;
+        border: 2px solid #333333;
+        background: #2695f3;
+        caption-side: bottom;
+        font: 12px/24px Arial;
+      }
+      .table-1 td {
+        padding: 10px 10px;
+        border: 2px solid pink;
+        background: white;
+        text-align: center;
+        overflow: hidden;
+      }
+    </style>
+    <table class="table-1">
+      <caption>
+        a test table
+      </caption>
+      <tbody>
+        <tr>
+          <td rowspan="2" width="150"></td>
+          <td colspan="2">Average</td>
+          <td rowspan="2">Red EyesRed EyesRed EyesRed Eyes</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>weight</td>
+        </tr>
+        <tr>
+          <td>Males</td>
+          <td>1.9</td>
+          <td>0.003</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>Females</td>
+          <td>1.7</td>
+          <td>0.002</td>
+          <td>43%</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 2 -->
+    <h2>第 2 种实例</h2>
+    <style>
+      .table-2 {
+        border-collapse: collapse;
+        text-align: center;
+        font: 12px Microsoft Yahei;
+        color: #333;
+        table-layout: fixed;
+      }
+      .table-2 thead {
+        background: #61bbe0;
+      }
+      .table-2 thead th {
+        color: #fff;
+        font-weight: normal;
+      }
+      .table-2 thead tr {
+        height: 30px;
+      }
+      .table-2 tbody {
+        background: #fff;
+      }
+      .table-2 tbody tr {
+        height: 59px;
+        border-bottom: 1px solid #ccc;
+      }
+      .table-2 tbody tr td:first-child + td + td + td {
+        color: #8c8c8c;
+        text-align: left;
+      }
+      .table-2 tbody tr td:first-child + td + td + td + td + td a {
+        color: #2f6cab;
+        text-decoration: none;
+      }
+      .table-2 tbody tr td:first-child + td + td + td + td + td + td a {
+        color: #f60;
+        text-decoration: none;
+      }
+      .table-2 col:first-child {
+        width: 170px;
+      }
+      .table-2 col:first-child + col {
+        width: 100px;
+      }
+      .table-2 col:first-child + col + col {
+        width: 100px;
+      }
+      .table-2 col:first-child + col + col + col {
+        width: 200px;
+      }
+      .table-2 col:first-child + col + col + col + col {
+        width: 200px;
+      }
+      .table-2 col:first-child + col + col + col + col + col {
+        width: 150px;
+      }
+      .table-2 col:first-child + col + col + col + col + col + col {
+        width: 90px;
+      }
+      .table-2 caption {
+        height: 30px;
+        font-size: 16px;
+      }
+      .table-2 tfoot tr {
+        height: 30px;
+      }
+    </style>
+    <table class="table-2">
+      <caption>
+        我的优惠券
+      </caption>
+      <thead>
+        <tr>
+          <th>编号</th>
+          <th>类别</th>
+          <th>面额</th>
+          <th>使用条件</th>
+          <th>有效期</th>
+          <th>来源</th>
+          <th>使用状态</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>注：这里的优惠券已过期</td>
+        </tr>
+      </tfoot>
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>X8ZMVB3C</td>
+          <td>优惠券</td>
+          <td>￥100.00</td>
+          <td>6月民用活动100元立减劵</td>
+          <td>2016-06-01至2016-06-30</td>
+          <td><a>6月民用活动100元立减劵</a></td>
+          <td><a>已使用</a></td>
+        </tr>
+        <tr>
+          <td>2UNCWM4F</td>
+          <td>优惠券</td>
+          <td>￥300.00</td>
+          <td>6月民用活动300元立减劵</td>
+          <td>2016-06-01至2016-06-30</td>
+          <td><a>6月民用活动300元立减劵</a></td>
+          <td><a>已使用</a></td>
+        </tr>
+        <tr>
+          <td>Q3AKUZ2X</td>
+          <td>优惠券</td>
+          <td>￥300.00</td>
+          <td>321活动300元立减券（满5000元使用）</td>
+          <td>2016-03-21至2016-04-20</td>
+          <td><a>321活动300元立减券（满5000元使用）</a></td>
+          <td><a>使用锁定</a></td>
+        </tr>
+        <tr>
+          <td>HCXDHOUV</td>
+          <td>优惠券</td>
+          <td>￥100.00</td>
+          <td>315活动（满3000减100）</td>
+          <td>2016-03-01至2016-03-20</td>
+          <td><a>315活动（满3000减100）</a></td>
+          <td><a>使用锁定</a></td>
+        </tr>
+        <tr>
+          <td>5HFEPFCH</td>
+          <td>优惠券</td>
+          <td>￥600.00</td>
+          <td>新春红包（满8000减600）</td>
+          <td>2016-01-26至2016-02-29</td>
+          <td><a>新春红包（满8000减600）</a></td>
+          <td><a>使用锁定</a></td>
+        </tr>
+      </tbody>
+      <tbody></tbody>
+    </table>
+    <!-- 3 -->
+    <h2>第 3 种实例</h2>
+    <style>
+      .table-3 {
+        margin: 20px;
+        border: 1px solid #ccc;
+        background: #91daff;
+      }
+      .table-3 th,
+      .table-3 td {
+        border: 1px solid #ccc;
+        font-size: 18px;
+        text-align: left;
+      }
+      .table-3 td {
+        background: white;
+      }
+      .table-3 tr {
+        background: yellow;
+      }
+      .table-3 tbody {
+        background: green;
+      }
+      .table-3 tfoot td {
+        font-size: 12px;
+        text-align: center;
+      }
+      .table-3 .last-col {
+        background: pink;
+      }
+      .table-3 caption {
+        margin: 20px;
+        border: 1px solid #ccc;
+      }
+    </style>
+    <table class="table-3">
+      <caption>
+        队伍表格
+      </caption>
+      <thead>
+        <tr>
+          <th>组别</th>
+          <th>性别</th>
+          <th>年龄</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="3">（注：表格分享）</td>
+        </tr>
+      </tfoot>
+      <colgroup>
+        <col span="2" width="100" />
+        <col span="1" class="last-col" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td rowspan="2">一组</td>
+          <td>男</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>男</td>
+          <td>25</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>二组</td>
+          <td>女</td>
+          <td>24</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 4 -->
+    <h2>第 4 种实例</h2>
+    <style>
+      .table-4 th,
+      .table-4 td {
+        border: 1px solid #ccc;
+        font-size: 18px;
+        text-align: left;
+      }
+      .table-4 tfoot td {
+        font-size: 12px;
+        text-align: center;
+      }
+      .table-4 .last-col {
+        background: pink;
+      }
+      .table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+      }
+      .table * {
+        vertical-align: middle;
+      }
+      .caption {
+        display: table-caption;
+        text-align: center;
+      }
+      .thead {
+        display: table-header-group;
+        font-weight: bold;
+      }
+      .tfoot {
+        display: table-footer-group;
+      }
+      .tfoot .td {
+        font-size: 12px;
+      }
+      .tbody {
+        display: table-row-group;
+      }
+      .tr {
+        display: table-row;
+      }
+      .td {
+        display: table-cell;
+        border: 1px solid #ccc;
+        font-size: 18px;
+        text-align: left;
+      }
+      .colgroup {
+        display: table-column-group;
+      }
+      .col {
+        display: table-column;
+        width: 100px;
+      }
+      .col:last-child {
+        width: auto;
+        background: pink;
+      }
+      .table-tfoot {
+        margin-top: -2px;
+        width: 247px;
+      }
+      .table-tfoot .td {
+        text-align: center;
+      }
+    </style>
+    <table class="table-4">
+      <caption>
+        性别表格
+      </caption>
+      <thead>
+        <tr>
+          <th>性别</th>
+          <th>性别</th>
+          <th>性别</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="3">（注：表格分享）</td>
+        </tr>
+      </tfoot>
+      <colgroup>
+        <col span="2" width="100" />
+        <col span="1" class="last-col" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>男</td>
+          <td>男</td>
+          <td>男</td>
+        </tr>
+        <tr>
+          <td>男</td>
+          <td>男</td>
+          <td>男</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>女</td>
+          <td>女</td>
+          <td>女</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table">
+      <div class="caption">性别表格</div>
+      <div class="thead">
+        <div class="tr">
+          <div class="td">性别</div>
+          <div class="td">性别</div>
+          <div class="td">性别</div>
+        </div>
+      </div>
+      <div class="colgroup">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td">男</div>
+          <div class="td">男</div>
+          <div class="td">男</div>
+        </div>
+        <div class="tr">
+          <div class="td">男</div>
+          <div class="td">男</div>
+          <div class="td">男</div>
+        </div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td">女</div>
+          <div class="td">女</div>
+          <div class="td">女</div>
+        </div>
+      </div>
+    </div>
+    <div class="table table-tfoot">
+      <div class="tfoot">
+        <div class="tr">
+          <div class="td">（注：表格分享）</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
