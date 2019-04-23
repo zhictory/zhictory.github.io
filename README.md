@@ -1,3 +1,11 @@
+# About My Blog
+
+Git Style Guide
+
+feat: add blogs or update blogs
+style: formatting, missing semi colons, etc; no blog change
+chore: updating build tasks, package manager configs, etc
+
 # [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
