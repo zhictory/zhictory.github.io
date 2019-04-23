@@ -2,9 +2,11 @@
 
 Git Style Guide
 
-feat: add blogs or update blogs
-style: formatting, missing semi colons, etc; no blog change
-chore: updating build tasks, package manager configs, etc
+- feat: add blogs or update blogs
+- style: formatting, missing semi colons, etc; no blog change
+- chore: updating build tasks, package manager configs, etc
+
+The following is the description of the theme of my blog.
 
 # [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
 
