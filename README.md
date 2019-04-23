@@ -2,8 +2,8 @@
 
 Git Style Guide
 
-- feat: add blogs or update blogs
-- style: formatting, missing semi colons, etc; no blog change
+- feat: add posts or update posts
+- style: formatting, missing semi colons, etc; no post change
 - chore: updating build tasks, package manager configs, etc
 
 The following is the description of the theme of my blog.
