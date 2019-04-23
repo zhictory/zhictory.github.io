@@ -3,7 +3,7 @@ main:
   - title: "Demo Camp"
     url: /demo/index.html
   - title: "Snippets"
-    url: https://github.com/zhictory/frontend/blob/master/src/index.js
+    url: https://github.com/zhictory/snippet/blob/master/snippet.js
   - title: "About"
     url: /about
   # - title: "Sitemap"
