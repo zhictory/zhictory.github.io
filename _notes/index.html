@@ -1,0 +1,25 @@
+---
+comments: false
+permalink: /note/index.html
+title: "Amazing Note"
+---
+
+<style>
+  .note-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .note-item {
+    font-size: 0.6em;
+  }
+</style>
+
+<ul class="note-list">
+  {% for item in site.data.note.list %}
+  <li class="note-item"><a target="_blank" href="{{ item.url }}">{{ item.title }}</a></li>
+  {% endfor %}
+</ul>

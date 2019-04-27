@@ -1,10 +1,10 @@
 # main links
 main:
+  - title: "Amazing Note"
+    url: /note/index.html
   - title: "Demo Camp"
     url: /demo/index.html
   - title: "Snippets"
     url: https://github.com/zhictory/snippet/blob/master/snippet.js
   - title: "About"
     url: /about
-  # - title: "Sitemap"
-  #   url: /sitemap/
