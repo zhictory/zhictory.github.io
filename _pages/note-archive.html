@@ -1,0 +1,41 @@
+---
+layout: normal
+author_profile: false
+share: false
+index: true
+comments: false
+permalink: /note-archive/
+title: "Amazing Note"
+---
+
+<style>
+  .note-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>
+
+<p>Find some amazing notes here.</p>
+<ul class="note-list">
+  {% capture written_label %}'None'{% endcapture %}
+  
+  {% for collection in site.collections %}
+    {% for post in collection.docs %}
+      {% if collection.output == true and collection.label == "notes" %}
+        {% if post.id %}
+          {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+        {% else %}
+          {% assign title = post.title %}
+        {% endif %}
+        {% if post.link %}
+          <li class="note-item"><a target="_blank" href="{{ post.link }}">{{ title }}</a><a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a></li>
+        {% else %}
+          <li class="note-item"><a target="_blank" href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>

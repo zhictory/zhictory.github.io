@@ -1,6 +1,5 @@
 ---
 title: "CSS矩阵Matrix"
-permalink: /note/CSS矩阵Matrix
 ---
 
 在 CSS3 的 transform 属性中，可以使用矩阵对元素进行变换：

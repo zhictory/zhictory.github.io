@@ -1,5 +1,4 @@
 ---
-permalink: "/note/使用@font-faces"
 title: "使用@font-faces"
 ---
 

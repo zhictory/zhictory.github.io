@@ -1,5 +1,4 @@
 ---
-permalink: /note/CSS的leading
 title: "CSS的leading"
 ---
 
