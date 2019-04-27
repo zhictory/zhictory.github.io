@@ -1,4 +1,6 @@
 ---
+share: false
+index: true
 comments: false
 permalink: /note/index.html
 title: "Amazing Note"
@@ -12,12 +14,9 @@ title: "Amazing Note"
     padding: 0;
     list-style: none;
   }
-
-  .note-item {
-    font-size: 0.6em;
-  }
 </style>
 
+<p>Find some amazing notes here.</p>
 <ul class="note-list">
   {% for item in site.data.note.list %}
   <li class="note-item"><a target="_blank" href="{{ item.url }}">{{ item.title }}</a></li>

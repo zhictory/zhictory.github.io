@@ -60,6 +60,7 @@ layout: default
         {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {% unless page.index %}<p style="font-size: 0.8em; color: #a3a3a3;">图片来自网络，侵删</p>{% endunless %}
       </section>
 
       <footer class="page__meta">

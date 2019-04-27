@@ -21,9 +21,9 @@ title: "使用@font-faces"
       src: url("GoodDog-webfont.eot"); /* IE 只支持 eot 格式 */
       src: local("gooddogregular"),
         /* 先读取本地的字体 */
-          /* 其他浏览器支持 woff、truetype、svg 这三种，优先使用 woff 格式 */
-          url("GoodDog-webfont.woff") format("woff"), url("GoodDog-webfont.ttf")
-          format("truetype"), url("GoodDog-webfont.svg") format("svg");
+        /* 其他浏览器支持 woff、truetype、svg 这三种，优先使用 woff 格式 */
+        url("GoodDog-webfont.woff") format("woff"), url("GoodDog-webfont.ttf")
+        format("truetype"), url("GoodDog-webfont.svg") format("svg");
       font-weight: normal;
       font-style: normal;
       font-stretch: normal;

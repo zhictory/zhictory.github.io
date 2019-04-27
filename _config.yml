@@ -325,3 +325,4 @@ defaults:
     values:
       layout: normal
       comments: true
+      share: true

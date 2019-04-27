@@ -13,4 +13,4 @@ title: "CSS的leading"
 
 为了更直观了解 leading，再来看看来自《[你未必知道的CSS故事：揭开leading的面纱](http://www.ituring.com.cn/article/18076)》的一张图。
 
-![](index_files/986794c4-2397-452c-a736-6c4b9f7e60d6.png)
+![]({{ site.baseurl }}/assets/img/leading.jpg)
