@@ -35,9 +35,9 @@ title: "Amazing Note"
           {% assign title = post.title %}
         {% endif %}
         {% if post.link %}
-          <li class="note-item"><a target="_blank" href="{{ post.link }}">{{ title }}</a><a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a></li>
+          <li class="note-item"><a href="{{ post.link }}">{{ title }}</a><a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a></li>
         {% else %}
-          <li class="note-item"><a target="_blank" href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a></li>
+          <li class="note-item"><a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a></li>
         {% endif %}
       {% endif %}
     {% endfor %}
