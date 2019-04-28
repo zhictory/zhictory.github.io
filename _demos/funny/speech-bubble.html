@@ -1,0 +1,79 @@
+---
+title: "Speech Bubble"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Speech Bubble</title>
+    <style>
+      .dialog {
+        position: relative;
+        width: 300px;
+        height: 150px;
+        padding: 0px;
+        background: pink;
+        border-radius: 6px;
+      }
+
+      .dialog:after {
+        content: "";
+        top: 0;
+        right: -29px;
+        position: absolute;
+        width: 38px;
+        height: 26px;
+        background-color: transparent;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        box-shadow: -21px 9px 0px 8px pink;
+        animation: bubble 3s linear 0.5s 1 normal forwards;
+      }
+
+      @keyframes bubble {
+        0% {
+          right: -129px;
+          box-shadow: 0 0 0 0 pink;
+          border-bottom-left-radius: 0%;
+          border-bottom-right-radius: 0%;
+          background-color: blue;
+        }
+        25% {
+          right: -129px;
+          box-shadow: 0 0 0 0 pink;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          background-color: blue;
+        }
+        50% {
+          right: -129px;
+          box-shadow: -21px 9px 0px 8px pink;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          background-color: blue;
+        }
+        75% {
+          right: -129px;
+          box-shadow: -21px 9px 0px 8px pink;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          background-color: transparent;
+        }
+        100% {
+          right: -29px;
+          box-shadow: -21px 9px 0px 8px pink;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          background-color: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="https://stackoverflow.com/questions/29051539/how-to-create-a-curve-tail-for-speech-bubble-with-css">How to create a curve tail for speech bubble with CSS?</a> 利用 box-shadow 生成尾巴</p>
+    <div class="dialog"></div>
+  </body>
+</html>

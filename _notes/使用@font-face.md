@@ -1,5 +1,5 @@
 ---
-title: "使用@font-faces"
+title: "使用 @font-faces"
 ---
 
 原理：先使用字体注册工具 @font-face 注册自定义字体，再通过规则使用自定义字体。

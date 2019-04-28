@@ -19,9 +19,13 @@ title: "Amazing Note"
 </style>
 
 <p>Find some amazing notes here.</p>
+
 <ul class="note-list">
-  {% capture written_label %}'None'{% endcapture %}
-  
+  <!-- 有道云或第三方笔记 -->
+  {% for note in site.data.youdaonote.notes %}
+  <li class="note-item"><a target="_blank" href="{{ note.url }}" rel="permalink">{{ note.title }}</a></li>
+  {% endfor %}
+  <!-- 本地笔记 -->
   {% for collection in site.collections %}
     {% for post in collection.docs %}
       {% if collection.output == true and collection.label == "notes" %}

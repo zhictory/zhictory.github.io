@@ -1,5 +1,5 @@
 ---
-title: "Table相关样式"
+title: "Table 相关样式"
 ---
 
 1. table 系列 display 值中，margin-* 只适用于 table-caption, table, inline-table，其余的都不适用，但 margin-* 对非 table 系列都适用。

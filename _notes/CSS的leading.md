@@ -1,5 +1,5 @@
 ---
-title: "CSS的leading"
+title: "CSS 的 leading"
 ---
 
 学 line-height 时经常提到的 leading 是什么呢？

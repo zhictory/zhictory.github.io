@@ -1,0 +1,25 @@
+---
+layout: archive
+title: "Awesome News"
+permalink: /news-archive/
+author_profile: false
+---
+
+<style>
+  .news-item {
+    line-height: 30px;
+  }
+  .news-item span {
+    font-size: 0.6em;
+    float: right;
+  }
+</style>
+
+<ol class="news-list">
+  {% for news in site.data.news.news %}
+  <li class="news-item">
+    <a target="_blank" href="{{ news.url }}">{{ news.title }}</a>
+    <span>{{ news.date }} {{ news.from }}</span>
+  </li>
+  {% endfor %}
+</ol>
