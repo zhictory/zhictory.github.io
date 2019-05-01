@@ -22,7 +22,7 @@ title: "Amazing Note"
 
 <ul class="note-list">
   <!-- 有道云或第三方笔记 -->
-  {% for note in site.data.youdaonote.notes %}
+  {% for note in site.data.note.notes %}
   <li class="note-item"><a target="_blank" href="{{ note.url }}" rel="permalink">{{ note.title }}</a></li>
   {% endfor %}
   <!-- 本地笔记 -->

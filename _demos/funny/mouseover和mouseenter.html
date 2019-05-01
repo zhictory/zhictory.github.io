@@ -1,0 +1,61 @@
+---
+title: "mouseover 和 mouseenter"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mouseover 和 mouseenter</title>
+    <style>
+      #j_mouse-div-parent {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+      }
+
+      #j_mouse-div {
+        width: 100px;
+        height: 100px;
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <p>请尝试选择不同事件，感受两者的区别</p>
+    <p>
+      <input type="button" value="mouseover" />
+      <input type="button" value="mouseenter" />
+    </p>
+    <div id="j_mouse-div-parent"><div id="j_mouse-div"></div></div>
+    <p>这里的事件绑定的是黄色块</p>
+    <p>当选择 mouseover 时会冒泡，绑定黄色的时候同时监听粉色，所以粉色块和黄色块都能触发事件</p>
+    <p>当选择 mouseenter 时不会冒泡，只绑定了黄色，所以只有黄色块会触发事件</p>
+    <p>下图能说明两者的区别</p>
+    <p><img src="https://developer.mozilla.org/@api/deki/files/5909/=mouseover.png" alt=""> <img src="https://developer.mozilla.org/@api/deki/files/5908/=mouseenter.png" alt=""></p>
+  </body>
+  <script>
+    const mouseDiv = document.querySelector("#j_mouse-div-parent");
+    const btns = document.querySelectorAll("[type=button]");
+
+    btns.forEach(function(btn) {
+      btn.addEventListener("click", function(event) {
+        const eventName = event.target.value;
+        mouseDiv.removeEventListener("mouseover", mouseHandler);
+        mouseDiv.removeEventListener("mouseenter", mouseHandler);
+        mouseDiv.addEventListener(eventName, mouseHandler);
+      });
+    });
+
+    const mouseHandler = function(event) {
+      event.stopPropagation();
+      event.target.style.background = "yellowgreen";
+      setTimeout(function() {
+        event.target.style.background =
+          event.target.id == "j_mouse-div" ? "pink" : "yellow";
+      }, 500);
+    };
+  </script>
+</html>

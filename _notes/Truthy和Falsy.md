@@ -34,4 +34,5 @@ if (``)
 
 参考：
 
-> [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
+> [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)  
+> [Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)

@@ -1,3 +1,4 @@
+# 包括我的有道云笔记和第三方作者的笔记
 notes:
   - title: "清除浮动"
     url: "http://note.youdao.com/noteshare?id=fafce1790c539531aefb8e598dffd6c4"
@@ -17,3 +18,5 @@ notes:
     url: "http://note.youdao.com/noteshare?id=4211a9c49dd5dfe1f08c6eb7465f5c75"
   - title: "arguments 的故事"
     url: "http://note.youdao.com/noteshare?id=48fe11146f401f879e4c6f0740aa9be9"
+  - title: "位运算符的妙用"
+    url: "https://juejin.im/post/5a98ea2f6fb9a028bb186f34"
