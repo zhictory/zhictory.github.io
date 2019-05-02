@@ -8,8 +8,15 @@ title: "一个简单的表单"
   <head>
     <meta charset="UTF-8" />
     <title>一个简单的表单</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1171609_ubdwr6k0zn.css">
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_1171609_ubdwr6k0zn.css"
+    />
     <style>
+      .form {
+        margin-top: 20px;
+      }
+      
       .form-item {
         position: relative;
         margin: 0 auto 20px;
@@ -44,8 +51,12 @@ title: "一个简单的表单"
 
       .code-item .code-btn {
         display: inline-block;
-        width: 100px;
+        margin-left: 10px;
+        width: 90px;
+        height: 34px;
+        border: 1px solid;
         font-size: 14px;
+        line-height: 32px;
         cursor: pointer;
       }
 
@@ -55,8 +66,8 @@ title: "一个简单的表单"
         position: absolute;
         top: 0;
         bottom: 0;
-        margin: auto 0 auto -20px;
-        font-size: 14px;
+        margin: auto 0 auto -24px;
+        font-size: 16px;
         line-height: 36px;
       }
 
@@ -81,36 +92,36 @@ title: "一个简单的表单"
   </head>
 
   <body>
-    <div class="reserve-form">
-      <div class="form-item JQ_formItem">
+    <div class="form">
+      <div class="form-item j_formItem">
         <label for="name">
           您的称呼
         </label>
         <input type="text" maxlength="7" name="name" id="J_name" />
-        <i class="icon-tips icon-tips-ok icon-check-circle"> </i>
-        <!-- <i class="icon-tips icon-tips-wrong icon-close-circle"> </i> -->
+        <i class="icon-tips icon-tips-ok iconfont icon-check-circle"> </i>
+        <!-- <i class="icon-tips icon-tips-wrong iconfont icon-close-circle"> </i> -->
         <p class="tips">
           <i> </i>
         </p>
       </div>
-      <div class="form-item JQ_formItem">
+      <div class="form-item j_formItem">
         <label for="phone">
           手机号码
         </label>
         <input type="text" maxlength="11" name="phone" id="J_phone" />
-        <i class="icon-tips icon-tips-ok icon-check-circle"> </i>
-        <!-- <i class="icon-tips icon-tips-wrong icon-close-circle"> </i> -->
+        <!-- <i class="icon-tips icon-tips-ok iconfont icon-check-circle"> </i> -->
+        <i class="icon-tips icon-tips-wrong iconfont icon-close-circle"> </i>
         <p class="tips">
           <i> </i>
         </p>
       </div>
-      <div class="form-item code-item JQ_formItem">
+      <div class="form-item code-item j_formItem">
         <label for="phone_code">
           短信验证
         </label>
         <input type="text" maxlength="6" name="phone_code" id="J_phoneCode" />
-        <i class="icon-tips icon-tips-ok icon-check-circle"> </i>
-        <!-- <i class="icon-tips icon-tips-wrong icon-close-circle"> </i> -->
+        <i class="icon-tips icon-tips-ok iconfont icon-check-circle"> </i>
+        <!-- <i class="icon-tips icon-tips-wrong iconfont icon-close-circle"> </i> -->
         <a class="btn btn-line code-btn" id="J_getCodeBtn">
           获取验证码
         </a>
