@@ -2,9 +2,11 @@
 title: "Event Loop"
 ---
 
+JavaScript 是单线程，但是 HTML5 提出新标准，允许 JavaScript 创建多个线程，子线程受主线程控制。主线程循环调用子线程，就形成了 Event Loop。由于是单线程，多个任务需要排队，JavaScript 需要主线程（负责同步任务）和任务队列（负责异步任务）。
+
 ## 主线程和任务队列
 
-先了解一下什么是任务队列。由于 JavaScript 是单线程，所以需要主线程（同步任务）和任务队列（异步任务）。
+先了解一下什么是任务队列。
 
 - 主线程  
   在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务，这也称之为同步任务。
@@ -26,7 +28,7 @@ title: "Event Loop"
 
 > In computer science, the **event loop**, **message dispatcher**, **message loop**, **message pump**, or **run loop** is a programming construct that waits for and dispatches events or messages in a program.
 
-它是一种等待和分派事件的编程构造或程序中的消息，在 JavaScript 和 Node 里有所不同。
+它是一种等待和分派事件的编程构造或程序中的消息，在 JavaScript 和 Nodejs 里有所不同。
 
 JavaScript 中的 Event Loop 的定义是：
 
@@ -38,13 +40,13 @@ JavaScript 中的 Event Loop 图解：
 
 ![](http://www.ruanyifeng.com/blogimg/asset/2014/bg2014100802.png)
 
-Node.js 中的 Event Loop 定义是：
+Nodejs 中的 Event Loop 定义是：
 
 > 也是单线程的，但运行机制不同于浏览器环境。
 
 其中，任务队列包含四个定时事件：setTimeout、setInterval、setImmediate 和 process.nextTick。
 
-Node.js 中的 Event Loop 图解：
+Nodejs 中的 Event Loop 图解：
 
 ![](https://image-static.segmentfault.com/368/292/3682929304-5aa673bf8fb10_articlex)
 

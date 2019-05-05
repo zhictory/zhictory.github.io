@@ -1,0 +1,29 @@
+---
+title: "内存泄漏"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>内存泄漏</title>
+  </head>
+  <body>
+    <p>全局变量引用</p>
+    <p>
+      Chrome 73: Develop Tools -> Performance -> Record and refresh -> 观察 JS
+      Heap 逐步上升
+    </p>
+  </body>
+  <script>
+    // 全局变量引用
+    let memory = [];
+    function leak(params) {
+      memory.push(new Array(1000).join("*"));
+      setTimeout(leak, 1000);
+    }
+    leak();
+  </script>
+</html>

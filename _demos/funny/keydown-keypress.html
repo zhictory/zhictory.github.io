@@ -1,0 +1,31 @@
+---
+title: "keydown 和 keypress"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>keydown 和 keypress</title>
+  </head>
+  <body>
+    <p>请尝试按键盘，体验 keydown，keypress，keyup 三者的顺序。</p>
+    <p id="j_tips"></p>
+  </body>
+  <script>
+    const p = document.querySelector('#j_tips');
+    document.documentElement.addEventListener("keydown", e => {
+      p.innerHTML = `You tap keydown and the code is ${e.which}.`;
+    });
+    document.documentElement.addEventListener("keypress", e => {
+      p.innerHTML = `You tap keypress and the code is ${e.which}.`;
+      
+    });
+    document.documentElement.addEventListener("keyup", e => {
+      p.innerHTML = `You tap keyup and the code is ${e.which}.`;
+      
+    });
+  </script>
+</html>

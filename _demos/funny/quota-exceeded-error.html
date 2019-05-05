@@ -1,0 +1,39 @@
+---
+title: "复现 QuotaExceededError"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>复现 QuotaExceededError</title>
+  </head>
+  <body>
+    <p id="j_tips"></p>
+    <!-- <p>成功复现错误，报错：Failed to execute 'setItem' on 'Storage': Setting the value of 'i-5' exceeded the quota.。</p> -->
+    <p>如果能看到错误提示，说明在执行 localStorage.setItem( 'i-' + i, mb); 时就会出现 QuotaExceededError，表示此时 localStorage 已经被占满了。</p>
+  </body>
+  <script>
+    localStorage.clear();
+
+    var kb = new Array(1024);
+    kb = kb.join("a");
+
+    var mb = new Array(1024);
+
+    mb = mb.join(kb);
+
+    var MAX = 100;
+
+    for (var i = 0; i < MAX; i++) {
+      try {
+        localStorage.setItem("i-" + i, mb);
+      } catch (e) {
+        document.querySelector("#j_tips").innerHTML = e;
+        break;
+      }
+    }
+  </script>
+</html>
