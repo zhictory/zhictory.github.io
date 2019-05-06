@@ -12,13 +12,18 @@ title: "字符编码"
 参考：
 > [前端开发中的字符编码详解](http://www.codeceo.com/article/front-dev-encoding.html)
 
+***
+
 1. ASCII
 1. Unicode
 1. UTF-8
 
+就这篇文章整理了一个[思维导图](https://www.processon.com/mindmap/597aeb1ae4b06b35d2f9f5aa)
+
 参考：
 > [字符编码笔记：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
-![]({{ site.baseurl }}/assets/img/encoding.png)
+***
 
-这个思维导图来自[编码](https://www.processon.com/mindmap/597aeb1ae4b06b35d2f9f5aa)
+参考：
+> [WEB前端 [编码] 规则浅析](http://www.cnblogs.com/syfwhu/p/5125327.html#)

@@ -19,6 +19,10 @@ function jsonp(req) {
 
 点击[这里]({{ site.baseurl }}/demos/funny/jsonp/)体验一下。
 
+缺点：
+1. 因需使用 URL 引入资源，仅支持 get 请求
+1. 通过脚本执行，可能会被注入恶意代码
+
 参考：
 > [jsonp 的原理与实现](https://zhangguixu.github.io/2016/12/02/jsonp/)  
 > [JSONP](https://zh.wikipedia.org/wiki/JSONP)  

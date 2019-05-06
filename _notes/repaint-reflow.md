@@ -6,10 +6,6 @@ title: "重绘与重排"
 
 重绘与重排对页面性能有影响。
 
-下图展示了浏览器渲染页面的过程：
-
-![]({{ site.baseurl }}/assets/img/render.png)
-
 ***
 
 > Repaint is expensive in terms of performance, as it requires the engine to search through all elements to determine what is visible, and what should be displayed.  
