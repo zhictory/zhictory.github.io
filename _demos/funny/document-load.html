@@ -1,0 +1,102 @@
+---
+title: "判断文档加载"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>判断文档加载</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/loading.css" />
+    <style>
+      #j_img-wrap {
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      #j_img-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      判断文档加载主要有 load 事件、readystatechange 事件和 complete 属性，以图片加载为例：
+    </p>
+    <ol>
+      <li>
+        <p>readystatechange 事件，只支持 IE10 及以下</p>
+      </li>
+      <li>
+        <p>
+          complete 属性，但是如果图片加载失败，在 IE 中 complete 的值一直为
+          false，而其他浏览器最后会变为 true
+        </p>
+      </li>
+    </ol>
+    <p>请点击以下三个按钮体验一下效果。</p>
+    <p>
+      <input type="button" value="onload" />
+      <input type="button" value="onreadystatechange" />
+      <input type="button" value="complete" />
+    </p>
+    <div id="j_img-wrap"></div>
+  </body>
+  <script>
+    const imgWrap = document.querySelector("#j_img-wrap");
+    document.querySelectorAll("input").forEach(input => {
+      input.addEventListener(
+        "click",
+        e => {
+          const img = document.createElement("img");
+          imgWrap.innerHTML = "";
+          imgWrap.classList.add("loading");
+          img.src = "http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg";
+
+          switch (e.target.value) {
+            case "onload":
+              img.onload = () => {
+                imgWrap.classList.remove("loading");
+              };
+              imgWrap.appendChild(img);
+              break;
+            case "onreadystatechange":
+              if (!img.onreadystatechange) {
+                imgWrap.innerHTML = "当前浏览器不支持 onreadystatechange";
+                imgWrap.classList.remove("loading");
+              } else {
+                img.onreadystatechange = () => {
+                  if (
+                    img.readyState === "complete" ||
+                    img.readyState === "loaded"
+                  ) {
+                    imgWrap.classList.remove("loading");
+                  }
+                };
+              }
+              break;
+            case "complete":
+              const tid = setInterval(() => {
+                if (img.complete) {
+                  imgWrap.classList.remove("loading");
+                  clearInterval(tid);
+                }
+              }, 50);
+              imgWrap.appendChild(img);
+              break;
+            default:
+              break;
+          }
+        },
+        false
+      );
+    });
+  </script>
+</html>

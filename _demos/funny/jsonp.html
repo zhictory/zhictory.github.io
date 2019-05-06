@@ -1,0 +1,38 @@
+---
+title: "JSONP"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JSONP</title>
+  </head>
+  <body>
+    <p>请先启动 <a href="https://codesandbox.io/s/vm5oqn2x03" target="_blank">JSONP 服务</a>，再点击下方按钮：</p>
+    <p>
+      <input type="button" value="JSONP Request" />
+    </p>
+    <p id="j_tips"></p>
+  </body>
+  <script>
+    function jsonp(req) {
+      var script = document.createElement("script");
+      var url = req.url + "?callback=" + req.callback.name;
+      script.src = url;
+      document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    function callback(res) {
+      // response: callback({ data: "JSONP Response" })
+      document.querySelector("#j_tips").innerHTML = `You've gotten ${res.data}.`;
+    }
+    document.querySelector("input").addEventListener("click", () => {
+      jsonp({
+        url: "https://vm5oqn2x03.sse.codesandbox.io/",
+        callback: callback
+      });
+    });
+  </script>
+</html>

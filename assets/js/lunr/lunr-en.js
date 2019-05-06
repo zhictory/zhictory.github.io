@@ -40,10 +40,11 @@ $(document).ready(function() {
           }
         })
       });
+    var quickResult = result.slice(0, 15);
     resultdiv.empty();
-    resultdiv.prepend('<p class="results__found">'+result.length+' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
+    resultdiv.prepend('<p class="results__found">'+result.length+' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}. Display '+quickResult.length+' Result(s) at most.</p>');
+    for (var item in quickResult) {
+      var ref = quickResult[item].ref;
       if(store[ref].teaser){
         var searchitem =
           '<div class="list__item">'+
