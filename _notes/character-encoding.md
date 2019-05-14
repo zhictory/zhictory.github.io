@@ -1,5 +1,6 @@
 ---
 title: "字符编码"
+category: "mixing"
 ---
 
 1. URL 编码

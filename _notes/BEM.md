@@ -1,5 +1,6 @@
 ---
-title: BEM
+title: "BEM"
+category: "css"
 ---
 
 BEM 是一种 CSS 的命名方法，解决了模块化命名的问题，它一般由块（block）、元素（element）、修饰符（modifier）组成。

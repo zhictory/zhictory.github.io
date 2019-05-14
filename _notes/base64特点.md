@@ -1,5 +1,6 @@
 ---
 title: "base64 图像特点"
+category: "mixing"
 ---
 
 一个图像是否要转化为 base64，应该具体问题具体分析。

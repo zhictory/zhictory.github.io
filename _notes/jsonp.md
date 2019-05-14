@@ -1,5 +1,6 @@
 ---
 title: "JSONP"
+category: "javascript"
 ---
 
 JSONP 全称 JSON with Padding。

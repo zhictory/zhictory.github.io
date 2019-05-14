@@ -1,5 +1,6 @@
 ---
 title: "MySQL 安装教程"
+category: "mixing"
 ---
 
 安装的版本是 MySQL Community Server 8.0.11：https://dev.mysql.com/downloads/mysql/

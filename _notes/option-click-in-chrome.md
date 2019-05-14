@@ -1,5 +1,6 @@
 ---
 title: "Chrome 下的 option 点击事件"
+category: "javascript"
 ---
 
 在 Chrome 下， select 下的 option 标签不支持 onclick 事件（使用 jQuery 的 `on('click',function(){})` 也不行），不明白原因是什么，而在 Firefox 下是支持的。

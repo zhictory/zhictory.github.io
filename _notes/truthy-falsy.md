@@ -1,5 +1,6 @@
 ---
 title: "Truthy 和 Falsy"
+category: "javascript"
 ---
 
 Truthy

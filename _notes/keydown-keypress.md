@@ -1,5 +1,6 @@
 ---
 title: "keydown 和 keypress"
+category: "javascript"
 ---
 
 1. 当按键被按下时, 发送 keydown 事件。

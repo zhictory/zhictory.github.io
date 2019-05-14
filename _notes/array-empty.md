@@ -1,5 +1,6 @@
 ---
 title: "数组 empty 值"
+category: "javascript"
 ---
 
 有时会在数组中看到 empty 值，比如查看以下代码的输出：

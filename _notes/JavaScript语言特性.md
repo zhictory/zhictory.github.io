@@ -1,5 +1,6 @@
 ---
 title: "JavaScript 语言特性"
+category: "javascript"
 ---
 
 这个笔记是翻译 stackoverflow 上一个问题 [What should every JavaScript programmer know?](https://stackoverflow.com/questions/2628672/what-should-every-javascript-programmer-know#) 的一个高分答案。

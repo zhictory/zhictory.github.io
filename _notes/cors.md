@@ -1,5 +1,6 @@
 ---
 title: "CORS"
+category: "mixing"
 ---
 
 CORS，跨域资源共享，全称是 Cross-Origin Resource Sharing。

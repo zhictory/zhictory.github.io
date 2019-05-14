@@ -1,5 +1,6 @@
 ---
 title: "深入理解 this"
+category: "javascript"
 ---
 
 这个笔记记录的是文章：《深入浅出 JavaScript 关键词 -- this》。

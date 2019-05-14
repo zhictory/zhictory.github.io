@@ -1,5 +1,6 @@
 ---
 title: "toLocaleString"
+category: "mixing"
 ---
 
 toLocaleString 是一个根据特定语言环境（中文、日文等）而实现的 API，有很多浏览器（包括移动端）在实现带参数的 toLocaleString 的时候有兼容性问题，笔者感觉在实际项目中使用这个不太靠谱。

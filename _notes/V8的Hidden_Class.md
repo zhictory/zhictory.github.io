@@ -1,5 +1,6 @@
 ---
 title: "V8 的 Hidden Class"
+category: "mixing"
 ---
 
 ```

@@ -84,6 +84,14 @@ JavaScript 正则不支持的语法有：
 1. 如果非后顾断言 /(o)d\1/，引用 \1 放在捕获组 (o) 后 
 1. 如果是后顾断言 /(?<=\1d(o))/，引用 \1 放在捕获组 (o) 前
 
+### 匹配某个单词
+
+有个题目是将 HTML 标签里的属性去掉，除了 src。
+
+匹配一个单词可以用正向前瞻来匹配：`/(?=word).*/g`。
+
+所以我们可以用反向前瞻来排除 src：`/( (?!src=)([a-z]*)="(.|\s)*?")/g`。
+
   [1]: https://github.com/qdlaoyao/js-regex-mini-book/raw/master/JavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%B7%E4%BD%A0%E4%B9%A6%EF%BC%881.1%E7%89%88%EF%BC%89.pdf
   [2]: https://github.com/qdlaoyao
   [3]: https://jex.im/regulex/#!flags=&re=

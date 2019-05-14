@@ -1,5 +1,6 @@
 ---
 title: "移动端 300ms 点击延迟"
+category: "javascript"
 ---
 
 问题由来：

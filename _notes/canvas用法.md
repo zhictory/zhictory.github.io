@@ -1,5 +1,6 @@
 ---
 title: "canvas 用法"
+category: "javascript"
 ---
 
 canvas 是一个需要 JavaScript 配合的 HTML5 标签。

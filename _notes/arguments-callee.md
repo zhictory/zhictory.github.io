@@ -1,5 +1,6 @@
 ---
 title: "arguments.callee"
+category: "javascript"
 ---
 
 callee 表示当前正在执行的函数，这个在匿名函数调用自身时很有用。

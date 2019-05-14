@@ -1,5 +1,6 @@
 ---
 title: "内存管理"
+category: "mixing"
 ---
 
 1. 内存管理的生命周期

@@ -1,5 +1,6 @@
 ---
 title: "与安全相关的 HTTP 响应头"
+category: "mixing"
 ---
 
 1. Strict-Transport-Security

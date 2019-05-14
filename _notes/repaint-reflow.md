@@ -1,5 +1,6 @@
 ---
 title: "重绘与重排"
+category: "mixing"
 ---
 
 重绘是 repaint，重排是 reflow。

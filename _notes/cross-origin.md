@@ -1,5 +1,6 @@
 ---
 title: "跨域技术"
+category: "mixing"
 ---
 
 1. [JSONP]({{ site.baseurl }}/notes/jsonp)

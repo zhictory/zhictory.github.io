@@ -1,5 +1,6 @@
 ---
 title: "await 和 async"
+category: "javascript"
 ---
 
 思考下面代码的输出：

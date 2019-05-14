@@ -1,5 +1,6 @@
 ---
 title: "PC 跳转移动端"
+category: "javascript"
 ---
 
 - navigator.userAgent

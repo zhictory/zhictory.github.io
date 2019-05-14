@@ -1,5 +1,6 @@
 ---
 title: "异步加载 script"
+category: "javascript"
 ---
 
 默认情况 JavaScript 是同步加载的，JavaScript 的加载时阻塞的，后面的元素要等待 JavaScript 加载完毕后才能进行再加载。

@@ -1,5 +1,6 @@
 ---
 title: "enctype 和 Content-Type"
+category: "mixing"
 ---
 
 enctype 是 HTML 表单的属性，Content-Type 是 HTTP Header 里的属性。

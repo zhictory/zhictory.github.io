@@ -1,5 +1,6 @@
 ---
 title: "UV PV IP VV"
+category: "mixing"
 ---
 
 1. UV（Unique Visitor）：指通过互联网访问、浏览这个网页的自然人，访问网站的**一台电脑客户端（或者一个帐号）**为一个访客。一天内同个访客多次访问仅计算一个 UV。

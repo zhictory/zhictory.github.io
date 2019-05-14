@@ -1,5 +1,6 @@
 ---
 title: "map"
+category: "javascript"
 ---
 
 使用 map 处理数组时，数组元素的范围是在 callback 方法第一次调用之前就已经确定了。
