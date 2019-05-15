@@ -1,0 +1,90 @@
+---
+title: "checkbox select radio 常见操作"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>checkbox select radio 常见操作</title>
+  </head>
+  <body>
+    <h2>checkbox</h2>
+    <div>
+      <input name="checkAll" type="checkbox" />全选
+      <input name="subBox" type="checkbox" />项1
+      <input name="subBox" type="checkbox" />项2
+      <input name="subBox" type="checkbox" />项3
+      <input name="subBox" type="checkbox" />项4
+    </div>
+    <h2>radio</h2>
+    <div>
+      <input type="radio" name="radio" id="radio1" value="1" />1
+      <input type="radio" name="radio" id="radio2" value="2" />2
+      <input type="radio" name="radio" id="radio3" value="3" />3
+      <input type="radio" name="radio" id="radio4" value="4" />4
+      <p id="j_radio-tips">没有任何单选框被选中</p>
+      <p><input id="j_radio-btn" type="button" value="点我选中 2" /></p>
+    </div>
+    <h2>select</h2>
+    <div>
+      <select name="select" style="width: 100px;">
+        <option style="display: none;" value="0" disabled selected
+          >请选择五行</option
+        >
+        <option value="gold">金</option>
+        <option value="wood">木</option>
+        <option value="water">水</option>
+        <option value="fire">火</option>
+        <option value="soil">土</option>
+      </select>
+      <p id="j_select-tips"></p>
+      <p><input id="j_select-btn" type="button" value="点我选中水" /></p>
+    </div>
+  </body>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    // http://api.jquery.com/attr/
+    // https://blog.wenzhixin.net.cn/2013/05/24/jquery_attr_prop/
+    // 具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用 prop，其他的使用 attr
+    const $box = $("input[name='checkAll']");
+    const $subBox = $("input[name='subBox']");
+    const $radio = $("input[name='radio']");
+    const $select = $("[name=select]");
+    // checkbox
+    $box.on("click", function() {
+      $subBox.prop("checked", this.checked);
+    });
+    $subBox.on("click", function(e) {
+      $subBox.length === $("input[name='subBox']:checked").length
+        ? $box.prop("checked", true)
+        : $box.prop("checked", false);
+    });
+    // radio
+    $radio.on("change", e => {
+      $("#j_radio-tips").html(
+        $("input[name='radio']:checked").length == 0
+          ? `没有任何单选框被选中`
+          : `选中 ${$("input[name='radio']:checked").val()}`
+      );
+    });
+    $("#j_radio-btn").on("click", () => {
+      $("input[name='radio'][value='2']").prop("checked", true);
+      $radio.trigger("change");
+    });
+    // select
+    $select.on("change", e => {
+      $("#j_select-tips").html(
+        `选择了索引 ${
+          $select.get(0).selectedIndex
+        }，值 ${$select.val()}，内容 ${$select.find(":selected").text()}`
+      );
+    });
+    $("#j_select-btn").on("click", () => {
+      $select.val("water");
+      $select.trigger("change");
+    });
+  </script>
+</html>
