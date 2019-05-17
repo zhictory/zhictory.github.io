@@ -15,13 +15,15 @@ title: "浏览器窗口参数"
         width: 100vw;
         height: 100vh;
       }
-      ul,
-      .center {
+      .center,
+      .center ~ div {
         display: inline-block;
+      }
+      ul {
+        padding: 0;
       }
       li {
         list-style: none;
-        display: inline-block;
         margin-right: 50px;
         line-height: 1.5;
       }
@@ -29,6 +31,7 @@ title: "浏览器窗口参数"
         display: inline-block;
         vertical-align: top;
         margin: 100px;
+        padding: 30px;
         border: 20px solid #87cefa;
         width: 400px;
         height: 400px;
@@ -44,41 +47,52 @@ title: "浏览器窗口参数"
     </style>
   </head>
   <body>
-    <p>下面这个例子中，注意滚动条是属于 center 的</p>
-    <div id="center" class="center">center
+    <div id="center" class="center">
+      center
       <div id="inner" class="inner">inner</div>
     </div>
-    <ul>
-      <li id="center-item"></li>
-      <li id="inner-item"></li>
-    </ul>
+    <div>
+      <p>注意例子中的滚动条是属于 center 的</p>
+      <ul>
+        <li id="center-item"></li>
+        <li id="inner-item"></li>
+      </ul>
+    </div>
   </body>
   <script>
     const center = document.querySelector("#center");
     const inner = document.querySelector("#inner");
     document.querySelector("#center-item").innerHTML = `
-      center: <br/>
+      <b>center: </b><br/>
       clientTop: ${center.clientTop}<br/>
       offsetTop: ${center.offsetTop}<br/>
       scrollTop: ${center.scrollTop}<br/>
-      scrollWidth: ${center.scrollWidth}<br/>
-      offsetWidth: ${center.offsetWidth}<br/>
-      clientWidth: ${center.clientWidth}<br/>
       scrollHeight: ${center.scrollHeight}<br/>
-      offsetHeight: ${center.offsetHeight}<br/>
-      clientHeight: ${center.clientHeight}<br/>
+      offsetWidth: ${center.offsetWidth} (${
+      document.defaultView.getComputedStyle(center).width
+    }+${document.defaultView.getComputedStyle(center).paddingLeft}+${
+      document.defaultView.getComputedStyle(center).paddingRight
+    }+${document.defaultView.getComputedStyle(center).borderLeftWidth}+${
+      document.defaultView.getComputedStyle(center).borderRightWidth
+    })<br/>
+      clientWidth: ${center.clientWidth} (${
+      document.defaultView.getComputedStyle(center).width
+    }+${document.defaultView.getComputedStyle(center).paddingLeft}+${
+      document.defaultView.getComputedStyle(center).paddingRight
+    })<br/><br/>
     `;
     document.querySelector("#inner-item").innerHTML = `
-      inner: <br/>
+      <b>inner: </b><br/>
       clientTop: ${inner.clientTop}<br/>
-      offsetTop: ${inner.offsetTop}<br/>
+      offsetTop: ${inner.offsetTop} (${
+      center.offsetTop
+    }px+${document.defaultView.getComputedStyle(center).borderTopWidth}+${
+      document.defaultView.getComputedStyle(center).paddingTop
+    }+18px)<br/>
       scrollTop: ${inner.scrollTop}<br/>
-      scrollWidth: ${inner.scrollWidth}<br/>
+      scrollHeight: ${inner.scrollHeight}<br/>
       offsetWidth: ${inner.offsetWidth}<br/>
       clientWidth: ${inner.clientWidth}<br/>
-      scrollHeight: ${inner.scrollHeight}<br/>
-      offsetHeight: ${inner.offsetHeight}<br/>
-      clientHeight: ${inner.clientHeight}<br/>
     `;
     console.log("center");
     console.table({
@@ -86,12 +100,9 @@ title: "浏览器窗口参数"
       offsetTop: center.offsetTop,
       scrollTop: center.scrollTop,
       styleTop: center.style.top,
-      scrollWidth: center.scrollWidth,
-      offsetWidth: center.offsetWidth,
-      clientWidth: center.clientWidth,
       scrollHeight: center.scrollHeight,
-      offsetHeight: center.offsetHeight,
-      clientHeight: center.clientHeight
+      offsetWidth: center.offsetWidth,
+      clientWidth: center.clientWidth
     });
     console.log("inner");
     console.table({
@@ -99,12 +110,9 @@ title: "浏览器窗口参数"
       offsetTop: inner.offsetTop,
       scrollTop: inner.scrollTop,
       styleTop: inner.style.top,
-      scrollWidth: inner.scrollWidth,
-      offsetWidth: inner.offsetWidth,
-      clientWidth: inner.clientWidth,
       scrollHeight: inner.scrollHeight,
-      offsetHeight: inner.offsetHeight,
-      clientHeight: inner.clientHeight
+      offsetWidth: inner.offsetWidth,
+      clientWidth: inner.clientWidth
     });
   </script>
 </html>

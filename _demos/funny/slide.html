@@ -1,0 +1,241 @@
+---
+title: "简单的轮播图"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>简单的轮播图</title>
+    <style>
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .slide_list {
+        padding: 0px;
+        margin: 0px;
+        transition: all 500ms;
+        overflow: hidden;
+      }
+
+      .slide_item {
+        width: 800px;
+        text-align: center;
+        float: left;
+        list-style: none;
+      }
+
+      .main_div {
+        width: 800px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 10;
+        height: 1em;
+        line-height: 1;
+        font-size: 3em;
+        color: #f60;
+        cursor: pointer;
+        opacity: 0.35;
+        user-select: none;
+      }
+
+      .arrow:hover {
+        opacity: 1;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .slide_btn-list {
+        text-align: center;
+      }
+
+      .slide_btn {
+        display: inline-block;
+        margin: 0 5px;
+        border-radius: 50%;
+        border: 1px solid #f60;
+        width: 10px;
+        height: 10px;
+      }
+
+      .slide_btn:hover,
+      .slide_btn.on {
+        background-color: #f60;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_div">
+      <span class="arrow prev"><</span>
+      <span class="arrow next">></span>
+
+      <ul class="slide_list">
+        <li class="slide_item">
+          <img
+            src="https://image.shutterstock.com/image-photo/female-bonobo-baby-sitting-on-260nw-1051536416.jpg"
+          />
+        </li>
+        <li class="slide_item">
+          <img
+            src="https://image.shutterstock.com/image-photo/elephant-on-sunset-national-park-260nw-1182593230.jpg"
+          />
+        </li>
+        <li class="slide_item">
+          <img
+            src="https://image.shutterstock.com/image-photo/great-tiger-male-nature-habitat-260nw-696476371.jpg"
+          />
+        </li>
+        <li class="slide_item">
+          <img
+            src="https://image.shutterstock.com/image-photo/redeyed-tree-frog-agalychnis-callidryas-260nw-558680770.jpg"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide_btn-list">
+      <div class="slide_btn"></div>
+      <div class="slide_btn"></div>
+      <div class="slide_btn"></div>
+      <div class="slide_btn"></div>
+    </div>
+  </body>
+  <script>
+    class Slide {
+      constructor(option) {
+        this.bd = option.bd || ".slide .bd";
+        this.hd = option.hd || ".slide .hd";
+        this.prev = option.prev || ".slide .prev";
+        this.next = option.next || ".slide .next";
+        this.page = option.page || ".slide .page";
+        this.timer = null;
+        this.count = 0;
+        this.backward = false;
+        this.bd_target = document.querySelector(this.bd);
+        this.hd_target = document.querySelectorAll(this.hd);
+        this.prev_target = document.querySelector(this.prev);
+        this.next_target = document.querySelector(this.next);
+        this.page_target = document.querySelectorAll(this.page);
+        this.HD_WIDTH = this.hd_target[0].offsetWidth;
+      }
+
+      slide() {
+        this.timer = setInterval(() => {
+          if (this.backward === false) {
+            this.count++;
+            this.slideHandler();
+            if (this.count >= this.hd_target.length - 1) {
+              this.count = this.hd_target.length - 1;
+              this.backward = true;
+            }
+          } else {
+            this.count--;
+            this.slideHandler();
+            if (this.count <= 0) {
+              this.count = 0;
+              this.backward = false;
+            }
+          }
+          this.triggerSlideBtn();
+        }, 3000);
+      }
+
+      triggerSlideBtn(index = this.count) {
+        Array.from(this.page_target).forEach((element, key) => {
+          key === index
+            ? element.classList.add("on")
+            : element.classList.remove("on");
+        });
+      }
+
+      slideHandler(index = this.count) {
+        this.bd_target.style.transform = "translate(" + -this.HD_WIDTH * index + "px)";
+      }
+
+      init() {
+        // 设置宽度
+        this.bd_target.style.width = `${this.hd_target.length *
+          this.hd_target[0].clientWidth}px`;
+
+        // prev
+        this.prev_target.onmouseover = () => {
+          clearInterval(this.timer);
+        };
+        this.prev_target.onmouseout = () => {
+          this.slide();
+        };
+        this.prev_target.onclick = () => {
+          if (--this.count < 0) {
+            this.count = this.hd_target.length - 1;
+          }
+          this.slideHandler();
+          this.triggerSlideBtn();
+        };
+
+        // next
+        this.next_target.onmouseover = () => {
+          clearInterval(this.timer);
+        };
+        this.next_target.onmouseout = () => {
+          this.slide();
+        };
+        this.next_target.onclick = () => {
+          if (++this.count > this.hd_target.length - 1) {
+            this.count = 0;
+          }
+          this.slideHandler();
+          this.triggerSlideBtn();
+        };
+
+        // page
+        for (let i = 0; i < this.page_target.length; i++) {
+          this.page_target[i].onmouseover = () => {
+            clearInterval(this.timer);
+            this.triggerSlideBtn(i);
+            if (i === this.hd_target.length) {
+              this.backward = true;
+            }
+            if (i === 0) {
+              this.backward = false;
+            }
+            this.count = i;
+            this.slideHandler(i);
+          };
+          this.page_target[i].onmouseout = () => {
+            this.slide();
+          };
+        }
+        this.triggerSlideBtn(0);
+        this.slide();
+      }
+    }
+
+    const slide = new Slide({
+      bd: ".slide_list",
+      hd: ".slide_item",
+      prev: ".prev",
+      next: ".next",
+      page: ".slide_btn"
+    });
+
+    slide.init();
+  </script>
+</html>
