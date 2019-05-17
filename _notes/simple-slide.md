@@ -19,3 +19,6 @@ category: "mixing"
 1. 手动轮播时要取消基础第 2 步
 
 点击[这里]({{ site.baseurl }}/demos/funny/slide/)体验一下
+
+参考：
+> [十五分钟用JavaScript基础写一个图片轮播效果 + 思路详解](https://www.jianshu.com/p/b7150b071684)
