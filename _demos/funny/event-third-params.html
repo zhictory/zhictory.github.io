@@ -114,10 +114,10 @@ title: "事件监听第三个参数"
     function highlightHandler(e) {
       highlight(e.currentTarget, getTimeout());
     }
-    function highlight(target, timeout) {
+    function highlight(target, timeoutLength) {
       tid = setTimeout(() => {
         target.classList.add("highlight");
-      }, (timeout - 1) * 500);
+      }, (timeoutLength - 1) * 500);
     }
     function getTimeout() {
       timeout.push(1);
