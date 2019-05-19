@@ -12,12 +12,14 @@ title: "Vue Demo"
   </head>
   <body>
     <p>这个 Demo 非 single-file components</p>
-    <div id="app">{{ message }}</div>
+    <hr>
+    <div id="main">${ message }</div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
     var app = new Vue({
-      el: "#app",
+      delimiters: ['${', '}'], // 因为 vue 的模板语法大括号与 liquid 的冲突
+      el: "#main",
       data: {
         message: "Hello Vue!"
       }
