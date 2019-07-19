@@ -6,6 +6,10 @@ permalink: /about
 
 ![]({{ site.baseurl }}/assets/img/onepiece.jpg)
 
-“想要的东西我们自己靠力量夺取”
+“想要的东西我们自己靠力量夺取” {{ site.time | date: '%Y-%m-%d' }}
 
-{{ site.time | date: '%Y-%m-%d' }}
+学习讲究一个思想 2019-6-11
+
+我只知道一件事，那就是我一无所知 2018-06-03
+
+do not repeat youself 2017-03-15
