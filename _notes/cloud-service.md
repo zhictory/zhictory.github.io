@@ -1,6 +1,6 @@
 ---
 title: "云服务的分类"
-category: "mixing"
+category: "mixin"
 ---
 
 1. IaaS：基础设施服务，Infrastructure-as-a-service

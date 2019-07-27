@@ -1,6 +1,6 @@
 ---
 title: "前端性能优化"
-category: "mixing"
+category: "mixin"
 ---
 
 > [原文：Front-End Performance Checklist 2019](https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/)  

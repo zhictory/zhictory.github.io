@@ -1,6 +1,6 @@
 ---
 title: "编写 npm package"
-category: "mixing"
+category: "mixin"
 ---
 
 [官网教程][1]

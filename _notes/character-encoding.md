@@ -1,6 +1,6 @@
 ---
 title: "字符编码"
-category: "mixing"
+category: "mixin"
 ---
 
 1. URL 编码

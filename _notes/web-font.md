@@ -1,6 +1,6 @@
 ---
 title: "Web 字体"
-category: "mixing"
+category: "mixin"
 ---
 
 - TrueType (.ttf)  

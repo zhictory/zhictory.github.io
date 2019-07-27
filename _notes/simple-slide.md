@@ -1,6 +1,6 @@
 ---
 title: "简单轮播图"
-category: "mixing"
+category: "mixin"
 ---
 
 思路如下：

@@ -1,6 +1,6 @@
 ---
 title: "TCP 连接"
-category: "mixing"
+category: "mixin"
 ---
 
 TCP 连接需要三次握手（客户端和服务端加起来共发送三个包），TCP 断开需要四次挥手（客户端和服务端加起来共发送四个包）

@@ -1,6 +1,6 @@
 ---
 title: "浏览器渲染机制"
-category: "mixing"
+category: "mixin"
 ---
 
 下图展示了浏览器渲染页面的过程：

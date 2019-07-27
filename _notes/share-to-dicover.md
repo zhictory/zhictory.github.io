@@ -1,6 +1,6 @@
 ---
 title: "分享到朋友圈"
-category: "mixing"
+category: "mixin"
 ---
 
 方法：

@@ -1,6 +1,6 @@
 ---
 title: "从浏览器输入 URL 发生什么"
-category: "mixing"
+category: "mixin"
 ---
 
 浏览器查询 DNS 并获得域名对应的 IP 地址 > 浏览器发送请求到服务器 > 返回数据并渲染 HTML 页面

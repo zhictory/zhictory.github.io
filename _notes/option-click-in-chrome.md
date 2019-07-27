@@ -1,5 +1,5 @@
 ---
-title: "Chrome 下的 option 点击事件"
+title: "Chrome option 点击"
 category: "javascript"
 ---
 

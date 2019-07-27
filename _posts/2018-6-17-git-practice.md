@@ -300,3 +300,13 @@ git fsck --lost-found
 ```
 
 删了 commit 后，并不是真正的删除，而是 Git 把它变成了悬空对象（dangling commit）。我们只要把这悬空对象找出来，用 git rebase 也好，用 git merge 也好，就能把它们给恢复。
+
+### 27. 警告 LF 变为 CRLF
+
+文本文件所使用的换行符，在不同的系统平台上是不一样的。UNIX/Linux 使用的是 0x0A（LF），DOS/Windows 使用的是 0x0D0A（CRLF）。
+
+跨平台协作开发是常有的，不统一的换行符确实对跨平台的文件交换带来了麻烦。在不同平台上，换行符发生改变时，Git 会认为整个文件被修改，不能正确反映本次的修改。
+
+还好 Git 在设计时就考虑了这一点，提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符。
+
+> [Git 多平台换行符问题(LF or CRLF)](http://blog.konghy.cn/2017/03/19/git-lf-or-crlf/)

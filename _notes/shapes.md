@@ -1,6 +1,6 @@
 ---
 title: "JavaScript 引擎的 Shapes"
-category: "mixing"
+category: "mixin"
 ---
 
 在 JS 学习阶段，我们会执着于思考如下几种创建对象方式的异同：

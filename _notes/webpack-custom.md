@@ -1,6 +1,6 @@
 ---
 title: "webpack 笔记"
-category: "mixing"
+category: "mixin"
 ---
 
 下面是阅读《使用 webpack 定制前端开发环境》的笔记：

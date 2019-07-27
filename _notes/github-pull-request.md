@@ -1,6 +1,6 @@
 ---
 title: "Github Pull Request"
-category: "mixing"
+category: "mixin"
 ---
 
 ![](https://raw.githubusercontent.com/youngsterxyf/youngsterxyf.github.com/master/assets/uploads/pics/fork-pull-request.jpeg)

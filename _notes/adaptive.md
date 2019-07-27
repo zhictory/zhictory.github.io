@@ -1,6 +1,6 @@
 ---
 title: "自适应方案"
-category: "mixing"
+category: "mixin"
 ---
 
 这里的自适应是指 PC 端和移动端共用一套代码，页面随着屏幕的缩放展示相应的效果。
