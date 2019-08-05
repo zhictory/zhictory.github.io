@@ -1,0 +1,35 @@
+---
+title: "条纹文字"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>条纹文字</title>
+    <style>
+      body {
+        background: #000;
+      }
+      /* 条纹是属于背景的，但如果将文字镂空就会形成条纹文字 */
+      div {
+        font-size: 100px;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: repeating-linear-gradient(
+          90deg,
+          #c02c28,
+          #c02c28 10px,
+          #fff 10px,
+          #fff 20px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div>Spider Man</div>
+  </body>
+</html>
