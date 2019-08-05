@@ -6,9 +6,11 @@ Git 是分布式版本控制系统（Distributed Version Control System，简称
 
 > 在分布式版本控制系统中，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。 这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。 因为每一次的克隆操作，实际上都是一次对代码仓库的完整备份。
 
+![]({{ site.baseurl }}/assets/img/git-practice/remote.png)
+
 以下是笔者在使用 Git 过程中遇到的问题和解决方法。
 
-### 1. git push 的时候出现：`fatal: HttpRequestException encountered`
+### 1. HttpRequestException encountered
 
 GitHub 从 2018 年 2 月 1 日起禁用 TLSv1 和 TLSv1.1，必须更新 windows 的 Git 凭证管理器，[详情点击](https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/tag/v1.14.0)
 
@@ -37,8 +39,6 @@ git merge --abort
 
 ### 5. 跟远程仓库相关的命令
 
-使用 `git remote -h` 查看。
-
 比如公司换了 Git 托管服务商，我 push 不上去，有可能是因为被修改了 remote，解决如下：
 
 ```shell
@@ -54,21 +54,21 @@ git remote add origin URL
 
 ### 6. 我在 `git add` 时使用 ctrl+c 强制取消后，再 `git reset` 时报错：`fatal: Unable to create 'XXX/.git/index.lock’: File exists.`
 
-[Git – fatal: Unable to create 'XXX/.git/index.lock’: File exists.的解决办法](http://lhdst-163-com.iteye.com/blog/1982923)
-
 [What does the .git/index.lock file actually do?](https://stackoverflow.com/questions/20268300/what-does-the-git-index-lock-file-actually-do)
+
+在 .git 同级目录删除 index.lock。
 
 ```shell
 rm -f .git/index.lock
 ```
 
-### 7. 怎么取消对已跟踪文件的跟踪？
+### 7. 怎么文件从缓存里清除？
+
+删除文件然后在 .gitignore 里添加该文件。
 
 ```shell
 git rm --cached <file>
 ```
-
-然后在 .gitignore 里添加该文件。
 
 ### 8. 我开发的分支 task 落后 dev 好多，怎么办？
 
@@ -98,8 +98,6 @@ git rebase -i HEAD~3 // 修改多个提交信息
 > 再次记住这是一个变基命令，在 HEAD~3..HEAD 范围内的每一个提交都会被重写，无论你是否修改信息。不要涉及任何已经推送到中央服务器的提交，这样做会产生一次变更的两个版本，因而使他人困惑。
 
 ### 11. 跟本地分支有关的命令
-
-使用 `git branch -h` 查看。
 
 比如本地分支名写错了：
 
@@ -203,7 +201,7 @@ rm <file>
 git commit -am <message>
 ```
 
-### 19. 想去掉 `add` 和 `commit` 之前的改动怎么办？
+### 19. 删除 untracked 的文件
 
 删除 untracked files
 ```shell
@@ -245,8 +243,6 @@ rebase 译为变基，即改变基底，一般操作：
 ```shell
 git checkout dev
 git rebase master
-git checkout master
-git merge dev
 ```
 
 > 变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。
@@ -310,3 +306,12 @@ git fsck --lost-found
 还好 Git 在设计时就考虑了这一点，提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符。
 
 > [Git 多平台换行符问题(LF or CRLF)](http://blog.konghy.cn/2017/03/19/git-lf-or-crlf/)
+
+### 26. 想知道我在提交前本地都做了什么操作
+
+git reflog 显示了已完成的所有事情的列表。然后它允许你使用 Git 的神奇时间旅行技能回到过去的任何一点。
+
+```shell
+git reflog
+git reset HEAD@{index}
+```
