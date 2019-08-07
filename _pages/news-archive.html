@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: normal
 title: "Awesome News"
 permalink: /news-archive/
 author_profile: false
@@ -18,13 +18,67 @@ author_profile: false
     max-width: 70%;
     vertical-align: top;
   }
+  .preview {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    background: #fff;
+  }
+  .preview a {
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .preview a::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .preview img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+  }
 </style>
 
-<ol class="news-list">
-  {% for news in site.data.news.news %}
+<div class="news-list">
+  {% for news in site.data.news.news %} {% if news.preview == true %}
+  <div class="preview">
+    <!-- TODO iframe 效果不明显 -->
+    <!-- <iframe
+      src="{{ news.url }}"
+      allowfullscreen="allowfullscreen"
+      frameborder="0"
+      scrolling="no"
+      sandbox="allow-forms allow-popups allow-scripts allow-same-origin"
+    ></iframe> -->
+    <!-- TODO Logo 参差不齐 -->
+    <!-- <a href="{{ news.url }}" target="_blank"
+      ><img src="{{ news.logo }}" alt="{{ news.title }}"
+    /></a> -->
+    <a href="{{ news.url }}" target="_blank">{{ news.title }}</a>
+  </div>
+  {% endif %} {% endfor %}
+</div>
+
+<ul class="news-list">
+  {% for news in site.data.news.news %} {% if news.preview == false %}
   <li class="news-item">
     <a target="_blank" href="{{ news.url }}">{{ news.title }}</a>
     <span>{{ news.date }} {{ news.from }}</span>
   </li>
-  {% endfor %}
-</ol>
+  {% endif %} {% endfor %}
+</ul>
