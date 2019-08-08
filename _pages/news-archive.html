@@ -55,7 +55,7 @@ author_profile: false
 </style>
 
 <div class="news-list">
-  {% for news in site.data.news.news %} {% if news.preview == true %}
+  {% for news in site.data.news.news %} {% if news.preview and news.enable %}
   <div class="preview">
     <!-- TODO iframe 效果不明显 -->
     <!-- <iframe
@@ -75,7 +75,7 @@ author_profile: false
 </div>
 
 <ul class="news-list">
-  {% for news in site.data.news.news %} {% if news.preview == false %}
+  {% for news in site.data.news.news %} {% if news.preview == false and news.enable %}
   <li class="news-item">
     <a target="_blank" href="{{ news.url }}">{{ news.title }}</a>
     <span>{{ news.date }} {{ news.from }}</span>
