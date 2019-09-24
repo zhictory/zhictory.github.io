@@ -6,7 +6,5 @@ main:
     url: /demo-archive/
   - title: "Awesome News"
     url: /news-archive/
-  - title: "Snippets"
-    url: https://github.com/zhictory/snippet/blob/master/snippet.js
   - title: "About"
     url: /about
