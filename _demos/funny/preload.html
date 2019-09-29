@@ -1,0 +1,26 @@
+---
+title: "资源预加载"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>资源预加载</title>
+  </head>
+  <body>
+    <p>请先清除浏览器缓存再点击链接</p>
+    <div><a href="/demos/funny/preload-towards.html">go to preload-towards.html</a></div>
+    <script src="{{ site.snippet.base_url }}{{
+        site.snippet.script_path
+      }}/preload.js"></script>
+    <script>
+      preload([
+        "https://cdn.pixabay.com/photo/2019/09/26/12/16/mountains-4505793_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2019/09/23/20/47/mallard-4499691_960_720.jpg",
+      ]);
+    </script>
+  </body>
+</html>

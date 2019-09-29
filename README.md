@@ -7,3 +7,9 @@ Git Style Guide
 - feat: add posts or update posts
 - style: formatting, missing semi colons, etc; no post change
 - chore: updating build tasks, package manager configs, etc
+
+开发环境使用：
+
+```
+bundle exec jekyll serve --config _config_dev.yml
+```
