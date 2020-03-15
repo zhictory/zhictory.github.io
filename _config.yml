@@ -27,7 +27,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 snippet:
-  base_url               : "https://unpkg.com/rdf-snippet@2.0.1"
+  base_url               : "https://cdn.jsdelivr.net/gh/zhictory/snippet"
   script_path            : "/script"
   style_path             : "/style"
 # breadcrumbs            : false # true, false (default)
