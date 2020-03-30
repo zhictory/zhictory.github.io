@@ -18,15 +18,12 @@ title: "打印方案"
   </head>
   <body>
     <p>
-      一般情况下，打印是直接调用
-      <input type="button" value="window.print" onclick="window.print()" />
-      即可，但这样打印的是页面的全部内容，有时人们只想要打印指定的内容，这时我们可以借用
-      iframe。
+      <input type="button" value="用 window.print 打印页面全部内容" onclick="window.print()" />
     </p>
     <p>
       <input
         type="button"
-        value="打印下方框内的内容"
+        value="只打印下方框内的内容"
         onclick="printByIframe(document.querySelector('[name=template]').value)"
       />
     </p>
@@ -35,7 +32,6 @@ title: "打印方案"
 <div id="tpl-app">Hello World</div>
       </textarea>
     </p>
-    <p>如果需要加样式，也需要在 iframe 里渲染。</p>
     <p>
       <input
         type="button"
@@ -55,28 +51,11 @@ title: "打印方案"
       </textarea>
     </p>
     <p>
-      如果出现了提示：<q>请停用类似 McAfee, AdBlock 等插件后重试打印</q
-      >，则说明当前浏览器使用的某些插件会阻止页面内 iframe
-      的打印行为，需要停用这些插件才能使用 ifrmae 方式打印。
-    </p>
-    <p>
-      由于浏览器打印行为没有异常的回调，所以尝试通过判断浏览器有没有触发
-      afterprint
-      事件来判断有没有异常，没有触发就是有异常，有触发就是能正常打印，从而通过这个事件来判断是否有插件阻止打印行为。
-    </p>
-    <p>
-      当然这个方法不严谨，也有可能不是 chrome
-      插件阻止了打印行为，是否使用这个方法需要读者自己斟酌。
-    </p>
-    <p>
-      至于页头页尾的一些自带信息，浏览器没有提供 API
-      隐藏，但我们可以下面的样式去掉
       <input
         type="button"
         value="去除页头页尾"
         onclick="printByIframe(document.querySelector('[name=template]').value, document.querySelector('[name=style_without_pageinfo]').value)"
       />
-      去掉之后可以用 HTML 自定义各种各样的信息，包括页码、日期等。
     </p>
     <p>
       <textarea name="style_without_pageinfo" id="" cols="30" rows="10">
@@ -92,13 +71,11 @@ body {
       </textarea>
     </p>
     <p>
-      对于一些需要分页的场景，我们同样可以用代码灵活实现
       <input
         type="button"
         value="分页打印"
         onclick="printByIframe(document.querySelector('[name=template_page]').value)"
       />
-      注意 page-break-before 和 page-break-after 只作用在块级元素上
     </p>
     <p>
       <textarea name="template_page" id="" cols="30" rows="10">

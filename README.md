@@ -1,12 +1,16 @@
-# About My Blog
+# 关于博客
 
-部分脚本是引用这个仓库 [snippet repo](https://github.com/zhictory/snippet).
+博客里的笔记部分是站内笔记，部分是引用有道云外链。主要以站内为主，因为有道云有时会因为敏感字汇无法通过审核，会影响知识分享。
 
-Git 提交规范 Git Style Guide
+Demo 里的部分脚本是引用我的另一个仓库 [snippet repo](https://github.com/zhictory/snippet).
+
+# Git 提交规范 Git Style Guide
 
 - feat: add posts or update posts
 - style: formatting, missing semi colons, etc; no post change
 - chore: updating build tasks, package manager configs, etc
+
+# 开发
 
 dev 环境使用 \_config_dev.yml
 
