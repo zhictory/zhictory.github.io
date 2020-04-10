@@ -9,6 +9,14 @@ title: CSS阻塞
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS阻塞</title>
     <script>
+      // https://segmentfault.com/a/1190000018277184 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时，所以这里设置 timeout 为 0，不会被 CSS 阻塞
+      setTimeout(() => {
+        alert(document.querySelector("#render").innerHTML.trim());
+        document.querySelector("#render").innerHTML =
+          "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请刷新页面重新看。";
+      }, 0);
+    </script>
+    <script>
       const beforeLoadStyle = new Date();
     </script>
     <link
@@ -53,11 +61,6 @@ title: CSS阻塞
       </table>
     </div>
     <script>
-      alert(document.querySelector("#render").innerHTML.trim());
-      document.querySelector("#render").innerHTML =
-        "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请刷新页面重新看。";
-    </script>
-    <script>
       document.querySelector(
         "#script-start"
       ).innerHTML = `加载前的时间：<b>${beforeLoadStyle}</b>`;
@@ -66,5 +69,6 @@ title: CSS阻塞
         "#script-end"
       ).innerHTML = `加载后的时间：<b>${afterLoadStyle}</b>`;
     </script>
+    
   </body>
 </html>
