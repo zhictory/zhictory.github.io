@@ -14,7 +14,7 @@ title: CSS阻塞
       setTimeout(() => {
         console.log(document.querySelector("#render").innerHTML.trim());
         document.querySelector("#render").innerHTML =
-          "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请刷新页面重新看。";
+          "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请降低网速后刷新页面重新看。";
       }, 0);
     </script>
     <script>
