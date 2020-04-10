@@ -14,14 +14,14 @@ title: "文件下载"
   <body>
     <p>把异步获取到的二进制流转化为可直接下载的链接</p>
     <p>
-      <input name="download-btn-1" type="button" value="Download by Ajax" />
+      <input name="download-btn-1" type="button" value="Download by Ajax 并且用 a 标签的方式打开" /> 用 a 标签的方式可以自定义文件名
     </p>
     <p>
       <input
         name="download-btn-2"
         type="button"
-        value="Download by Native XHR"
-      />
+        value="Download by Native XHR 并且直接新窗口打开"
+      /> 直接新窗口打开无法自定义文件名
     </p>
     <script>
       // 两种方式获取二进制流文件
@@ -41,7 +41,6 @@ title: "文件下载"
                   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
               });
               const objectURL = URL.createObjectURL(blob); // 关键
-              // 使用 a 标签打开，可自定义文件名
               const a = document.createElement("a");
               a.href = objectURL;
               a.download = jqXHR
@@ -68,7 +67,7 @@ title: "文件下载"
                     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 });
                 const objectURL = URL.createObjectURL(blob); // 关键
-                window.open(objectURL); // 直接打开链接，无法自定义文件名
+                window.open(objectURL);
                 URL.revokeObjectURL(objectURL);
               } else {
                 console.log("Request was unsuccessful" + xhr.status);

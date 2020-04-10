@@ -1,0 +1,70 @@
+---
+title: CSS阻塞
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS阻塞</title>
+    <script>
+      const beforeLoadStyle = new Date();
+    </script>
+    <link
+      href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 10px;
+      }
+      span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h5>CSS 加载是否会阻塞 DOM 树解析和渲染？</h5>
+    <div id="render">
+      现在在弹窗上看到这段话，说明已经完成 DOM 树解析。但页面上却没有显示这段话，说明还未完成渲染，这是因为 bootstrap.css 还在加载，阻塞了 DOM 树的渲染。
+    </div>
+    <hr />
+    <h5>CSS 加载是否会阻塞脚本执行？</h5>
+    <div style="margin: 10px 0; font-size: 12px;">
+      <div>加载 bootstrap.css 的过程：</div>
+      <div id="script-start"></div>
+      <div>加载中...</div>
+      <div id="script-end"></div>
+    </div>
+    <div>
+      从时间前后对比，可以看到<span>CSS 加载会阻塞脚本执行</span>。如果时间对比不明显，请降低网速后重试。参考<a href="/notes/browser-render/">浏览器渲染机制</a>了解更多。
+    </div>
+    <hr />
+    <h5>DOMContentLoaded 是否需要等待 CSS 加载完成？</h5>
+    <div>
+      <div>这里用两个 iframe 来对比</div>
+      <table style="margin-top: 10px;" border="1">
+        <thead><th>脚本放在样式加载前</th><th>样式加载前后都有脚本</th></thead>
+        <tbody>
+          <td><iframe src="/demos/funny/css-block-domcontentload-1/" frameborder="0" height="200"></iframe></td>
+          <td><iframe src="/demos/funny/css-block-domcontentload-2/" frameborder="0" height="200"></iframe></td>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      alert(document.querySelector("#render").innerHTML.trim());
+      document.querySelector("#render").innerHTML =
+        "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请刷新页面重新看。";
+    </script>
+    <script>
+      document.querySelector(
+        "#script-start"
+      ).innerHTML = `加载前的时间：<b>${beforeLoadStyle}</b>`;
+      const afterLoadStyle = new Date();
+      document.querySelector(
+        "#script-end"
+      ).innerHTML = `加载后的时间：<b>${afterLoadStyle}</b>`;
+    </script>
+  </body>
+</html>

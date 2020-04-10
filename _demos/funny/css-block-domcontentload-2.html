@@ -1,0 +1,33 @@
+---
+title: CSS阻塞DOMContentLoaded
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOMContentLoaded");
+      });
+    </script>
+    <link
+      href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 10px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.body.innerHTML +=
+        "请查看 Console，在页面渲染完成后才触发 DOMContentLoaded 事件，这是因为 CSS 加载阻塞了后面的脚本，从而阻塞了 DOMContentLoaded 事件，说明在这种情况下 DOMContentLoaded 需要等待 CSS 加载完成（实际上是等待后面脚本执行完成）";
+    </script>
+  </body>
+</html>

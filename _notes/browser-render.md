@@ -3,7 +3,7 @@ title: "浏览器渲染机制"
 category: "mixin"
 ---
 
-下图展示了浏览器渲染页面的过程：
+下图展示了浏览器（以 webkit 内核为例）渲染页面的过程：
 
 ![]({{ site.baseurl }}/assets/img/render.png)
 
