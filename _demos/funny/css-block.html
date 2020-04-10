@@ -9,9 +9,10 @@ title: CSS阻塞
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS阻塞</title>
     <script>
+      alert("请先打开 Console")
       // https://segmentfault.com/a/1190000018277184 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时，所以这里设置 timeout 为 0，不会被 CSS 阻塞
       setTimeout(() => {
-        alert(document.querySelector("#render").innerHTML.trim());
+        console.log(document.querySelector("#render").innerHTML.trim());
         document.querySelector("#render").innerHTML =
           "现在在页面上看到这段话说明 bootstrap.css 已经加载完成，DOM 树渲染也完成了。<br/>从而说明<span> CSS 加载不会阻塞 DOM 树解析，但会阻塞 DOM 树渲染</span>。如果没看清楚请刷新页面重新看。";
       }, 0);
@@ -51,7 +52,7 @@ title: CSS阻塞
     <hr />
     <h5>DOMContentLoaded 是否需要等待 CSS 加载完成？</h5>
     <div>
-      <div>这里用两个 iframe 来对比</div>
+      <div>这里用两个 iframe 来对比，没看清楚可以右键 iframe 选择 Reload frame。</div>
       <table style="margin-top: 10px;" border="1">
         <thead><th>脚本放在样式加载前</th><th>样式加载前后都有脚本</th></thead>
         <tbody>
