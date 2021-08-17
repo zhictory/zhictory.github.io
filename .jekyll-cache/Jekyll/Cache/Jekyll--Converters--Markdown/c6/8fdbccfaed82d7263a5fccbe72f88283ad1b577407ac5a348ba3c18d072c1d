@@ -1,4 +1,0 @@
-I"�<ol>
-  <li>table 系列 display 值中，margin-* 只适用于 table-caption, table, inline-table，其余的都不适用，但 margin-* 对非 table 系列都适用。</li>
-</ol>
-:ET

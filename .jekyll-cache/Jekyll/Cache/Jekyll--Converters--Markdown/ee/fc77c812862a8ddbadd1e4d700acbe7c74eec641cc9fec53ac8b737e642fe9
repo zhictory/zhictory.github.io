@@ -1,6 +1,0 @@
-I"g<p>方法：</p>
-<ol>
-  <li>获取页面第一张不小于 300x300 的图片 <code class="language-plaintext highlighter-rouge">&lt;div style="display:none"&gt;&lt;img src="/assets/favicon.jpg" alt=""&gt;&lt;/div&gt;</code></li>
-  <li>获取 title <code class="language-plaintext highlighter-rouge">&lt;title&gt;Randolf's Blog&lt;/title&gt;</code></li>
-</ol>
-:ET

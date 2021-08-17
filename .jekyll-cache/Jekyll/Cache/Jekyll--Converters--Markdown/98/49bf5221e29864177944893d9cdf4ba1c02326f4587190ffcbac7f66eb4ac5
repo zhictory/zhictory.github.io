@@ -1,2 +1,0 @@
-I"�<p>一般情况下，打印是直接调用 <code class="language-plaintext highlighter-rouge">window.print</code> 即可，但这样打印的是页面的全部内容，有时人们只想要打印指定的内容，这时可以借助 iframe。</p>
-:ET
