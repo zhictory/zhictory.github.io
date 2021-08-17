@@ -1,0 +1,14 @@
+I"�<p>学 line-height 时经常提到的 leading 是什么呢？</p>
+
+<p>我们可以将它翻译为行间距或者行距，<a href="http://www.w3.org/TR/CSS21/visudet.html#leading" title="文档">文档</a>解释如下：</p>
+
+<blockquote>
+  <p>Still for each glyph, determine the leading L to add, where L = ‘line-height’ - AD.</p>
+</blockquote>
+
+<p>其中，L 是 leading，A 是 ascender，D 是 descender，AD 就是 font-size，也就是：leading = line-height - font-size。</p>
+
+<p>为了更直观了解 leading，再来看看来自《<a href="http://www.ituring.com.cn/article/18076">你未必知道的CSS故事：揭开leading的面纱</a>》的一张图。</p>
+
+<p><img src="/assets/img/leading.jpg" alt="" /></p>
+:ET

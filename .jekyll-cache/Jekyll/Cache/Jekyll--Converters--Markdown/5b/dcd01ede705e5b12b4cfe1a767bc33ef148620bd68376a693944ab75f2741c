@@ -1,0 +1,28 @@
+I"�<p>思路如下：</p>
+
+<p>基础：用动画 + 定时器实现自动轮播</p>
+<ol>
+  <li>动态设置图片的 transform 使图片平移，模拟轮播</li>
+  <li>用 setInterval 实现无限轮播</li>
+</ol>
+
+<p>加强：用 mouse event 实现手动轮播</p>
+<ol>
+  <li>点击箭头或者页数的时候，调用基础第 1 步</li>
+</ol>
+
+<p>注意：</p>
+<ol>
+  <li>图片平移距离是基础值 * 平移倍数，基础值是一张图片的宽度，平移倍数是当前图片索引</li>
+  <li>自动轮播到尽头时要换方向，用一个变量控制</li>
+  <li>手动轮播到尽头时不用换方向，进行循环轮播</li>
+  <li>手动轮播时要取消基础第 2 步</li>
+</ol>
+
+<p>点击<a href="/demos/funny/slide/">这里</a>体验一下</p>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="https://www.jianshu.com/p/b7150b071684">十五分钟用JavaScript基础写一个图片轮播效果 + 思路详解</a></p>
+</blockquote>
+:ET

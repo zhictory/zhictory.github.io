@@ -1,0 +1,5 @@
+I";<p>```
+function Class(val) {
+  this.prop = val;
+}</p>
+:ET

@@ -1,0 +1,37 @@
+I"J<p>ES6 被称为 ES2015 ，ES7 被称为 ES2016 。TC-39 小组将来所有的 ES 版本都会使用这个以年份为基础的命名系统。更频繁的发布意味着每个新的 ES 版本拥有的新特性会比 ES6 少得多。</p>
+
+<h2 id="es6es2015">ES6（ES2015）</h2>
+
+<ol>
+  <li><a href="https://mubu.com/doc/3c34Yt920U">块级绑定</a>：块级声明也就是让所声明的变量在指定块的作用域外无法被访问。</li>
+  <li><a href="https://mubu.com/doc/3P8c0NrFsU">字符串与正则</a>：ES6 的创造者加强了字符串与正则表达式，为它们添加了新的能力，并补充了一些长期缺失的功能。</li>
+  <li><a href="https://mubu.com/doc/3P3E-kFZKU">增强的数组功能</a>： ES6 也添加了很多功能来继续强化数组，例如新的创建方法、几个有用的便捷方法，还增加了创建类型化数组（typed array）的能力。</li>
+  <li><a href="https://mubu.com/doc/1SO6-GmBBU">扩展的对象功能</a>：随着 JS 应用复杂度的增长，在 JS 程序中所使用的对象的平均数也在持续增长，因此更有效使用对象就变得更加必要。</li>
+  <li><a href="https://mubu.com/doc/2ExlOG9xsU">函数</a>：ES6 之前的版本经常需要用大量代码来实现非常基本的功能。ES6 在 ES5 函数基础上实现了不少增量改进，让 JS 更加强大，同时编程错误也更少。</li>
+  <li><a href="https://mubu.com/doc/11vwg2GpsU">解构赋值</a>：我们时常要定义对象与数组，然后有条不紊地从这些结构中提取出相关信息。为了简化提取信息的任务， ES6 新增了解构（ destructuring ），这是将一个数据结构分解为更小的部分的过程。</li>
+  <li><a href="https://mubu.com/doc/3ErOLQGXBU">Symbol</a>：在 Symbol 诞生之前，将字符串作为属性名称导致属性可以被轻易访问。而“私有名称”意味着开发者可以创建非字符串类型的属性名称，由此可以防止使用常规手段来探查这些名称。虽然 Symbol 类型的属性不是真正的私有属性，但它们难以被开发者无意修改，因此非常适用于需要提供一定层次保护的场合。</li>
+  <li><a href="https://mubu.com/doc/2P9c1cW7aU">Set 和 Map</a>：数组在 JS 中的使用正如其他语言的数组一样，但缺少更多类型的集合导致数组也经常被当作队列与栈来使用。数组只使用了数值型的索引，而若需要有非数值型的索引，开发者便会使用非数组的对象，用它们来定制实现 Set 与 Map，ES6 为 JS 添加了 Set 与 Map。</li>
+  <li><a href="https://mubu.com/doc/I6GK9eZKU">Promise 与异步编程</a>：随着越来越多的程序开始使用异步编程，事件与回调函数已不足以支持开发者的所有需求。Promise 是异步编程的另一种选择，它的工作方式类似于在其他语言中进行延迟并在将来执行作业。</li>
+  <li><a href="https://mubu.com/doc/2c44YUofaU">迭代器与生成器</a>：许多编程语言都将迭代数据的方式从使用 for 循环转变到使用迭代器对象， for 循环需要初始化变量以便追踪集合内的位置，而迭代器则以编程方式返回集合中的下一个项。</li>
+  <li><a href="https://mubu.com/doc/1ge6gHSCUU">类</a>：ES6 的类让 JS 中的继承变得更简单，起初是作为 ES5 传统继承模型的语法糖，但添加了许多特性来减少错误。</li>
+  <li><a href="https://mubu.com/doc/2I0aGQKMLU">代理和反射</a>：语言通过代理（ proxy ）暴露了在对象上的内部工作，代理是一种封装，能够拦截并改变 JS 引擎的底层操作。代理允许你为一些 JS 底层操作自行定义非常规行为，因此你就可以通过代理陷阱来复制 JS 内置对象的所有行为。</li>
+  <li><a href="https://mubu.com/doc/1LCQ741FTU">模块封装</a>：其他语言使用包（ package ）之类的概念来定义代码的作用域，然而在 ES6 之前，一个应用的每个 JS 文件所定义的所有内容都由全局作用域共享。当 web 应用变得更加复杂、需要使用越来越多的 JS 代码时，这种方式导致了诸多问题，例如命名冲突、安全问题等。 ES6 的设计目标之一就是要解决作用域问题，并让 JS 应用变得更有条理。</li>
+  <li><a href="https://mubu.com/doc/3AoD1dZpGU">处理整型</a>：JS 使用 IEEE 754 编码系统来表示整型与浮点型，多年以来这引发了很多混乱。 ES6 力图解决这方面的问题，让整型变得更易识别、更易处理，如识别整型、安全的整型。</li>
+  <li><a href="https://mubu.com/doc/3AoD1dZpGU">新的数学方法</a>：ES6 的游戏与图形的新重点引导它将类型化数组（ typed array ）引入了 JS ，同时也让它意识到 JS 引擎应当更有效率地进行许多数学计算。</li>
+  <li><a href="https://mubu.com/doc/3AoD1dZpGU">规范化 __proto__</a>：使用 Object.getPrototypeOf() 和 Object.setPrototypeOf() 代替 __proto__。</li>
+</ol>
+
+<h2 id="es2016">ES2016</h2>
+
+<ol>
+  <li><a href="https://mubu.com/doc/3E550IxFGU">幂运算符</a>：虽然已经有 Math.pow() 方法可用于幂运算，然而 JS 也是在此方面只能调用方法而不能使用运算符的少数语言之一，并且一些开发者认为运算符可读性更强、更易于检查。</li>
+  <li><a href="https://mubu.com/doc/3E550IxFGU">Array.prototype.includes()</a>：此方法的规范未能赶上 ES6 的最后期限，于是最终它就进入了 ES2016 。</li>
+  <li><a href="https://mubu.com/doc/3E550IxFGU">函数作用域的严格模式</a>：ES6 仍然允许你使用 “use strict” 指令来指定严格模式，可以在全局作用域上，让所有代码运行在严格模式下；或用在函数作用域内，只有该函数会运行在严格模式下。后一种方式最终在 ES6 中成为了一个问题，这是由于参数可以用更加复杂的方式来定义，特别是在带有解构或默认值的情况下。</li>
+</ol>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="https://sagittarius-rev.gitbooks.io/understanding-ecmascript-6-zh-ver/content/">《Understanding ECMAScript 6》中文翻译</a></p>
+</blockquote>
+
+:ET

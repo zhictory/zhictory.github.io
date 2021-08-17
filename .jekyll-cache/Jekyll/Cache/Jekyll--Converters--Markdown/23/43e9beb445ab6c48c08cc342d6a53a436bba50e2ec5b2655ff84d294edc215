@@ -1,0 +1,105 @@
+I"�<ul>
+  <li>安装 Package Control 的代码：</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request,os,hashlib<span class="p">;</span> h <span class="o">=</span> <span class="s1">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="s1">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span><span class="p">;</span> pf <span class="o">=</span> <span class="s1">'Package Control.sublime-package'</span><span class="p">;</span> ipp <span class="o">=</span> sublime.installed_packages_path<span class="o">()</span><span class="p">;</span> urllib.request.install_opener<span class="o">(</span> urllib.request.build_opener<span class="o">(</span> urllib.request.ProxyHandler<span class="o">())</span> <span class="o">)</span><span class="p">;</span> by <span class="o">=</span> urllib.request.urlopen<span class="o">(</span> <span class="s1">'http://packagecontrol.io/'</span> + pf.replace<span class="o">(</span><span class="s1">' '</span>, <span class="s1">'%20'</span><span class="o">))</span>.read<span class="o">()</span><span class="p">;</span> dh <span class="o">=</span> hashlib.sha256<span class="o">(</span>by<span class="o">)</span>.hexdigest<span class="o">()</span><span class="p">;</span> print<span class="o">(</span><span class="s1">'Error validating download (got %s instead of %s), please try manual install'</span> % <span class="o">(</span>dh, h<span class="o">))</span> <span class="k">if </span>dh <span class="o">!=</span> h <span class="k">else </span>open<span class="o">(</span>os.path.join<span class="o">(</span> ipp, pf<span class="o">)</span>, <span class="s1">'wb'</span> <span class="o">)</span>.write<span class="o">(</span>by<span class="o">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>配置 JavaScript 代码编译：</li>
+</ul>
+
+<ol>
+  <li>先安装 Node.js</li>
+  <li>
+    <p>再在 ST3 里配置支持 JS 代码的编译（快捷键是 Ctrl+Shift+B）， 配置如下所示：</p>
+
+    <p>在 ST3 中，点击 Tools &gt; Build System &gt; New build system，打开一个文件并编辑：</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="nl">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"jsc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w"> </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.js"</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p>这行配置指定了这个 build 使用的命令是 jsc 。</p>
+
+    <p>所以如果你要使用 node，那么对应的这个文件应该写成：</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="nl">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"node"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w"> </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.js"</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>Markdown 插件</p>
+
+    <p>ST3 有关于 Markdown 的两个插件：</p>
+
+    <ol>
+      <li>MarkDown Editing 语法高亮</li>
+      <li>OmniMarkupPreviwer 实时预览</li>
+    </ol>
+
+    <p>参考：</p>
+    <blockquote>
+      <p><a href="http://www.jianshu.com/p/aa30cc25c91b">Sublime插件：Markdown篇</a></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Windows 右键菜单添加 ST3</p>
+
+    <p>当使用的是免安装版的 ST3 时，需要手动添加到右键菜单。</p>
+
+    <p>添加：把以下代码，复制到 ST3 的安装目录，然后重命名为：sublime_addright.inf，然后右键安装即可。</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">[</span>Version]
+  <span class="nv">Signature</span><span class="o">=</span><span class="s2">"</span><span class="nv">$Windows</span><span class="s2"> NT$"</span>
+
+  <span class="o">[</span>DefaultInstall]
+  <span class="nv">AddReg</span><span class="o">=</span>SublimeText3
+
+  <span class="o">[</span>SublimeText3]
+  hkcr,<span class="s2">"*</span><span class="se">\\</span><span class="s2">shell</span><span class="se">\\</span><span class="s2">SublimeText3"</span>,,,<span class="s2">"用 SublimeText3 打开"</span>
+  hkcr,<span class="s2">"*</span><span class="se">\\</span><span class="s2">shell</span><span class="se">\\</span><span class="s2">SublimeText3</span><span class="se">\\</span><span class="s2">command"</span>,,,<span class="s2">"""%1%</span><span class="se">\s</span><span class="s2">ublime_text.exe"" ""%%1"" %%*"</span>
+  hkcr,<span class="s2">"Directory</span><span class="se">\s</span><span class="s2">hell</span><span class="se">\S</span><span class="s2">ublimeText3"</span>,,,<span class="s2">"用 SublimeText3 打开"</span>
+  hkcr,<span class="s2">"*</span><span class="se">\\</span><span class="s2">shell</span><span class="se">\\</span><span class="s2">SublimeText3"</span>,<span class="s2">"Icon"</span>,0x20000,<span class="s2">"%1%</span><span class="se">\s</span><span class="s2">ublime_text.exe, 0"</span>
+  hkcr,<span class="s2">"Directory</span><span class="se">\s</span><span class="s2">hell</span><span class="se">\S</span><span class="s2">ublimeText3</span><span class="se">\c</span><span class="s2">ommand"</span>,,,<span class="s2">"""%1%</span><span class="se">\s</span><span class="s2">ublime_text.exe"" ""%%1"""</span>
+</code></pre></div>    </div>
+
+    <p>删除：把以下代码，复制到 ST3 的安装目录，然后重命名为：sublime_delright.reg，然后双击运行即可。</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Windows Registry Editor Version 5.00
+  <span class="o">[</span><span class="nt">-HKEY_CLASSES_ROOT</span><span class="se">\*\s</span>hell<span class="se">\S</span>ublimeText3]
+  <span class="o">[</span><span class="nt">-HKEY_CLASSES_ROOT</span><span class="se">\D</span>irectory<span class="se">\s</span>hell<span class="se">\S</span>ublimeText3]
+</code></pre></div>    </div>
+
+    <p>参考：</p>
+    <blockquote>
+      <p><a href="http://my.oschina.net/adairs/blog/466777">将Sublime Text3添加到右键菜单中</a></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>插件操作</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // 打开 Package Control
+  Shift+Ctrl+p
+  // 安装插件
+  Install Package
+  // 删除插件
+  Remove Package
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>代码片段</p>
+
+    <p>参考：</p>
+    <blockquote>
+      <p><a href="http://www.jianshu.com/p/356bd7b2ea8e">手把手教你写Sublime中的Snippet</a></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Emmet</p>
+
+    <p>ST3 安装 Emmet 后，Emmet 快捷键可以在 Preferences &gt; Package Settings &gt; Emmet &gt; Key Bindings-Default 里查看</p>
+  </li>
+</ul>
+:ET

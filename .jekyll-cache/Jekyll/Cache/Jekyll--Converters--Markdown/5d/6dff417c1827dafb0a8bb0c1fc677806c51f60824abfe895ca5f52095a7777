@@ -1,0 +1,56 @@
+I"<p>JavaScript 的分号是可省略的，因为 JavaScript 会自动填补分号，但只有在 JavaScript 遇到因为省略分号而无法解析的语句时，才会自动填补分号。</p>
+
+<p>下面这个例子就省略了分号，但 JavaScript 引擎依然能解析，引擎就不会自动给代码加分号：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="mi">3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div></div>
+
+<p>有两种情况 JavaScript 引擎会自动填补：</p>
+
+<ol>
+  <li>break、return、continue 后接换行号会填补分号。</li>
+  <li>++ 和 – 前有换行号时，前面的语句会填补分号。</li>
+</ol>
+
+<p>例如：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo1</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">foo2</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> 
+  <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+<span class="p">}</span>
+<span class="nx">foo1</span><span class="p">()</span> <span class="c1">// { bar: 0 }</span>
+<span class="nx">foo2</span><span class="p">()</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>在这个例子中，如果 <code class="language-plaintext highlighter-rouge">foo2</code> 的 <code class="language-plaintext highlighter-rouge">return</code> 之后省略分号，会导致引擎无法解析，所以会自动加上。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="nx">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="nx">x</span>
+<span class="o">++</span>
+<span class="nx">y</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p>在这个例子中，如果不加分号会变成 <code class="language-plaintext highlighter-rouge">x++y</code>，这种语句引擎无法解析，所以也会自动在 <code class="language-plaintext highlighter-rouge">x</code> 之后加上分号。</p>
+
+<p>建议加分号的原因：</p>
+
+<ol>
+  <li>避免代码执行效果不如意。</li>
+  <li>避免代码压缩有错误。</li>
+  <li>可以提高性能，因为解析器不用花时间去推测哪里应该加分号。</li>
+</ol>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="https://blog.csdn.net/lvff66/article/details/72844752">JavaScript 可选的分号</a></p>
+</blockquote>
+:ET

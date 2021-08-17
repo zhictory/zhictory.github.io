@@ -1,0 +1,103 @@
+I"�<p>重绘是 repaint，重排是 reflow。</p>
+
+<p>重绘与重排对页面性能有影响。</p>
+
+<hr />
+
+<blockquote>
+  <p>Repaint is expensive in terms of performance, as it requires the engine to search through all elements to determine what is visible, and what should be displayed.<br />
+Reflows are very expensive in terms of performance, and is one of the main causes of slow DOM scripts, especially on devices with low processing power, such as phones.</p>
+</blockquote>
+
+<p>翻译如下：</p>
+
+<p>重绘对性能要求高，它需要引擎搜索所有元素，决定哪些可见，哪些要展示。</p>
+
+<p>重排对性能的要求非常高，是拖慢 DOM 脚本主要因素之一，尤其是在低处理能力的设备（例如手机）上。</p>
+
+<hr />
+
+<blockquote>
+  <p>what causes a reflow?</p>
+  <ol>
+    <li>Resizing the window</li>
+    <li>Changing the font</li>
+    <li>Adding or removing a stylesheet</li>
+    <li>Content changes, such as a user typing text in an input box</li>
+    <li>Activation of CSS pseudo classes such as :hover (in IE the activation of the pseudo class of a sibling)</li>
+    <li>Manipulating the class attribute</li>
+    <li>A script manipulating the DOM</li>
+    <li>Calculating offsetWidth and offsetHeight</li>
+    <li>Setting a property of the style attribute</li>
+  </ol>
+</blockquote>
+
+<p>翻译如下：</p>
+
+<p>什么导致重排？</p>
+<ol>
+  <li>缩放窗口</li>
+  <li>改变字体</li>
+  <li>增删样式</li>
+  <li>改变内容，如在一个输入框输入文本</li>
+  <li>触发伪类，如 :hover（在 IE 里是触发相邻元素的伪类）</li>
+  <li>操作 class 属性</li>
+  <li>脚本操作 DOM</li>
+  <li>计算 offsetWidth 和 offsetHeight</li>
+  <li>设置 style 属性</li>
+</ol>
+
+<hr />
+
+<blockquote>
+  <p>How to avoid reflows or at least minimize their impact on performance?</p>
+  <ol>
+    <li>Change classes on the element you wish to style (as low in the dom tree as possible)</li>
+    <li>Avoid setting multiple inline styles</li>
+    <li>Apply animations to elements that are position fixed or absolute</li>
+    <li>Trade smoothness for speed</li>
+    <li>Avoid tables for layout</li>
+    <li>Avoid JavaScript expressions in the CSS (IE only)</li>
+  </ol>
+</blockquote>
+
+<p>翻译如下：</p>
+
+<p>如何避免重绘或者说尽可能减少重绘对性能的影响？</p>
+<ol>
+  <li>用类名来修改样式（减少 DOM 操作）</li>
+  <li>避免设置多行内联样式</li>
+  <li>将动画元素的定位设置为 fixed 和 absolute</li>
+  <li>看不懂</li>
+  <li>避免使用表格布局</li>
+  <li>避免在 CSS 中使用 JavaScript（只有 IE）</li>
+</ol>
+
+<hr />
+
+<blockquote>
+  <p>Here are some easy guidelines to help you minimize reflow in your web pages:</p>
+  <ol>
+    <li>Reduce unnecessary DOM depth. Changes at one level in the DOM tree can cause changes at every level of the tree - all the way up to the root, and all the way down into the children of the modified node. This leads to more time being spent performing reflow.</li>
+    <li>Minimize CSS rules, and remove unused CSS rules.</li>
+    <li>If you make complex rendering changes such as animations, do so out of the flow. Use position-absolute or position-fixed to accomplish this.</li>
+    <li>Avoid unnecessary complex CSS selectors - descendant selectors in particular - which require more CPU power to do selector matching.</li>
+  </ol>
+</blockquote>
+
+<p>翻译如下：</p>
+
+<p>这里有一些简单的指南帮助你最小化重排：</p>
+<ol>
+  <li>减少不必要的 DOM 深度。改变某一级 DOM 会触发 DOM 树上每一级的 DOM 的改变。</li>
+  <li>最小化样式，并删除未使用的样式。</li>
+  <li>如果用了复杂的渲染（如 animation），请使用 absolute 或 fixed 定位来实现。</li>
+  <li>避免没必要的复杂 CSS 选择器，特别是后代选择器，因为那样需要更多的 CPU 功率来匹配选择器。</li>
+</ol>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">REFLOWS &amp; REPAINTS: CSS PERFORMANCE MAKING YOUR JAVASCRIPT SLOW?</a><br />
+<a href="https://dev.opera.com/articles/efficient-javascript/?page=3#reflow">Efficient JavaScript</a></p>
+</blockquote>
+:ET

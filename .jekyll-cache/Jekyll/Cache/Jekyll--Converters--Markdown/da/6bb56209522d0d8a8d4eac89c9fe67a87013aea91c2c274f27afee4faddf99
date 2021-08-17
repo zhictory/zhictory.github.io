@@ -1,0 +1,56 @@
+I"=<p>文档树上的每个元素的 CSS 属性值会涉及到以下四种值：</p>
+
+<ol>
+  <li>Specified values 指定值</li>
+  <li>Computed values 计算值</li>
+  <li>Used values 应用值</li>
+  <li>Actual values 实际值</li>
+</ol>
+
+<p>实际值应该就是我们平时看到的最终值，关于最终值的计算，文档是这么说明的：</p>
+
+<blockquote>
+  <p>The final value of a property is the result of a four-step calculation: the value is determined through specification (the “specified value”), then resolved into a value that is used for inheritance (the “computed value”), then converted into an absolute value if necessary (the “used value”), and finally transformed according to the limitations of the local environment (the “actual value”).</p>
+
+  <p>属性的最终值是4步计算的结果：值通过指定来确定（specified value），接着处理得到一个用于继承的值（computed value），然后如果有必要的话转化为一个绝对值（used value），最后根据本地环境限制进行转换（actual value）。</p>
+</blockquote>
+
+<p>我按自己的理解做了个实验来查看这四个值，其中为了证明 computed value 是用于继承的，将字体设为奇怪的 16.00005px。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">16.00005px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">10em</span><span class="p">;</span>
+  <span class="c">/* specified value(10em) */</span>
+  <span class="c">/* -&gt; computed value(160.0005px)(inherit) */</span>
+  <span class="c">/* -&gt; used value(160.0005px) */</span>
+  <span class="c">/* -&gt; actual value(160px) */</span>
+  <span class="err">em</span> <span class="err">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="c">/* specified value(50%) */</span>
+    <span class="c">/* -&gt; computed value(80.0002px)(inherit) */</span>
+    <span class="c">/* -&gt; used value(80.0002px) */</span>
+    <span class="c">/* -&gt; actual value(80.0002px) */</span>
+  <span class="p">}</span>
+<span class="err">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>A <span class="nt">&lt;em&gt;</span>large<span class="nt">&lt;/em&gt;</span> heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p>如代码所示列出了计算的过程，其中要注意两点：</p>
+
+<ul>
+  <li>一般情况下，分不清是用 computed value 还是用 actual value 来继承，但这个例子中从 em 的 font-size 的 computed value 是 80.0002 可得出是用 h1 的 computed value 来继承的。</li>
+  <li>一般情况下，分不清最终值是 used value 还是 actual value，但这个例子中从 h1 的 font-size 就看到这两个值的不同了。</li>
+</ul>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.ayqy.net/doc/css2-1/cascade.html#value-stages">属性赋值的文档</a></p>
+</blockquote>
+
+:ET

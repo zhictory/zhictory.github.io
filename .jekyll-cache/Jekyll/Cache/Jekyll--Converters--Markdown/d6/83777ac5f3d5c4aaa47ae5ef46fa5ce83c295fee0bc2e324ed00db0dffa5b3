@@ -1,0 +1,14 @@
+I"E<ol>
+  <li>Strict-Transport-Security</li>
+  <li>X-Frame-Options</li>
+  <li>X-XSS-Protection</li>
+  <li>X-Content-Type-Options</li>
+  <li>X-Content-Security-Policy</li>
+</ol>
+
+<p>参考：</p>
+
+<blockquote>
+  <p><a href="http://www.admin10000.com/document/2626.html">一些安全相关的 HTTP 响应头</a></p>
+</blockquote>
+:ET

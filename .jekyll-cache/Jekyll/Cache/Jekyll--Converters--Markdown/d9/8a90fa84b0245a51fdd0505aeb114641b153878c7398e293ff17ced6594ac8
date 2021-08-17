@@ -1,0 +1,48 @@
+I"�<ul>
+  <li>
+    <p>概念</p>
+
+    <p>HTML 内联框架元素 &lt;iframe&gt; 代表一个嵌套的浏览上下文，有效地将另一个 HTML 页面嵌入当前页面。在 HTML4.01 中，一个文档可能包含一个 head 和一个 body，或者一个 head 和一个 frameset，但不会同时包含 body 和 frameset。然而，&lt;iframe&gt; 可以在一个正常的文档 body 中使用。每一个浏览上下文有它自己的会话历史和活动文档。那些包含内嵌内容的浏览上下文叫做父级浏览上下文。顶层（top-level）浏览上下文（也就是没有父级）一般就是浏览器窗口。</p>
+  </li>
+  <li>
+    <p>属性</p>
+
+    <p>longdesc | name | sandbox | src</p>
+  </li>
+  <li>
+    <p>访问 iframe</p>
+
+    <p>window.frames<br />
+window.frames[0].contentWindow<br />
+window.frames[0].contentDocument</p>
+  </li>
+  <li>
+    <p>脚本</p>
+
+    <p>脚本试图访问的框架内容必须遵守同源策略。</p>
+  </li>
+</ul>
+
+<p>笔者注：</p>
+
+<ul>
+  <li>
+    <p>可同时存在的元素：</p>
+
+    <p>head + frameset<br />
+head + body<br />
+head + body + iframe</p>
+  </li>
+  <li>
+    <p>不可同时存在的元素：</p>
+
+    <p>head + frameset + body</p>
+  </li>
+</ul>
+
+<p>参考：</p>
+
+<blockquote>
+  <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe" title="HTML内联框架元素 iframe">HTML 内联框架元素 iframe</a></p>
+</blockquote>
+:ET

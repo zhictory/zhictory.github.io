@@ -1,0 +1,224 @@
+I"�Z<p><a href="https://github.com/zhictory/node-server">Github</a></p>
+
+<p>网友 <a href="https://segmentfault.com/u/bottle1125">bottle_</a> 提供搭建一个简单本地服务器的思路为下：</p>
+
+<blockquote>
+  <ul>
+    <li>我们需要一个 HTTP 服务器</li>
+    <li>对于不同的请求，根据请求的 URL，我们的服务器需要给予不同的响应，因此我们需要一个路由，用于把请求对应到请求处理程序（request handler）</li>
+    <li>当请求被服务器接收并通过路由传递之后，需要可以对其进行处理，因此我们需要最终的请求处理程序</li>
+    <li>我们需要从 HTML 文件里提取数据以及展示服务器传入的数据，因此需要将 HTML 和服务器结合起来</li>
+  </ul>
+</blockquote>
+
+<p>首先需要两个文件 index.js 和 index.html。</p>
+
+<ul>
+  <li>
+    <p>index.js</p>
+
+    <p>引用模块</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 系统文件及目录进行读写操作</span>
+  <span class="kd">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 封装了高效的 HTTP 服务器和 HTTP 客户端</span>
+  <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// URL 处理</span>
+</code></pre></div>    </div>
+
+    <p>路由</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+  * 路由
+  * @param {Function} handle 请求处理程序
+  * @param {String} pathname 路径
+  * @param {Object} response 响应数据
+  * @param {Object} postData 请求参数
+  */</span>
+  <span class="kd">function</span> <span class="nx">route</span><span class="p">(</span><span class="nx">handle</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">handle</span><span class="p">[</span><span class="nx">pathname</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">handle</span><span class="p">[</span><span class="nx">pathname</span><span class="p">](</span><span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text/plain</span><span class="dl">'</span> <span class="p">});</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">404 Not Found</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>服务器</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+  * 服务器
+  * @param {Function} route 路由
+  * @param {Function} handle 请求处理程序
+  */</span>
+  <span class="kd">function</span> <span class="nx">start</span><span class="p">(</span><span class="nx">route</span><span class="p">,</span> <span class="nx">handle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">onRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">pathname</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">pathname</span><span class="p">;</span>
+      <span class="kd">let</span> <span class="nx">postData</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+      <span class="k">switch</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">postData</span> <span class="o">+=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">query</span><span class="p">;</span>
+          <span class="nx">request</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">);</span>
+          <span class="nx">route</span><span class="p">(</span><span class="nx">handle</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">request</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">postDateChunk</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">postData</span> <span class="o">+=</span> <span class="nx">postDateChunk</span><span class="p">;</span>
+          <span class="p">});</span>
+          <span class="nx">request</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">route</span><span class="p">(</span><span class="nx">handle</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">);</span>
+          <span class="p">});</span>
+          <span class="k">break</span><span class="p">;</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">onRequest</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Server has started</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>请求处理程序</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 请求处理程序</span>
+  <span class="kd">const</span> <span class="nx">handle</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// index 接口</span>
+    <span class="dl">'</span><span class="s1">/public/index.html</span><span class="dl">'</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">pathname</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/public/index.html</span><span class="dl">'</span><span class="p">;</span>
+      <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">pathname</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="c1">// download 接口</span>
+    <span class="dl">'</span><span class="s1">/download</span><span class="dl">'</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text/html</span><span class="dl">'</span> <span class="p">});</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="na">code</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="dl">"</span><span class="s2">en-US</span><span class="dl">"</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">}));</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="c1">// upload 接口</span>
+    <span class="dl">'</span><span class="s1">/upload</span><span class="dl">'</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">postData</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text/html</span><span class="dl">'</span> <span class="p">});</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">You have sent: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">postData</span><span class="p">).</span><span class="nx">value</span><span class="p">);</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+</code></pre></div>    </div>
+
+    <p>启动服务器</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 启动服务器 = 路由处理 + 接口处理</span>
+  <span class="nx">start</span><span class="p">(</span><span class="nx">route</span><span class="p">,</span> <span class="nx">handle</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>index.html</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"ie=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">value=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"submit"</span><span class="nt">&gt;</span>submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+    <span class="c">&lt;!-- submit demo --&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">const</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">button</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+        <span class="nx">ajax</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+      <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+
+      <span class="kd">function</span> <span class="nx">ajax</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">xmlhttp</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="dl">'</span><span class="s1">Microsoft.XMLHTTP</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/upload</span><span class="dl">'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+          <span class="na">value</span><span class="p">:</span> <span class="nx">value</span>
+        <span class="p">}));</span>
+
+        <span class="c1">// xmlhttp.open('GET', '/upload?value='+value, true);</span>
+        <span class="c1">// xmlhttp.send();</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>注意事项：</p>
+
+<ul>
+  <li>
+    <p>关于 GET 和 POST 方式的请求参数</p>
+
+    <p>GET 的请求参数是以查询参数形式放在 URL 后面的，服务器可以从 URL 上获取参数：<code class="language-plaintext highlighter-rouge">url.parse(request.url).query</code>。</p>
+
+    <p>POST 的请求参数则需要作为 <code class="language-plaintext highlighter-rouge">xhr.send()</code> 的参数并转换为字符串来传递，本文使用 <code class="language-plaintext highlighter-rouge">JSON.stringify()</code> 来转换，再在服务器端用 <code class="language-plaintext highlighter-rouge">JSON.parse()</code> 转换。</p>
+
+    <p>服务器端在响应两种请求方式时，响应数据格式参考<a href="https://nodejs.org/docs/latest-v6.x/api/http.html#http_response_write_chunk_encoding_callback">官方文档</a>。</p>
+  </li>
+  <li>
+    <p>关于服务器响应头中的 Content-Type</p>
+
+    <p>一般网站的做法是：当返回 HTML 页面时为 text/html，当使用 JSONP 时为 text/javascript，当使用 CORS 时为 application/json。</p>
+  </li>
+  <li>
+    <p>关于跨域</p>
+
+    <p>如果希望某个接口可以跨域，需要设置响应头的 <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> 为 <code class="language-plaintext highlighter-rouge">*</code>，比如允许 download 接口跨域，代码修改如下：</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  response.writeHead<span class="o">(</span>200, <span class="o">{</span> <span class="s1">'Content-Type'</span>: <span class="s1">'text/html'</span>, <span class="s1">'Access-Control-Allow-Origin'</span>: <span class="s1">'*'</span> <span class="o">})</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>调试的话，只要启动两个不同端口的 index.js 即可，代码仓库里 server.1.js 和 server.2.js 就表示两个不同的 index.js。</p>
+  </li>
+  <li>
+    <p>关于 Node.js 热部署</p>
+
+    <p>Node.js 启动服务器时是将脚本放入内存，以后都会直接访问内存，避免重复载入。这种设计虽然有利于提高性能，却不利于开发调试，导致修改 Node.js 代码后需要手动终止进程并重启才会生效。</p>
+
+    <p>网友 <a href="http://www.cnblogs.com/benpaodexiaopangzi/">会奔跑的胖子</a> 提出方案：</p>
+    <blockquote>
+      <p>你只需要在修改文件后保存，它就能自动替你发布，这就是所谓的热部署。</p>
+    </blockquote>
+
+    <p>supervisor 就是一个 Node.js 的开源热部署工具：</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  npm i supervisor <span class="nt">-g</span>
+  supervisor server.js
+</code></pre></div>    </div>
+
+    <p>该网友中还提到另一个开源热部署工具 hotcode，但经测试 hotcode 若使用 express 4.x 则会报错，因为 hotcode 使用的 express.createServer() 已经被废弃。</p>
+  </li>
+</ul>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="https://segmentfault.com/a/1190000007617042">学习笔记：用Nodejs搭建一个简单的本地服务器</a><br />
+<a href="https://www.cnblogs.com/benpaodexiaopangzi/p/5856642.html">NodeJS”热部署“代码，实现动态调试(hotnode，可以实现热更新)</a></p>
+</blockquote>
+:ET

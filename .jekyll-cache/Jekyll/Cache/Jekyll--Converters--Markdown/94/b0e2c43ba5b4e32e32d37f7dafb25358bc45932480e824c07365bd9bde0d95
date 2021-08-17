@@ -1,0 +1,4 @@
+I"�<p>在 Chrome 下， select 下的 option 标签不支持 onclick 事件（使用 jQuery 的 <code class="language-plaintext highlighter-rouge">on('click',function(){})</code> 也不行），不明白原因是什么，而在 Firefox 下是支持的。</p>
+
+<p>目前是用 select 的 onchange 事件（jQuery 下的 <code class="language-plaintext highlighter-rouge">on('change',function(){}</code> 同理)）来兼容 Chrome。</p>
+:ET

@@ -1,0 +1,38 @@
+I"S
+<p>下面是阅读《使用 webpack 定制前端开发环境》的笔记：</p>
+
+<blockquote>
+  <p>在线阅读：<a href="https://juejin.im/book/5a6abad5518825733c144469/section/5a6abad5518825732e2f8546">使用 webpack 定制前端开发环境</a><br />
+书籍作者：<a href="https://juejin.im/user/57a2e06da3413100631c1fc7">teabyii</a></p>
+</blockquote>
+
+<ol>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc2auGts2XnkRb2Vz7Kw0ldDAg">配置参数 include 和 exclude</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc2jAn-E3Wo4Vl2s4Lgl3nLo3f">加载图片</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc1I-41F3fl4qP20RhDY1oyZC-">webpack.config.js 的用法</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc0pCTQJ0Uw45_20iZJK1JkLdL">splitChunks 的 test 字段</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc3bBrWJ0EQk1Y2phq1z0SeGMI">optimization</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc1aXo-e0OmAZc2IVVp42JAY43">loader 执行顺序</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc0ASqmz2-n4GC2Q3ilF2kRVeM">HMR 样式不应用更新的问题</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc0pEGFH3XcQij2fCNx214S9Du">devServer before</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc0F9b1w19fkg92dYBsx1i0ES1">DefinePlugin</a></li>
+  <li><a href="http://d8480a24.wiz03.com/share/s/3oi0EA1grx7x2Lj00z1ZXVvc3Xm0wm1Vc4dR200uQK3n92rl">webpack 配置一览</a></li>
+  <li><a href="http://note.youdao.com/noteshare?id=7013f04c885f81cd5e838e180f84209f">sideEffects</a></li>
+  <li><a href="http://note.youdao.com/noteshare?id=ecdd2debfb38e7270ab98ab9071ad676">按需加载模块</a></li>
+  <li><a href="http://note.youdao.com/noteshare?id=4feb8280b0d9d957dbb5f18bb0ead671">loader 顺序</a></li>
+</ol>
+
+<p>附上阅读时练习的 webpack 配置：<a href="https://github.com/zhictory/zhDate/blob/master/webpack.config.js">webpack.config.js</a></p>
+
+<hr />
+
+<p>下面是阅读文档时的笔记：</p>
+
+<ol>
+  <li><a href="http://note.youdao.com/noteshare?id=561e57d473ad8c38c02c02be598bdb4f">entry 为数组</a></li>
+  <li><a href="http://note.youdao.com/noteshare?id=eafaeaa042523b9a58308a0fcb35e338">devServer 报错 invalid host header</a></li>
+  <li><a href="http://note.youdao.com/noteshare?id=238ac9c5ed421d9151406a53d578f216">模块解析</a></li>
+  <li><a href="https://webpack.js.org/configuration/#options">配置一览</a></li>
+</ol>
+
+:ET

@@ -1,0 +1,22 @@
+I"�<p>使用 map 处理数组时，数组元素的范围是在 callback 方法第一次调用之前就已经确定了。</p>
+
+<p>在 map 执行的过程中：</p>
+<ol>
+  <li>原数组中新增加的元素将不会被 callback 访问到。</li>
+  <li>若已经存在的元素被改变或删除了，则它们的传递到 callback 的值是 map 方法遍历到它们的那一时刻的值。</li>
+  <li>被删除的元素将不会被访问到。</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// ['a', 'b'], ['a']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// a, b</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span> <span class="c1">// 0, 1</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>例子中虽然在读取 arr[1] 时，arr[1] 已经被移除了，但由于 map 函数已经访问 arr[1]（value）并拿到值了，所以打印 value 为 2。</p>
+
+<p>同理可测试新增或删除数组元素。</p>
+:ET

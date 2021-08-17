@@ -1,0 +1,134 @@
+I"C <h1 id="grid-网格布局">Grid 网格布局</h1>
+
+<p>例子：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./index.css"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item hd"</span><span class="nt">&gt;</span>header<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item sd"</span><span class="nt">&gt;</span>sider<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item bd"</span><span class="nt">&gt;</span>body<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item ft"</span><span class="nt">&gt;</span>footer<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.hd</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">hd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.sd</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">sd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.bd</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">bd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.ft</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">ft</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.grid</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+  <span class="py">grid</span><span class="p">:</span>
+    <span class="s1">"hd hd hd"</span> <span class="n">minmax</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span> <span class="nb">auto</span><span class="p">)</span>
+    <span class="s1">"sd bd bd"</span> <span class="n">minmax</span><span class="p">(</span><span class="m">60vh</span><span class="p">,</span> <span class="nb">auto</span><span class="p">)</span>
+    <span class="s1">"sd . ft"</span> <span class="n">minmax</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span> <span class="nb">auto</span><span class="p">)</span>
+    <span class="p">/</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span><span class="p">;</span>
+  <span class="py">grid-gap</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>属性
+    <ol>
+      <li>grid（网格容器布局）
+        <ol>
+          <li>grid-template
+            <ol>
+              <li>grid-template-columns（网格容器轨道列，可使用弹性单位 fr）和 grid-template-rows（网格容器轨道行）
+                <ol>
+                  <li>1fr 1fr 1fr</li>
+                  <li>500px 1fr 2fr</li>
+                  <li>repeat(3, 1fr)</li>
+                  <li>repeat(5, 1fr 2fr)</li>
+                  <li>20px repeat(6, 1fr) 20px</li>
+                  <li>repeat(auto-fill, 200px)</li>
+                  <li>repeat(auto-fill, minmax(200px, 1fr))</li>
+                  <li>[main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end]</li>
+                  <li>repeat(12, [col-start] 1fr)</li>
+                </ol>
+              </li>
+              <li>grid-template-areas（网格区域布局，多个网格单元 grid-area 组成）</li>
+            </ol>
+          </li>
+          <li>grid-auto-columns / grid-auto-rows（轨道大小）
+            <ol>
+              <li>minmax(100px, auto)</li>
+              <li>100px 200px</li>
+            </ol>
+          </li>
+          <li>grid-auto-flow</li>
+        </ol>
+      </li>
+      <li>grid-gap（网格空器子项的间距）
+        <ol>
+          <li>缩写 1em 10px</li>
+        </ol>
+      </li>
+      <li>grid-column / grid-row / grid-area
+        <ol>
+          <li>grid-column-start 和 grid-column-end（网格单元线定位，命名线和线序号可混合使用）
+            <ol>
+              <li>1 ( / 2)</li>
+              <li>1 / 2</li>
+              <li>1 / span 3</li>
+              <li>span 3 / 4</li>
+              <li>1 / -1</li>
+              <li>main-start / 2</li>
+              <li>1 / main-end</li>
+              <li>col-start / col-start 5</li>
+            </ol>
+          </li>
+          <li>grid-area（网格单元区域定位）
+            <ol>
+              <li>上右下左：1 / 1 / 4 / 2</li>
+              <li>自定义命名如：hd ft bd</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>网格：显示和隐式，显示是用 grid-template-columns 和 grid-template-rows 创建的行和列；隐式就是在网格定义之外又放了一些东西，让网格按所需的内容创建行，这些行会被创建在隐式网格中。</li>
+  <li>网格线：当我们定义网格时，我们定义的是网格轨道，而不是网格线，但会创建网格线编号来定位每一个网格元素。如果把一个网格区域周围的线都用 -start 和 -end 作为后缀，网格容器就会为网格区域创建一个名字，如 content-start 和 content-end 创建一个 content，反之亦然。
+    <ol>
+      <li>1 2 3</li>
+      <li>-3 -2 -1</li>
+    </ol>
+  </li>
+  <li>网格单元（最小单位）、网格区域（多个网格单元合并的矩形）、嵌套网格（display contents）、网格容器</li>
+  <li>轨道：一个网格轨道就是网格中任意两条线之间的空间。</li>
+  <li>轨道可弹性：固定宽度和新单位 fr</li>
+  <li>定位可命名：使用行号、行名或区域名</li>
+  <li>内容可对齐（盒模型）：网格容器 align-items、justify-content，网格单元的 align-self</li>
+  <li>层级可控制：z-index</li>
+  <li>网格容器或网格区域可设置 relative，网格单元或网格单元内元素绝对定位</li>
+  <li>与 Flexbox 的区别：Flex 是一维（只控制行或列），Grid 是二维（同时控制行和列）</li>
+  <li>自动定位？还没完全理解</li>
+  <li>常见布局有哪些？1-3 列灵活布局、12 列灵活布局</li>
+</ol>
+:ET

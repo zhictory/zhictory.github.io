@@ -1,0 +1,57 @@
+I"�<ul>
+  <li>
+    <p>navigator.userAgent</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">(</span><span class="sr">iPhone|iPod|Android|ios</span><span class="se">)</span><span class="sr">/i</span><span class="p">))</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>navigator.platform</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">thisOS</span> <span class="o">=</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">platform</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">os</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">iPhone</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">iPod</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">iPad</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">android</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Nokia</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">SymbianOS</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Symbian</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Windows Phone</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Phone</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Linux armv71</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">MAUI</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">UNTRUSTED/1.0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Windows CE</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">BlackBerry</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">IEMobile</span><span class="dl">"</span>
+<span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">os</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">thisOS</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">os</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>screen.width</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">width</span> <span class="o">&lt;=</span> <span class="dl">"</span><span class="s2">1024</span><span class="dl">"</span><span class="p">)</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>php</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$agent</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_USER_AGENT'</span><span class="p">];</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"comFront"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"iPhone"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"MIDP-2.0"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"Opera Mini"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"UCWEB"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"Android"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"Windows CE"</span><span class="p">)</span>  <span class="nb">strpos</span><span class="p">(</span><span class="nv">$agent</span><span class="p">,</span><span class="s2">"SymbianOS"</span><span class="p">))</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Location:http://chinahoby"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.cnblogs.com/zgzy/p/4054624.html">手机访问pc网站自动跳转手机端网站PHP代码</a><br />
+<a href="http://jingyan.baidu.com/article/6dad5075f00867a123e36ef7.html">如何自动从pc端跳转至移动端</a><br />
+<a href="http://www.thinkphp.cn/topic/23703.html">前端js判断访问站点设备(手机还是PC)实现自动跳转代码</a></p>
+</blockquote>
+:ET

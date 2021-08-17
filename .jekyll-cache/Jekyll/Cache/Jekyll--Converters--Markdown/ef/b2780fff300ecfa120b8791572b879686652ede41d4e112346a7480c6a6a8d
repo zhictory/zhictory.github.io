@@ -1,0 +1,2 @@
+I"�<p>JavaScript 的分号是可省略的，因为 JavaScript 会自动填补分号，但只有在 JavaScript 遇到因为省略分号而无法解析的语句时，才会自动填补分号。</p>
+:ET

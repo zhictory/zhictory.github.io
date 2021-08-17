@@ -1,0 +1,54 @@
+I"�<p>默认情况 JavaScript 是同步加载的，JavaScript 的加载时阻塞的，后面的元素要等待 JavaScript 加载完毕后才能进行再加载。</p>
+
+<ol>
+  <li>
+    <p>defer，页面加载完就会执行，只支持 IE</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">defer=</span><span class="s">"defer"</span><span class="nt">&gt;</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">p1</span><span class="dl">"</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>async，一旦脚本可用就会执行</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"demo.js"</span> <span class="na">async=</span><span class="s">"async"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>操作 DOM，使用 script 元素</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">loadScript</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s2">`text/javascript`</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">script</span><span class="p">.</span><span class="nx">readyState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// IE</span>
+    <span class="nx">script</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">loaded</span><span class="dl">"</span> <span class="o">||</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">complete</span><span class="dl">"</span>
+      <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="nx">callback</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 其它</span>
+    <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">();</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>参考：</p>
+
+<blockquote>
+  <p><a href="https://www.jb51.net/article/34491.htm">js 异步加载的三种解决方案</a><br />
+<a href="https://www.cnblogs.com/Mainz/p/3552717.html">Javascript 是单线程的深入分析</a></p>
+</blockquote>
+:ET

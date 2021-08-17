@@ -1,0 +1,36 @@
+I"S<ol>
+  <li>URL 编码</li>
+  <li>base64 编码</li>
+  <li>UTF-8 编码</li>
+  <li>GBK 编码</li>
+  <li>HTML 实体编码</li>
+  <li>进制编码</li>
+</ol>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.codeceo.com/article/front-dev-encoding.html">前端开发中的字符编码详解</a></p>
+</blockquote>
+
+<hr />
+
+<ol>
+  <li>ASCII</li>
+  <li>Unicode</li>
+  <li>UTF-8</li>
+</ol>
+
+<p>就这篇文章整理了一个<a href="https://www.processon.com/mindmap/597aeb1ae4b06b35d2f9f5aa">思维导图</a></p>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8</a></p>
+</blockquote>
+
+<hr />
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="http://www.cnblogs.com/syfwhu/p/5125327.html#">WEB前端 [编码] 规则浅析</a></p>
+</blockquote>
+:ET

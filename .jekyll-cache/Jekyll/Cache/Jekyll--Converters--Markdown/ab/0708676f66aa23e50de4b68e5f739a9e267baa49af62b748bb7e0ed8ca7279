@@ -1,0 +1,117 @@
+I">/<p>这个笔记记录的是文章：《深入浅出 JavaScript 关键词 – this》。</p>
+
+<p>点这里看它的<a href="https://mubu.com/doc/1IYk_P9zGU">思维导图</a>。</p>
+
+<p>举文中四个例子理解 this：</p>
+
+<ol>
+  <li>
+    <p>实现函数 set：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">set</span><span class="p">.</span><span class="nx">call</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">});</span> <span class="c1">// return {a: 1, b: 2, c: 3}</span>
+</code></pre></div>    </div>
+
+    <p>解法：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="kd">set</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">...</span><span class="nx">arguments</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 或者</span>
+<span class="kd">function</span> <span class="kd">set</span><span class="p">(...</span><span class="nx">rest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 或者</span>
+<span class="kd">function</span> <span class="kd">set</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>this 指的是 <code class="language-plaintext highlighter-rouge">{ a: 1 }</code>，因为后面的参数不确定，所以用 ES6 的 rest parameter <code class="language-plaintext highlighter-rouge">...arguments</code>。</p>
+  </li>
+  <li>
+    <p>完善函数 operate：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">operate</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">至少要三个参数</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">前两个参数必须是数字</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">args</span><span class="p">;</span> <span class="c1">// args 是一个数组存放函数，如 [sum, multiply]</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// operate start</span>
+  <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">prev</span> <span class="o">+</span> <span class="nx">next</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="p">},</span> <span class="nx">result</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="c1">// operate end</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">operate</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">sum</span><span class="p">,</span> <span class="nx">multiply</span><span class="p">));</span> <span class="c1">// 必须返回 32 -&gt; (10 + 2) + (10 * 2) = 32</span>
+</code></pre></div>    </div>
+
+    <p>因为 arguments 是类数组而非数组，所以用 <code class="language-plaintext highlighter-rouge">Array.prototype.slice.call(arguments, 2)</code> 先转化为数组，将 argument 对象设置为方法的 this，以此来将传进来参数加在一起。</p>
+  </li>
+  <li>
+    <p>use strict 模式下 this 不能指向全局对象 window：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
+  <span class="p">})();</span>
+<span class="p">})();</span>
+</code></pre></div>    </div>
+
+    <p>严格模式下会报错：<code class="language-plaintext highlighter-rouge">Uncaught TypeError: Cannot read property 'a' of undefined</code>，可修改为：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
+  <span class="p">}.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+<span class="p">})();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>箭头函数的 this：</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">f</span> <span class="o">=</span> <span class="nx">f</span><span class="p">;</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">f</span><span class="p">();</span> <span class="c1">// {a: 1, f: f}</span>
+
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">f</span> <span class="o">=</span> <span class="nx">f</span><span class="p">;</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">f</span><span class="p">();</span> <span class="c1">// window</span>
+</code></pre></div>    </div>
+
+    <p>箭头函数从包含它的执行上下文中继承到了 this 的值，所以第二个 this 指向 window。</p>
+  </li>
+</ol>
+:ET

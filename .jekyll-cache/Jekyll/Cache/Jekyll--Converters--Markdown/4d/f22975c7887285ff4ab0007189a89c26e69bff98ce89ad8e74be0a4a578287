@@ -1,0 +1,62 @@
+I"<p>一般情况下，打印是直接调用 <code class="language-plaintext highlighter-rouge">window.print</code> 即可，但这样打印的是页面的全部内容，有时人们只想要打印指定的内容，这时可以借助 iframe。</p>
+
+<p><a href="/demos/funny/print">点击这里体验用 iframe 打印</a></p>
+
+<p>如果用 iframe 要注意：</p>
+<ol>
+  <li>需要把 iframe 插入到 body 中才会生成属于 iframe 的 window 和 document</li>
+  <li>iframe 可以设置 display 为 none，但 iframe 的子元素不要设置为 none</li>
+</ol>
+
+<p>如果打印页面需要加样式，注意要把样式放在 iframe 里渲染。注意要用特定媒体查询设置打印页面的样式：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@page</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="回调">回调</h2>
+
+<p>有时用 iframe 打印没反应，有可能是 Chrome 使用的某些插件阻止了页面内 iframe 的打印行为，需要停用这些插件生效。</p>
+
+<p>由于浏览器打印行为异常时没有回调，只能通过判断浏览器有没有触发 <code class="language-plaintext highlighter-rouge">afterprint</code> 事件来判断有没有异常，没有触发就是有异常，有触发就是能正常打印，从而来判断是否有插件阻止打印行为。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">beforeprint</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}));</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">afterprint</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}));</span>
+</code></pre></div></div>
+
+<p>当然这个方法不严谨，因为有可能不是 Chrome 插件阻止了打印行为，是否使用这个方法要视情况而定。</p>
+
+<p>另外，虽然关闭打印窗口后能触发回调，但无法具体到是打印还是取消。</p>
+
+<h2 id="分页">分页</h2>
+
+<p>一般情况下，浏览器会自动分页，但也可以人为控制，在需要分页的地方设置：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+  <span class="nl">page-break-before</span><span class="p">:</span> <span class="nb">always</span><span class="p">;</span>
+  <span class="nl">page-break-after</span><span class="p">:</span> <span class="nb">always</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这个方法在给过长表格分页时就很有用，但要注意的是，这两个样式只作用在块级元素上。</p>
+
+<p>有人提出下面这个方案来显示页码：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@page</span> <span class="p">{</span>
+  <span class="k">@bottom-right</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="s1">" of "</span> <span class="n">counter</span><span class="p">(</span><span class="n">pages</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>但测试后并没有生效，还是只能人为计算。</p>
+
+<h2 id="页头页尾">页头页尾</h2>
+
+<p>浏览器打印默认会在页头页尾打印出一些自带信息，浏览器没有提供 API 隐藏它们，但可以使用样式去掉它们。去掉之后可以用 HTML 自定义信息，包括页码、日期等。</p>
+
+<p>参考：</p>
+<blockquote>
+  <p><a href="https://juejin.im/post/5c90d8085188252db75694dc">Web打印探秘</a></p>
+</blockquote>
+:ET

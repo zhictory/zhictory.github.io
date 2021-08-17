@@ -1,0 +1,16 @@
+I"%<p>点击这里看实际数值：<a href="/demos/funny/浏览器窗口参数/">浏览器窗口参数</a></p>
+
+<p>client 的计算包括 content、padding，但不包括 border。</p>
+
+<p>offset 的计算包括 conent、padding、border。</p>
+
+<p>scroll 指滚动相关，scrollTop 指元素已滚动的高度，scrollHeight 指元素可滚动高度</p>
+
+<p>元素属性图示：</p>
+
+<p><img src="/assets/img/browser-1.png" alt="" /></p>
+
+<p><img src="/assets/img/browser-2.png" alt="" /></p>
+
+<p><img src="/assets/img/browser-3.jpg" alt="" /></p>
+:ET

@@ -1,0 +1,3 @@
+I"�<p>最近在看内存管理相关的知识，看到 MDN 的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management">内存管理</a>上的例子提到，JavaScript 可能决定不分配内存：</p>
+
+:ET

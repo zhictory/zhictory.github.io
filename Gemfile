@@ -15,6 +15,11 @@ source "https://rubygems.org"
 
 gem "jekyll"
 gem "minimal-mistakes-jekyll"
+gem "addressable", ">= 2.8.0"
+gem "kramdown", ">= 2.3.1"
+gem "activesupport", ">= 5.2.4.3"
+gem "nokogiri", ">= 1.11.4"
+gem "jemoji"
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"

@@ -1,0 +1,92 @@
+I"�<blockquote>
+  <p>原文：<a href="https://blog.csdn.net/zwj1030711290/article/details/80039780">MySQL 8.0 Windows zip 安装过程</a></p>
+</blockquote>
+
+<p>首先下载 MySQL Community Server 8.0.11：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+
+<p>接着配置：在安装根目录下添加 my.ini，比如我这里是：D:\Program Files\MySQL\my.ini，写入基本配置：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>mysqld]
+<span class="c"># Remove leading # and set to the amount of RAM for the most important data</span>
+<span class="c"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span>
+<span class="c"># innodb_buffer_pool_size = 128M</span>
+
+<span class="c"># Remove leading # to turn on a very important data integrity option: logging</span>
+<span class="c"># changes to the binary log between backups.</span>
+<span class="c"># log_bin</span>
+
+<span class="c"># These are commonly set, remove the # and set as required.</span>
+basedir <span class="o">=</span> D:<span class="se">\P</span>rogram Files<span class="se">\M</span>ySQL
+datadir <span class="o">=</span> D:<span class="se">\P</span>rogram Files<span class="se">\M</span>ySQL<span class="se">\d</span>ata
+port <span class="o">=</span> 3306
+<span class="c"># server_id = .....</span>
+
+
+<span class="c"># Remove leading # to set options mainly useful for reporting servers.</span>
+<span class="c"># The server defaults are faster for transactions and fast SELECTs.</span>
+<span class="c"># Adjust sizes as needed, experiment to find the optimal values.</span>
+<span class="c"># join_buffer_size = 128M</span>
+<span class="c"># sort_buffer_size = 2M</span>
+<span class="c"># read_rnd_buffer_size = 2M</span>
+
+<span class="nv">sql_mode</span><span class="o">=</span>NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+character-set-server <span class="o">=</span> utf8mb4
+
+performance_schema_max_table_instances <span class="o">=</span> 600
+table_definition_cache <span class="o">=</span> 400
+table_open_cache <span class="o">=</span> 256
+
+<span class="o">[</span>mysql]
+default-character-set <span class="o">=</span> utf8mb4
+
+<span class="o">[</span>client]
+default-character-set <span class="o">=</span> utf8mb4
+</code></pre></div></div>
+
+<p>接着初始化数据库：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqld <span class="nt">--initialize</span> <span class="nt">--console</span>
+</code></pre></div></div>
+
+<p>初始化的时候会输出日志：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2018-06-18T11:11:42.523486Z 0 <span class="o">[</span>Warning] <span class="o">[</span>MY-010915] <span class="o">[</span>Server] <span class="s1">'NO_ZERO_DATE'</span>, <span class="s1">'NO_ZERO_IN_DATE'</span> and <span class="s1">'ERROR_FOR_DIVISION_BY_ZERO'</span> sql modes should be used with strict mode. They will be merged with strict mode <span class="k">in </span>a future release.
+2018-06-18T11:11:42.535721Z 0 <span class="o">[</span>System] <span class="o">[</span>MY-013169] <span class="o">[</span>Server] D:<span class="se">\P</span>rogram Files<span class="se">\M</span>ySQL<span class="se">\b</span><span class="k">in</span><span class="se">\m</span>ysqld.exe <span class="o">(</span>mysqld 8.0.11<span class="o">)</span> initializing of server <span class="k">in </span>progress as process 13036
+2018-06-18T11:12:14.577258Z 5 <span class="o">[</span>Note] <span class="o">[</span>MY-010454] <span class="o">[</span>Server] A temporary password is generated <span class="k">for </span>root@localhost: Vwa5C&gt;&gt;pDVh<span class="o">)</span>
+2018-06-18T11:12:44.048693Z 0 <span class="o">[</span>System] <span class="o">[</span>MY-013170] <span class="o">[</span>Server] D:<span class="se">\P</span>rogram Files<span class="se">\M</span>ySQL<span class="se">\b</span><span class="k">in</span><span class="se">\m</span>ysqld.exe <span class="o">(</span>mysqld 8.0.11<span class="o">)</span> initializing of server has completed
+</code></pre></div></div>
+
+<p>其中 <code class="language-plaintext highlighter-rouge">Vwa5C&gt;&gt;pDVh)</code> 是初始密码。</p>
+
+<p>然后安装服务：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqld <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>再启动服务：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>net start mysql
+</code></pre></div></div>
+
+<p>最后登录 MySQL Community Server 修改密码：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 先用初始密码登录</span>
+mysql <span class="nt">-uroot</span> <span class="nt">-p</span>
+</code></pre></div></div>
+
+<p>修改密码的时候要注意 MySQL Community Server版本之间的区别：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># MySQL 8.0.4 及以前</span>
+SET <span class="nv">PASSWORD</span><span class="o">=</span>PASSWORD<span class="o">(</span>&lt;password&gt;<span class="o">)</span><span class="p">;</span>
+
+<span class="c"># MySQL 8.0.4 以后</span>
+ALTER USER <span class="s1">'root'</span>@<span class="s1">'localhost'</span> IDENTIFIED WITH mysql_native_password BY &lt;password&gt;<span class="p">;</span>
+</code></pre></div></div>
+
+<p>这个区别是 MySQL 的密码认证插件的变化造成的，如果想默认使用 mysql_native_password 插件认证，可以在 my.ini 中配置 default_authentication_plugin 项：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>mysqld]
+<span class="nv">default_authentication_plugin</span><span class="o">=</span>mysql_native_password
+</code></pre></div></div>
+:ET

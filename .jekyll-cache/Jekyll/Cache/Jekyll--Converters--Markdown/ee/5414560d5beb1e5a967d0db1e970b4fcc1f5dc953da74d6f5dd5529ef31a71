@@ -1,0 +1,35 @@
+I"�<p>Truthy</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (true)
+if ({})
+if ([])
+if (42)
+if ("0")
+if (new Date())
+if (-42)
+if (3.14)
+if (-3.14)
+if (Infinity)
+if (-Infinity)
+</code></pre></div></div>
+
+<p>Falsy</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (false)
+if (null)
+if (undefined)
+if (0)
+if (0n)
+if (NaN)
+if ('')
+if ("")
+if (``)
+</code></pre></div></div>
+
+<p>参考：</p>
+
+<blockquote>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">Truthy</a><br />
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">Falsy</a></p>
+</blockquote>
+:ET

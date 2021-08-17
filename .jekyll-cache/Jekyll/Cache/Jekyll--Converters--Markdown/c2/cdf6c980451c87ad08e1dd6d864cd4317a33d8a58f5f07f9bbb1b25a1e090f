@@ -1,0 +1,5 @@
+I"w<ul>
+  <li><strong>表单检测：</strong><br />
+  表单提交前总是要检测<strong>表单字段</strong>填写是否有误，有误时是不允许提交的。可以为这些字段定义对应的 flag，这些 flag 放在一个 JSON 里， JSON 的 key 值为表单字段，value 值为 boolean 值，value 值默认为 false，填写无误时置为 true：</li>
+</ul>
+:ET

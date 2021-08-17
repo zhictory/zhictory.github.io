@@ -1,0 +1,29 @@
+I"�<p>有时会在数组中看到 empty 值，比如查看以下代码的输出：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let a = [0];
+a[1] = undefined;
+a[3] = 3;
+console.log(a); // [0, undefined, empty, 3]
+console.log(a[2]); // undefined
+console.log(a[1] === a[2]); // true
+</code></pre></div></div>
+
+<p>其中 a[2] 是一个 empty，虽然输出的是 undefined，但是还是有区别的，比如使用 Array.map() 时 empty 不接受映射，即无法读取索引，例如：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span> <span class="c1">// [empty x 10]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>想要它正常使用 map，可以改成：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">)].</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">index</span><span class="p">);</span> <span class="c1">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 0</span>
+</code></pre></div></div>
+
+<p>另外生成 empty 项可以用另一种方式，将第一个例子改成：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>但是不要这样定义，因为有兼容性问题，例如：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[,,];</span> <span class="c1">// 有的浏览器下 a.length 为 2，有的浏览器下为 3</span>
+</code></pre></div></div>
+
+:ET

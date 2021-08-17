@@ -1,0 +1,6 @@
+I"�<ol>
+  <li>当按键被按下时, 发送 keydown 事件。</li>
+  <li>如果该按键不是修饰键, 在 keydown 后还会发送 keypress 事件。</li>
+  <li>当按键被释放时, 发送 keyup 事件。</li>
+</ol>
+:ET
