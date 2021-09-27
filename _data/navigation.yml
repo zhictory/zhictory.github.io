@@ -2,8 +2,8 @@
 main:
   - title: "Amazing Note"
     url: /note-archive/
-  - title: "Demo Camp"
-    url: /demo-archive/
+  # - title: "Demo Camp"
+  #   url: /demo-archive/
   # - title: "Awesome News"
   #   url: /news-archive/
   # - title: "Snippets"
