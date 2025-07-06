@@ -23,14 +23,14 @@ import type { AnalyticsConfig } from "./types/analyticsTypes";
  *    All tags will be displayed in single page "/tags".
  */
 export const site = {
-  title: "Astro Theme Yi", // required
+  title: "Randolf's blog", // required
   favicon: "/favicon.svg", // required
   description: "Welcome to my independent blog website! ",
   author: "Astro-Yi", // required
   avatar: "/avatar.png", // required
   // url: 'https://astro-yi-nu.vercel.app', // required
   url: "https://zhictory.github.io", // required
-  baseUrl: "/zhictory.github.io", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
+  baseUrl: "", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
   motto: "Actions speak louder than words.",
   recentBlogSize: 5,
   archivePageSize: 25,
