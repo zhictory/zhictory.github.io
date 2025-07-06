@@ -24,10 +24,10 @@ import type { AnalyticsConfig } from "./types/analyticsTypes";
  */
 export const site = {
   title: "Randolf's blog", // required
-  favicon: "/favicon.svg", // required
+  favicon: "/favicon/favicon.ico", // required
   description: "Welcome to my independent blog website! ",
-  author: "Astro-Yi", // required
-  avatar: "/avatar.png", // required
+  author: "Randolf Zhang", // required
+  avatar: "/img/logo.png", // required
   // url: 'https://astro-yi-nu.vercel.app', // required
   url: "https://zhictory.github.io", // required
   baseUrl: "", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
@@ -50,7 +50,7 @@ export const site = {
  * memosPageSize {number} 10
  */
 export const config = {
-  lang: "en", // en | zh-cn | zh-Hant | cs
+  lang: "zh-cn", // en | zh-cn | zh-Hant | cs
   codeFoldingStartLines: 16, // Need to re-run the project to take effect
 
   // memos config
