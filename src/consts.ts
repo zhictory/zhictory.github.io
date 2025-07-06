@@ -30,7 +30,7 @@ export const site = {
   avatar: "/avatar.png", // required
   // url: 'https://astro-yi-nu.vercel.app', // required
   url: "https://zhictory.github.io", // required
-  baseUrl: "zhictory.github.io", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
+  baseUrl: "/zhictory.github.io", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
   motto: "Actions speak louder than words.",
   recentBlogSize: 5,
   archivePageSize: 25,
