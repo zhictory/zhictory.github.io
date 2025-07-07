@@ -2,7 +2,7 @@
 title: 关于表单的实践
 description: "关于表单的实践..."
 date: 2016-12-01
-tags: ["javascript"]
+category: [javascript]
 ---
 
 * **表单检测：**  

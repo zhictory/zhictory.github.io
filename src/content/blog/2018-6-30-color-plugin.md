@@ -2,7 +2,7 @@
 title: 中文颜色选择
 description: "中文颜色选择..."
 date: 2018-06-30
-tags: ["javascript"]
+category: [javascript]
 ---
 
 这个插件的功能是，列出用中文描述的颜色，点击复制对应的 HEX 值。

@@ -2,7 +2,7 @@
 title: 关于ESLint的实践
 description: "关于ESLint的实践..."
 date: 2016-12-01
-tags: ["javascript"]
+category: [javascript]
 ---
 
 ## 1 [ESLint的文档](http://eslint.org/)

@@ -2,7 +2,7 @@
 title: App 下载提示
 description: "App 下载提示..."
 date: 2018-08-06
-tags: ["javascript"]
+category: [javascript]
 ---
 
 [Github][3]

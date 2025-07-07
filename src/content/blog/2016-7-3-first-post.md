@@ -2,7 +2,7 @@
 title: 教你如何使用 Jekyll
 description: "教你如何使用 Jekyll..."
 date: 2016-07-03
-tags: ["javascript"]
+category: [javascript]
 ---
 
 ## 1. 引言

@@ -2,7 +2,7 @@
 title: 标记语言及语义化
 description: "标记语言及语义化..."
 date: 2018-07-30
-tags: ["javascript"]
+category: [javascript]
 ---
 
 本篇文章对标记语言和语义化作一下简单整理。

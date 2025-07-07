@@ -2,7 +2,7 @@
 title: 用 Node.js 搭建本地服务器
 description: "用 Node.js 搭建本地服务器..."
 date: 2018-04-20
-tags: ["javascript"]
+category: [javascript]
 ---
 
 [Github](https://github.com/zhictory/node-server)
