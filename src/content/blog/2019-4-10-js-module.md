@@ -2,7 +2,7 @@
 title: 模块化编程
 description: "模块化编程..."
 date: 2019-04-10
-tags: ["javascript"]
+category: [javascript]
 ---
 
 命名冲突和文件依赖复杂，是前端开发过程中的两个经典问题。解决方式就是模块化编程。

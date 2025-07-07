@@ -2,7 +2,7 @@
 title: JavaScript 可选的分号
 description: "JavaScript 可选的分号..."
 date: 2019-03-20
-tags: ["javascript"]
+category: [javascript]
 ---
 
 JavaScript 的分号是可省略的，因为 JavaScript 会自动填补分号，但只有在 JavaScript 遇到因为省略分号而无法解析的语句时，才会自动填补分号。

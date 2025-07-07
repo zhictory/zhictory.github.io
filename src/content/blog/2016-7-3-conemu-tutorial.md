@@ -2,7 +2,7 @@
 title: ConEmu使用场景
 description: "ConEmu使用场景..."
 date: 2016-07-03
-tags: ["javascript"]
+category: [javascript]
 ---
 
 ## 1. 认识ConEmu

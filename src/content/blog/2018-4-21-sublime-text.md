@@ -2,7 +2,7 @@
 title: Sublime Text 3 使用技巧
 description: "Sublime Text 3 使用技巧..."
 date: 2018-04-21
-tags: ["javascript"]
+category: [javascript]
 ---
 
 - 安装 Package Control 的代码：

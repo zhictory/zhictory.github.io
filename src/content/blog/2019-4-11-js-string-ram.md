@@ -2,7 +2,7 @@
 title: 理解“JavaScript 可能会不分配内存”
 description: "理解“JavaScript 可能会不分配内存”..."
 date: 2019-04-11
-tags: ["javascript"]
+category: [javascript]
 ---
 
 最近在看内存管理相关的知识，看到 MDN 的[内存管理][1]上的例子提到，JavaScript 可能决定不分配内存：

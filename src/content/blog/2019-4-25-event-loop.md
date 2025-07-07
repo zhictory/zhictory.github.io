@@ -2,7 +2,7 @@
 title: "Event Loop"
 description: "Event Loop..."
 date: 2019-04-25
-tags: ["javascript"]
+category: [javascript]
 ---
 
 JavaScript 是单线程，不过 HTML5 提出新标准，允许 JavaScript 创建多个子线程，子线程还是受主线程控制。

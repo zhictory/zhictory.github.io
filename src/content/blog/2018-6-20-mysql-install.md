@@ -2,7 +2,7 @@
 title: MySQL Community Server 8.0.11 安装教程
 description: "MySQL Community Server 8.0.11 安装教程..."
 date: 2018-06-20
-tags: ["javascript"]
+category: [javascript]
 ---
 
 > 原文：[MySQL 8.0 Windows zip 安装过程](https://blog.csdn.net/zwj1030711290/article/details/80039780)

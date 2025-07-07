@@ -2,7 +2,7 @@
 title: 代码片段
 description: "代码片段..."
 date: 2025-06-29
-tags: ["javascript"]
+category: [javascript]
 ---
 
 numbersToText

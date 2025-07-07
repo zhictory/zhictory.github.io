@@ -31,7 +31,7 @@ export const site = {
   // url: 'https://astro-yi-nu.vercel.app', // required
   url: "https://zhictory.github.io", // required
   baseUrl: "", // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
-  motto: "Actions speak louder than words.",
+  motto: "好好学习，天天向上",
   recentBlogSize: 5,
   archivePageSize: 25,
   postPageSize: 10,
@@ -68,84 +68,89 @@ export const config = {
  */
 export const categories = [
   {
-    name: "Blog",
+    name: "博客",
     iconClass: "ri-draft-line",
     href: "/blog/1",
   },
-  {
-    name: "Feed",
-    iconClass: "ri-lightbulb-flash-line",
-    href: "/feed/1",
-  },
+  // {
+  //   name: "订阅",
+  //   iconClass: "ri-lightbulb-flash-line",
+  //   href: "/feed/1",
+  // },
   // {
   //   name: "Memos",
   //   iconClass: "ri-quill-pen-line",
   //   href: "/memos",
   // },
   {
-    name: "Archive",
+    name: "归档",
     iconClass: "ri-archive-line",
     href: "/archive/1",
   },
+  // {
+  //   name: "消息",
+  //   iconClass: "ri-chat-1-line",
+  //   href: "/message",
+  // },
   {
-    name: "Message",
-    iconClass: "ri-chat-1-line",
-    href: "/message",
-  },
-  {
-    name: "Search",
+    name: "搜索",
     iconClass: "ri-search-line",
     href: "/search",
   },
   {
-    name: "More",
-    iconClass: "ri-more-fill",
-    href: "javascript:void(0);",
-    children: [
-      {
-        name: "About",
-        iconClass: "ri-information-line",
-        href: "/about",
-      },
-      {
-        name: "Friends",
-        iconClass: "ri-user-5-line",
-        href: "/friends",
-        target: "_self",
-      },
-    ],
+    name: "关于",
+    iconClass: "ri-information-line",
+    href: "/about",
   },
+  // {
+  //   name: "更多",
+  //   iconClass: "ri-more-fill",
+  //   href: "javascript:void(0);",
+  //   children: [
+  //     {
+  //       name: "关于",
+  //       iconClass: "ri-information-line",
+  //       href: "/about",
+  //     },
+  //     {
+  //       name: "Friends",
+  //       iconClass: "ri-user-5-line",
+  //       href: "/friends",
+  //       target: "_self",
+  //     },
+  //   ],
+  // },
 ];
 
 /**
  * Personal link address
  */
 export const infoLinks = [
-  {
-    icon: "ri-telegram-fill",
-    name: "telegram",
-    outlink: "",
-  },
-  {
-    icon: "ri-twitter-fill",
-    name: "twitter",
-    outlink: "",
-  },
-  {
-    icon: "ri-instagram-fill",
-    name: "instagram",
-    outlink: "",
-  },
+  // {
+  //   icon: "ri-telegram-fill",
+  //   name: "telegram",
+  //   outlink: "",
+  // },
+  // {
+  //   icon: "ri-twitter-fill",
+  //   name: "twitter",
+  //   outlink: "",
+  // },
+  // {
+  //   icon: "ri-instagram-fill",
+  //   name: "instagram",
+  //   outlink: "",
+  // },
   {
     icon: "ri-github-fill",
     name: "github",
-    outlink: "https://github.com/cirry/astro-yi",
+    outlink: "https://github.com/zhictory",
   },
-  {
-    icon: "ri-rss-fill",
-    name: "rss",
-    outlink: "",
-  },
+  // {
+  //   icon: "ri-rss-fill",
+  //   name: "rss",
+  //   outlink: "",
+  // },
 ];
 
 /**

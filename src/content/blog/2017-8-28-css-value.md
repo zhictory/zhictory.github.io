@@ -2,7 +2,7 @@
 title: CSS 属性赋值
 description: "CSS 属性赋值..."
 date: 2017-08-28
-tags: ["javascript"]
+category: [javascript]
 ---
 
 文档树上的每个元素的 CSS 属性值会涉及到以下四种值：
