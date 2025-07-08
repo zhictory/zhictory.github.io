@@ -2,6 +2,7 @@
 title: 【示例】A post of Markdown elements
 description: This post is for testing and listing a number of different markdown elements
 date: 1970-01-01
+category: [astro]
 tags: [astro]
 ---
 
