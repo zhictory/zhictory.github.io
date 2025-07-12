@@ -2,10 +2,10 @@
 title: 代码片段
 description: "代码片段..."
 date: 2025-06-29
-category: [javascript]
+category: [javascript, shell]
 ---
 
-numbersToText
+### 将 ASCII 码转换为字符
 
 ```javascript
 const numbersToText = (numbers) => {
@@ -16,10 +16,11 @@ const numbersToText = (numbers) => {
   return text;
 };
 
-console.log(numbersToText(process.argv[2].split(",")));
+console.log(numbersToText("104,101,108,108,111,32,119,111,114,108,100".split(",")));
+// "hello world"
 ```
 
-textToNumbers
+### 将字符转换为 ASCII 码
 
 ```javascript
 const textToNumbers = (text) => {
@@ -30,16 +31,17 @@ const textToNumbers = (text) => {
   return numbers;
 };
 
-console.log(textToNumbers(process.argv[2]).join(","));
+console.log(textToNumbers("hello world").join(","));
+// "104,101,108,108,111,32,119,111,114,108,100"
 ```
 
-macos 关闭自动睡眠
+### MacOS 关闭自动睡眠
 
 ```shell
 sudo pmset -a disablesleep  1
 ```
 
-getAllFiles
+### 获取目录下文件
 
 ```javascript
 const fs = require("fs");
@@ -61,17 +63,26 @@ function getAllFiles(dirPath, arrayOfFiles) {
   return arrayOfFiles;
 }
 
-const directoryPath = process.argv[2]; // 换为你的目录路径
+const directoryPath = "~/Desktop"; // 换为你的目录路径
 const allFiles = getAllFiles(directoryPath);
 
 console.log(allFiles);
+/**
+[
+  "/Users/username/Desktop/file1.txt",
+  "/Users/username/Desktop/folder1/file2.txt",
+  "/Users/username/Desktop/folder1/subfolder/file3.txt",
+  "/Users/username/Desktop/folder2/file4.txt"
+]
+*/
 ```
 
-fetch ip
+### Fetch IP
 
 ```javascript
 fetch('https://api.ipify.org?format=json')
   .then((response) => response.json())
   .then((data) => console.log('Your IP address is: ', data.ip))
   .catch((error) => console.error('Error fetching IP address: ', error));
+// "Your IP address is: 1.1.1.1"
 ```
